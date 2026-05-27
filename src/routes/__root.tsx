@@ -72,14 +72,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "大橋國小x薇閣中學 暑期一日課程" },
+      { name: "description", content: "地球守衛隊" },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "大橋國小x薇閣中學 暑期一日課程" },
+      { property: "og:description", content: "地球守衛隊" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "大橋國小x薇閣中學 暑期一日課程" },
+      { name: "twitter:description", content: "地球守衛隊" },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/962e3523-d951-4bef-9c2d-6d8e41b4bb0e/id-preview-083a912f--70167ef7-abb1-42bc-8b2b-97fb0321ad6f.lovable.app-1779887597874.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/962e3523-d951-4bef-9c2d-6d8e41b4bb0e/id-preview-083a912f--70167ef7-abb1-42bc-8b2b-97fb0321ad6f.lovable.app-1779887597874.png" },
     ],
     links: [
       {
