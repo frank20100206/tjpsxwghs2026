@@ -32,17 +32,18 @@ function Reveal({ children, delay = 0, className = "" }: { children: ReactNode; 
 }
 
 function useCountdown(target: Date) {
-  const [now, setNow] = useState(() => new Date());
+  const [now, setNow] = useState<Date | null>(null);
   useEffect(() => {
+    setNow(new Date());
     const id = setInterval(() => setNow(new Date()), 1000);
     return () => clearInterval(id);
   }, []);
-  const diff = Math.max(0, target.getTime() - now.getTime());
+  const diff = now ? Math.max(0, target.getTime() - now.getTime()) : 0;
   const d = Math.floor(diff / 86400000);
   const h = Math.floor((diff % 86400000) / 3600000);
   const m = Math.floor((diff % 3600000) / 60000);
   const s = Math.floor((diff % 60000) / 1000);
-  return { d, h, m, s };
+  return { ready: now !== null, d, h, m, s };
 }
 
 const FORM_URL = "https://forms.gle/GymxqtmTtdAQgboj8";
