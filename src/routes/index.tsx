@@ -301,16 +301,22 @@ function Missions() {
           </p>
         </div>
         <div className="mt-14 grid md:grid-cols-2 gap-6">
-          {missions.map((m) => (
-            <article key={m.no} className="glass rounded-3xl p-8 hover:-translate-y-1 transition">
-              <div className="flex items-center justify-between">
-                <span className="text-xs tracking-widest text-muted-foreground">任務 {m.no}</span>
-                <span className="text-xs rounded-full bg-primary/20 px-3 py-1 text-primary">{m.tag}</span>
-              </div>
-              <h3 className="mt-4 text-3xl font-black text-gradient">{m.title}</h3>
-              <p className="mt-1 text-sm text-muted-foreground italic">{m.en}</p>
-              <p className="mt-5 text-sm leading-relaxed text-muted-foreground">{m.desc}</p>
-            </article>
+          {missions.map((m, i) => (
+            <Reveal key={m.no} delay={i * 100}>
+              <article className="group relative glass rounded-3xl p-8 h-full transition-all duration-300 hover:-translate-y-2 hover:ring-2 hover:ring-primary/60 hover:shadow-2xl hover:shadow-primary/20 cursor-pointer overflow-hidden">
+                <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-primary/20 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="relative flex items-center justify-between">
+                  <span className="text-xs tracking-widest text-muted-foreground">任務 {m.no}</span>
+                  <span className="text-xs rounded-full bg-primary/20 px-3 py-1 text-primary">{m.tag}</span>
+                </div>
+                <h3 className="relative mt-4 text-3xl font-black text-gradient group-hover:scale-105 origin-left transition-transform">{m.title}</h3>
+                <p className="relative mt-1 text-sm text-muted-foreground italic">{m.en}</p>
+                <p className="relative mt-5 text-sm leading-relaxed text-muted-foreground">{m.desc}</p>
+                <div className="relative mt-6 text-xs text-primary opacity-0 group-hover:opacity-100 transition-opacity">
+                  ✦ 任務啟動中
+                </div>
+              </article>
+            </Reveal>
           ))}
         </div>
       </div>
