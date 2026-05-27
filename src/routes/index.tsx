@@ -484,29 +484,6 @@ function Escape() {
         <div className="absolute -top-20 left-1/3 w-[60vw] h-[140%] origin-top rotate-12 bg-gradient-to-b from-yellow-200/10 via-yellow-200/[0.04] to-transparent blur-2xl animate-[searchlight_6s_ease-in-out_infinite]" />
       </div>
 
-      {/* Running silhouettes strip */}
-      <div aria-hidden className="absolute left-0 right-0 bottom-10 h-28 pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-        <svg
-          viewBox="0 0 1600 120"
-          className="absolute bottom-0 left-0 w-[200%] h-full animate-[runStrip_18s_linear_infinite] text-black/70"
-          preserveAspectRatio="none"
-        >
-          {Array.from({ length: 12 }).map((_, i) => (
-            <RunnerSilhouette key={i} x={i * 140 + (i % 2) * 30} scale={0.9 + (i % 3) * 0.15} />
-          ))}
-        </svg>
-        <svg
-          viewBox="0 0 1600 120"
-          className="absolute bottom-2 left-0 w-[200%] h-full animate-[runStrip_12s_linear_infinite] text-black/90"
-          preserveAspectRatio="none"
-        >
-          <HunterSilhouette x={120} />
-          <HunterSilhouette x={780} />
-          <HunterSilhouette x={1380} />
-        </svg>
-      </div>
-
       <div className="relative mx-auto max-w-5xl">
         <Reveal>
           <div className="text-center">
@@ -524,9 +501,9 @@ function Escape() {
           <div className="mt-12 grid sm:grid-cols-2 gap-5">
             <div className="glass rounded-3xl p-7 border-l-4 border-red-400/70 hover:-translate-y-1 transition">
               <div className="text-5xl animate-pulse">🕶️</div>
-              <h3 className="mt-3 text-2xl font-black text-red-200">獵人</h3>
+              <h3 className="mt-3 text-2xl font-black text-red-200">潛伏者</h3>
               <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                身穿黑西裝的獵人佈滿校園每個角落，冷靜、快速、絕不留情。被觸碰即出局。
+                潛伏在校園各處的獵人，冷靜、快速、絕不留情。觸碰出局。
               </p>
             </div>
             <div className="glass rounded-3xl p-7 border-l-4 border-primary/70 hover:-translate-y-1 transition">
@@ -551,28 +528,6 @@ function Escape() {
         </Reveal>
       </div>
     </section>
-  );
-}
-
-function RunnerSilhouette({ x, scale = 1 }: { x: number; scale?: number }) {
-  return (
-    <g transform={`translate(${x}, 30) scale(${scale})`} fill="currentColor">
-      <circle cx="20" cy="12" r="9" />
-      <path d="M20,22 L14,46 L8,72 L0,80 L6,82 L18,60 L24,84 L36,84 L30,58 L36,38 Z" />
-      <path d="M30,28 L48,22 L52,28 L34,38 Z" />
-    </g>
-  );
-}
-
-function HunterSilhouette({ x }: { x: number }) {
-  return (
-    <g transform={`translate(${x}, 18)`} fill="currentColor">
-      <circle cx="24" cy="10" r="11" />
-      <rect x="14" y="20" width="22" height="34" rx="3" />
-      <path d="M14,54 L8,82 L16,84 L22,58 Z" />
-      <path d="M36,54 L42,82 L34,84 L28,58 Z" />
-      <path d="M36,28 L58,32 L60,38 L36,38 Z" />
-    </g>
   );
 }
 
