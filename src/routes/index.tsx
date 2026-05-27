@@ -185,7 +185,11 @@ function Nav() {
 
 function Hero() {
   return (
-    <section id="top" className="relative star-field min-h-screen pt-32 pb-20 px-5">
+    <section id="top" className="relative star-field min-h-screen pt-32 pb-20 px-5 overflow-hidden">
+      <span className="shooting-star" style={{ top: "12%", left: "-10%", animationDelay: "0s" }} />
+      <span className="shooting-star" style={{ top: "30%", left: "-15%", animationDelay: "3s" }} />
+      <span className="shooting-star" style={{ top: "60%", left: "-10%", animationDelay: "5s" }} />
+
       <div className="mx-auto max-w-7xl grid lg:grid-cols-2 gap-12 items-center">
         <div>
           <p className="inline-block rounded-full glass px-4 py-1.5 text-xs tracking-wider">
@@ -272,9 +276,9 @@ function Marquee() {
 
 function About() {
   return (
-    <section id="about" className="px-5 py-24">
+    <section id="about" className="section-light px-5 py-24">
       <div className="mx-auto max-w-5xl text-center">
-        <p className="text-sm tracking-[0.3em] text-primary">ABOUT</p>
+        <p className="text-sm tracking-[0.3em] text-primary-foreground/70" style={{ color: "oklch(0.5 0.18 220)" }}>ABOUT</p>
         <h2 className="mt-3 text-4xl sm:text-5xl font-black">
           一場屬於 <span className="text-gradient">地球守衛者</span> 的真實冒險
         </h2>
@@ -291,17 +295,20 @@ function About() {
             ["擴展知識", "認識學校不會教的事"],
             ["發現生活", "看見被忽略的日常之美"],
             ["團隊合作", "在競賽中學習溝通表達"],
-          ].map(([t, d]) => (
-            <div key={t} className="glass rounded-2xl p-6 text-left">
-              <div className="text-xl font-bold text-gradient">{t}</div>
-              <div className="mt-2 text-sm text-muted-foreground">{d}</div>
-            </div>
+          ].map(([t, d], i) => (
+            <Reveal key={t} delay={i * 120}>
+              <div className="glass-light rounded-2xl p-6 text-left h-full hover:-translate-y-1 transition">
+                <div className="text-xl font-bold text-gradient">{t}</div>
+                <div className="mt-2 text-sm text-muted-foreground">{d}</div>
+              </div>
+            </Reveal>
           ))}
         </div>
       </div>
     </section>
   );
 }
+
 
 function Missions() {
   return (
@@ -340,30 +347,33 @@ function Missions() {
 
 function Schedule() {
   return (
-    <section id="schedule" className="px-5 py-24">
+    <section id="schedule" className="section-light px-5 py-24">
       <div className="mx-auto max-w-4xl">
         <div className="text-center">
-          <p className="text-sm tracking-[0.3em] text-primary">SCHEDULE</p>
+          <p className="text-sm tracking-[0.3em]" style={{ color: "oklch(0.5 0.18 220)" }}>SCHEDULE</p>
           <h2 className="mt-3 text-4xl sm:text-5xl font-black">當日守護時程</h2>
           <p className="mt-4 text-muted-foreground">
             分為 A、B、C、D 四組，輪流跑遍四堂課程，最後一起進行「全員逃走中」大團體戰。
           </p>
         </div>
-        <ol className="mt-12 relative border-l-2 border-primary/40 pl-6 space-y-6">
-          {schedule.map(([time, label]) => (
-            <li key={time} className="relative">
-              <span className="absolute -left-[33px] top-1 w-4 h-4 rounded-full bg-primary ring-4 ring-primary/20" />
-              <div className="glass rounded-xl px-5 py-4 flex items-baseline gap-5">
-                <span className="text-lg font-black text-gradient w-20">{time}</span>
-                <span className="text-base">{label}</span>
-              </div>
-            </li>
+        <ol className="mt-12 relative border-l-2 border-primary/40 pl-6 space-y-4">
+          {schedule.map(([time, label], i) => (
+            <Reveal key={time} delay={i * 60}>
+              <li className="relative">
+                <span className="absolute -left-[33px] top-3 w-4 h-4 rounded-full bg-primary ring-4 ring-primary/20" />
+                <div className="glass-light rounded-xl px-5 py-4 flex items-baseline gap-5 hover:translate-x-1 transition">
+                  <span className="text-lg font-black text-gradient w-20">{time}</span>
+                  <span className="text-base">{label}</span>
+                </div>
+              </li>
+            </Reveal>
           ))}
         </ol>
       </div>
     </section>
   );
 }
+
 
 function Apply() {
   const items = [
