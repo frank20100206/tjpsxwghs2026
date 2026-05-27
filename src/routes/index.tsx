@@ -185,7 +185,11 @@ function Nav() {
 
 function Hero() {
   return (
-    <section id="top" className="relative star-field min-h-screen pt-32 pb-20 px-5">
+    <section id="top" className="relative star-field min-h-screen pt-32 pb-20 px-5 overflow-hidden">
+      <span className="shooting-star" style={{ top: "12%", left: "-10%", animationDelay: "0s" }} />
+      <span className="shooting-star" style={{ top: "30%", left: "-15%", animationDelay: "3s" }} />
+      <span className="shooting-star" style={{ top: "60%", left: "-10%", animationDelay: "5s" }} />
+
       <div className="mx-auto max-w-7xl grid lg:grid-cols-2 gap-12 items-center">
         <div>
           <p className="inline-block rounded-full glass px-4 py-1.5 text-xs tracking-wider">
