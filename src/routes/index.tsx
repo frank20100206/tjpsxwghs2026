@@ -143,8 +143,21 @@ function Index() {
 }
 
 function Nav() {
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const on = () => setScrolled(window.scrollY > 20);
+    on();
+    window.addEventListener("scroll", on, { passive: true });
+    return () => window.removeEventListener("scroll", on);
+  }, []);
   return (
-    <header className="fixed top-0 left-0 right-0 z-50">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "backdrop-blur-xl bg-background/70 border-b border-white/10 shadow-lg shadow-black/20"
+          : "bg-transparent"
+      }`}
+    >
       <div className="mx-auto max-w-7xl px-5 py-4 flex items-center justify-between">
         <a href="#top" className="flex items-baseline gap-2">
           <span className="text-xl font-black text-gradient">地球守衛隊</span>
@@ -430,7 +443,7 @@ function Footer() {
 }
 
 function Countdown() {
-  const { d, h, m, s } = useCountdown(new Date("2026-08-26T09:00:00+08:00"));
+  const { ready, d, h, m, s } = useCountdown(new Date("2026-08-26T09:00:00+08:00"));
   const cells: [string, number][] = [
     ["DAYS", d],
     ["HRS", h],
@@ -444,7 +457,7 @@ function Countdown() {
         {cells.map(([l, v]) => (
           <div key={l} className="text-center bg-white/5 rounded-xl py-3">
             <div className="text-2xl sm:text-3xl font-black text-gradient tabular-nums">
-              {String(v).padStart(2, "0")}
+              {ready ? String(v).padStart(2, "0") : "--"}
             </div>
             <div className="text-[10px] text-muted-foreground tracking-widest">{l}</div>
           </div>
@@ -454,89 +467,112 @@ function Countdown() {
   );
 }
 
-const escapeRules = [
-  {
-    icon: "🏃",
-    title: "獵人 vs 逃走者",
-    desc: "全員逃走中改編自人氣節目！小隊輔扮演黑衣獵人，學員們是被通緝的逃走者，誰能撐到最後就是冠軍！",
-  },
-  {
-    icon: "🪙",
-    title: "任務金幣加碼",
-    desc: "白天四大任務累積的金幣，可以在最終戰兌換護身符、增援、迷你雷達等道具，讓每一場任務都不浪費。",
-  },
-  {
-    icon: "🧩",
-    title: "突發解謎事件",
-    desc: "校園各角落會出現任務卡，需要全隊合作解開謎題才能解鎖逃走路線，比的是腦力也是團隊默契。",
-  },
-  {
-    icon: "🏆",
-    title: "存活就是榮耀",
-    desc: "撐到 15:30 響鈴的逃走者直接獲得「地球守衛隊精英徽章」，被抓到的學員則會回到觀察席擔任戰術指揮官。",
-  },
-];
-
 function Escape() {
-  const [hover, setHover] = useState<number | null>(null);
   return (
-    <section id="escape" className="relative px-5 py-24 overflow-hidden">
+    <section id="escape" className="relative px-5 py-28 overflow-hidden">
+      {/* Dramatic red/orange glow */}
       <div
         aria-hidden
-        className="absolute inset-0 opacity-40 pointer-events-none"
+        className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(600px 300px at 20% 30%, oklch(0.6 0.25 30 / 0.35), transparent 60%), radial-gradient(500px 280px at 80% 70%, oklch(0.7 0.2 90 / 0.3), transparent 60%)",
+            "radial-gradient(700px 360px at 20% 30%, oklch(0.55 0.27 25 / 0.55), transparent 60%), radial-gradient(600px 320px at 85% 75%, oklch(0.65 0.22 60 / 0.45), transparent 60%), linear-gradient(180deg, transparent, oklch(0.15 0.1 20 / 0.4))",
         }}
       />
-      <div className="relative mx-auto max-w-6xl">
+      {/* Searchlight sweep */}
+      <div aria-hidden className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute -top-20 left-1/3 w-[60vw] h-[140%] origin-top rotate-12 bg-gradient-to-b from-yellow-200/10 via-yellow-200/[0.04] to-transparent blur-2xl animate-[searchlight_6s_ease-in-out_infinite]" />
+      </div>
+
+      {/* Running silhouettes strip */}
+      <div aria-hidden className="absolute left-0 right-0 bottom-10 h-28 pointer-events-none">
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+        <svg
+          viewBox="0 0 1600 120"
+          className="absolute bottom-0 left-0 w-[200%] h-full animate-[runStrip_18s_linear_infinite] text-black/70"
+          preserveAspectRatio="none"
+        >
+          {Array.from({ length: 12 }).map((_, i) => (
+            <RunnerSilhouette key={i} x={i * 140 + (i % 2) * 30} scale={0.9 + (i % 3) * 0.15} />
+          ))}
+        </svg>
+        <svg
+          viewBox="0 0 1600 120"
+          className="absolute bottom-2 left-0 w-[200%] h-full animate-[runStrip_12s_linear_infinite] text-black/90"
+          preserveAspectRatio="none"
+        >
+          <HunterSilhouette x={120} />
+          <HunterSilhouette x={780} />
+          <HunterSilhouette x={1380} />
+        </svg>
+      </div>
+
+      <div className="relative mx-auto max-w-5xl">
         <Reveal>
           <div className="text-center">
-            <p className="text-sm tracking-[0.3em] text-primary">FINAL BATTLE</p>
-            <h2 className="mt-3 text-4xl sm:text-6xl font-black">
-              <span className="text-gradient">全員逃走中</span> 大團體戰
+            <p className="text-sm tracking-[0.4em] text-red-300/90">FINAL BOSS</p>
+            <h2 className="mt-3 text-5xl sm:text-7xl font-black tracking-tight">
+              <span className="text-gradient">全員逃走中</span>
             </h2>
-            <p className="mt-5 max-w-2xl mx-auto text-muted-foreground leading-relaxed">
-              一整天的累積，在下午 14:50 化為一場全校級的追捕大冒險。
-              黑衣獵人現身大橋國小，地球守衛隊員必須運用任務裡學到的觀察、合作與決策，
-              撐過最後 50 分鐘，把地球守護到底！
+            <p className="mt-3 text-base sm:text-lg font-bold text-foreground/90">
+              ‧ 擊敗反派的最後一關 ‧
             </p>
           </div>
         </Reveal>
 
-        <div className="mt-14 grid md:grid-cols-2 gap-5">
-          {escapeRules.map((r, i) => (
-            <Reveal key={r.title} delay={i * 80}>
-              <div
-                onMouseEnter={() => setHover(i)}
-                onMouseLeave={() => setHover(null)}
-                className={`glass rounded-3xl p-7 h-full transition-all duration-300 cursor-pointer ${
-                  hover === i ? "scale-[1.02] ring-2 ring-primary/60 shadow-2xl shadow-primary/20" : ""
-                }`}
-              >
-                <div className={`text-5xl transition-transform duration-300 ${hover === i ? "scale-125 -rotate-6" : ""}`}>
-                  {r.icon}
-                </div>
-                <h3 className="mt-4 text-2xl font-black text-gradient">{r.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{r.desc}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
+        <Reveal delay={120}>
+          <div className="mt-12 grid sm:grid-cols-2 gap-5">
+            <div className="glass rounded-3xl p-7 border-l-4 border-red-400/70 hover:-translate-y-1 transition">
+              <div className="text-5xl animate-pulse">🕶️</div>
+              <h3 className="mt-3 text-2xl font-black text-red-200">獵人</h3>
+              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                身穿黑西裝的獵人佈滿校園每個角落，冷靜、快速、絕不留情。被觸碰即出局。
+              </p>
+            </div>
+            <div className="glass rounded-3xl p-7 border-l-4 border-primary/70 hover:-translate-y-1 transition">
+              <div className="text-5xl animate-bounce">🏃‍♂️</div>
+              <h3 className="mt-3 text-2xl font-black text-primary">逃走者</h3>
+              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                你和隊友是地球最後的希望，運用整天累積的線索與默契，撐到鈴響就是勝利。
+              </p>
+            </div>
+          </div>
+        </Reveal>
 
-        <Reveal delay={200}>
-          <div className="mt-12 glass rounded-3xl p-8 text-center">
-            <div className="text-xs tracking-[0.3em] text-primary">RULE OF THUMB</div>
-            <p className="mt-3 text-lg sm:text-xl font-bold leading-relaxed">
-              「跑得快不一定贏，<span className="text-gradient">願意一起守護的人才會贏</span>。」
-            </p>
-            <p className="mt-2 text-sm text-muted-foreground">
-              這場最終戰是為了讓孩子親身體會：任務裡學到的合作與判斷，才是真正的超能力。
+        <Reveal delay={220}>
+          <div className="mt-10 glass rounded-3xl p-8 text-center relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-red-500/10 via-transparent to-primary/10" />
+            <p className="relative text-lg sm:text-xl font-bold leading-relaxed">
+              這是擊敗反派、守護地球的 <span className="text-gradient">最後一關</span>。
+              <br />
+              撐到 15:30 鈴響，你就是真正的 <span className="text-red-200">地球守衛隊精英</span>。
             </p>
           </div>
         </Reveal>
       </div>
     </section>
+  );
+}
+
+function RunnerSilhouette({ x, scale = 1 }: { x: number; scale?: number }) {
+  return (
+    <g transform={`translate(${x}, 30) scale(${scale})`} fill="currentColor">
+      <circle cx="20" cy="12" r="9" />
+      <path d="M20,22 L14,46 L8,72 L0,80 L6,82 L18,60 L24,84 L36,84 L30,58 L36,38 Z" />
+      <path d="M30,28 L48,22 L52,28 L34,38 Z" />
+    </g>
+  );
+}
+
+function HunterSilhouette({ x }: { x: number }) {
+  return (
+    <g transform={`translate(${x}, 18)`} fill="currentColor">
+      <circle cx="24" cy="10" r="11" />
+      <rect x="14" y="20" width="22" height="34" rx="3" />
+      <path d="M14,54 L8,82 L16,84 L22,58 Z" />
+      <path d="M36,54 L42,82 L34,84 L28,58 Z" />
+      <path d="M36,28 L58,32 L60,38 L36,38 Z" />
+    </g>
   );
 }
 
