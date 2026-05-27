@@ -276,9 +276,9 @@ function Marquee() {
 
 function About() {
   return (
-    <section id="about" className="px-5 py-24">
+    <section id="about" className="section-light px-5 py-24">
       <div className="mx-auto max-w-5xl text-center">
-        <p className="text-sm tracking-[0.3em] text-primary">ABOUT</p>
+        <p className="text-sm tracking-[0.3em] text-primary-foreground/70" style={{ color: "oklch(0.5 0.18 220)" }}>ABOUT</p>
         <h2 className="mt-3 text-4xl sm:text-5xl font-black">
           一場屬於 <span className="text-gradient">地球守衛者</span> 的真實冒險
         </h2>
@@ -295,17 +295,20 @@ function About() {
             ["擴展知識", "認識學校不會教的事"],
             ["發現生活", "看見被忽略的日常之美"],
             ["團隊合作", "在競賽中學習溝通表達"],
-          ].map(([t, d]) => (
-            <div key={t} className="glass rounded-2xl p-6 text-left">
-              <div className="text-xl font-bold text-gradient">{t}</div>
-              <div className="mt-2 text-sm text-muted-foreground">{d}</div>
-            </div>
+          ].map(([t, d], i) => (
+            <Reveal key={t} delay={i * 120}>
+              <div className="glass-light rounded-2xl p-6 text-left h-full hover:-translate-y-1 transition">
+                <div className="text-xl font-bold text-gradient">{t}</div>
+                <div className="mt-2 text-sm text-muted-foreground">{d}</div>
+              </div>
+            </Reveal>
           ))}
         </div>
       </div>
     </section>
   );
 }
+
 
 function Missions() {
   return (
