@@ -107,7 +107,7 @@ const schedule = [
 const faqs = [
   {
     q: "誰可以報名？",
-    a: "大橋國小三、四年級同學，限額 30 名。超額將以抽籤方式隨機錄取。",
+    a: "大橋國小 升三、升四、升五年級 同學，限額 30 名。超額將以抽籤方式隨機錄取。",
   },
   {
     q: "怎麼報名？",
@@ -419,5 +419,136 @@ function Footer() {
     <footer className="px-5 py-10 border-t border-white/10 text-center text-xs text-muted-foreground">
       © 2026 地球守衛隊 ‧ 大橋國小 × 薇閣中學 暑期營隊
     </footer>
+  );
+}
+
+function Countdown() {
+  const { d, h, m, s } = useCountdown(new Date("2026-08-26T09:00:00+08:00"));
+  const cells: [string, number][] = [
+    ["DAYS", d],
+    ["HRS", h],
+    ["MIN", m],
+    ["SEC", s],
+  ];
+  return (
+    <div className="mt-6 glass rounded-2xl p-4 max-w-lg">
+      <div className="text-[11px] tracking-[0.3em] text-primary mb-2">距離出任務還有</div>
+      <div className="grid grid-cols-4 gap-2">
+        {cells.map(([l, v]) => (
+          <div key={l} className="text-center bg-white/5 rounded-xl py-3">
+            <div className="text-2xl sm:text-3xl font-black text-gradient tabular-nums">
+              {String(v).padStart(2, "0")}
+            </div>
+            <div className="text-[10px] text-muted-foreground tracking-widest">{l}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+const escapeRules = [
+  {
+    icon: "🏃",
+    title: "獵人 vs 逃走者",
+    desc: "全員逃走中改編自人氣節目！小隊輔扮演黑衣獵人，學員們是被通緝的逃走者，誰能撐到最後就是冠軍！",
+  },
+  {
+    icon: "🪙",
+    title: "任務金幣加碼",
+    desc: "白天四大任務累積的金幣，可以在最終戰兌換護身符、增援、迷你雷達等道具，讓每一場任務都不浪費。",
+  },
+  {
+    icon: "🧩",
+    title: "突發解謎事件",
+    desc: "校園各角落會出現任務卡，需要全隊合作解開謎題才能解鎖逃走路線，比的是腦力也是團隊默契。",
+  },
+  {
+    icon: "🏆",
+    title: "存活就是榮耀",
+    desc: "撐到 15:30 響鈴的逃走者直接獲得「地球守衛隊精英徽章」，被抓到的學員則會回到觀察席擔任戰術指揮官。",
+  },
+];
+
+function Escape() {
+  const [hover, setHover] = useState<number | null>(null);
+  return (
+    <section id="escape" className="relative px-5 py-24 overflow-hidden">
+      <div
+        aria-hidden
+        className="absolute inset-0 opacity-40 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(600px 300px at 20% 30%, oklch(0.6 0.25 30 / 0.35), transparent 60%), radial-gradient(500px 280px at 80% 70%, oklch(0.7 0.2 90 / 0.3), transparent 60%)",
+        }}
+      />
+      <div className="relative mx-auto max-w-6xl">
+        <Reveal>
+          <div className="text-center">
+            <p className="text-sm tracking-[0.3em] text-primary">FINAL BATTLE</p>
+            <h2 className="mt-3 text-4xl sm:text-6xl font-black">
+              <span className="text-gradient">全員逃走中</span> 大團體戰
+            </h2>
+            <p className="mt-5 max-w-2xl mx-auto text-muted-foreground leading-relaxed">
+              一整天的累積，在下午 14:50 化為一場全校級的追捕大冒險。
+              黑衣獵人現身大橋國小，地球守衛隊員必須運用任務裡學到的觀察、合作與決策，
+              撐過最後 50 分鐘，把地球守護到底！
+            </p>
+          </div>
+        </Reveal>
+
+        <div className="mt-14 grid md:grid-cols-2 gap-5">
+          {escapeRules.map((r, i) => (
+            <Reveal key={r.title} delay={i * 80}>
+              <div
+                onMouseEnter={() => setHover(i)}
+                onMouseLeave={() => setHover(null)}
+                className={`glass rounded-3xl p-7 h-full transition-all duration-300 cursor-pointer ${
+                  hover === i ? "scale-[1.02] ring-2 ring-primary/60 shadow-2xl shadow-primary/20" : ""
+                }`}
+              >
+                <div className={`text-5xl transition-transform duration-300 ${hover === i ? "scale-125 -rotate-6" : ""}`}>
+                  {r.icon}
+                </div>
+                <h3 className="mt-4 text-2xl font-black text-gradient">{r.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{r.desc}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+
+        <Reveal delay={200}>
+          <div className="mt-12 glass rounded-3xl p-8 text-center">
+            <div className="text-xs tracking-[0.3em] text-primary">RULE OF THUMB</div>
+            <p className="mt-3 text-lg sm:text-xl font-bold leading-relaxed">
+              「跑得快不一定贏，<span className="text-gradient">願意一起守護的人才會贏</span>。」
+            </p>
+            <p className="mt-2 text-sm text-muted-foreground">
+              這場最終戰是為了讓孩子親身體會：任務裡學到的合作與判斷，才是真正的超能力。
+            </p>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+function BackToTop() {
+  const [show, setShow] = useState(false);
+  useEffect(() => {
+    const on = () => setShow(window.scrollY > 600);
+    window.addEventListener("scroll", on, { passive: true });
+    return () => window.removeEventListener("scroll", on);
+  }, []);
+  return (
+    <button
+      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      aria-label="回到頂端"
+      className={`fixed bottom-6 right-6 z-40 w-12 h-12 rounded-full bg-primary text-primary-foreground font-black shadow-lg shadow-primary/40 transition-all hover:scale-110 ${
+        show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
+      }`}
+    >
+      ↑
+    </button>
   );
 }
