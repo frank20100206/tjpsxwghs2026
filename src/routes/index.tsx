@@ -131,10 +131,12 @@ function Index() {
       <Marquee />
       <About />
       <Missions />
+      <Escape />
       <Schedule />
       <Apply />
       <FAQ />
       <Footer />
+      <BackToTop />
     </div>
   );
 }
@@ -148,10 +150,11 @@ function Nav() {
           <span className="hidden sm:inline text-xs text-muted-foreground">守護任務啟動</span>
         </a>
         <nav className="hidden md:flex items-center gap-7 text-sm text-muted-foreground">
-          <a href="#about" className="hover:text-foreground transition">關於營隊</a>
-          <a href="#missions" className="hover:text-foreground transition">四大任務</a>
-          <a href="#schedule" className="hover:text-foreground transition">當日流程</a>
-          <a href="#apply" className="hover:text-foreground transition">報名資訊</a>
+          <a href="#about" className="hover:text-foreground transition story-link">關於營隊</a>
+          <a href="#missions" className="hover:text-foreground transition story-link">四大任務</a>
+          <a href="#escape" className="hover:text-foreground transition story-link">全員逃走中</a>
+          <a href="#schedule" className="hover:text-foreground transition story-link">當日流程</a>
+          <a href="#apply" className="hover:text-foreground transition story-link">報名資訊</a>
         </nav>
         <a
           href={FORM_URL}
@@ -206,8 +209,9 @@ function Hero() {
           <div className="mt-10 grid grid-cols-3 gap-3 max-w-lg">
             <Stat icon="📅" label="活動日期" big="8/26" sub="2026" />
             <Stat icon="⏰" label="活動時間" big="9–16" sub="一整天" />
-            <Stat icon="📣" label="招生名額" big="30" sub="三、四年級" />
+            <Stat icon="📣" label="招生名額" big="30" sub="升三 / 四 / 五" />
           </div>
+          <Countdown />
         </div>
         <div className="relative animate-float">
           <div className="absolute -inset-6 rounded-3xl bg-gradient-to-br from-sky/40 to-mint/30 blur-3xl" />
