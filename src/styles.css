@@ -63,8 +63,29 @@
     color: var(--color-foreground);
     font-family: var(--font-display);
     min-height: 100vh;
+    position: relative;
+  }
+  body::before {
+    content: "";
+    position: fixed; inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-image:
+      radial-gradient(1.5px 1.5px at 12% 22%, white, transparent 60%),
+      radial-gradient(1px 1px at 68% 58%, white, transparent 60%),
+      radial-gradient(1.5px 1.5px at 38% 78%, white, transparent 60%),
+      radial-gradient(1px 1px at 82% 18%, white, transparent 60%),
+      radial-gradient(1px 1px at 8% 68%, white, transparent 60%),
+      radial-gradient(2px 2px at 52% 12%, white, transparent 60%),
+      radial-gradient(1px 1px at 28% 48%, white, transparent 60%),
+      radial-gradient(1.5px 1.5px at 92% 82%, white, transparent 60%);
+    background-size: 900px 900px;
+    background-repeat: repeat;
+    opacity: 0.55;
+    animation: twinkle 5s ease-in-out infinite;
   }
 }
+
 
 @layer utilities {
   .text-gradient {
@@ -116,19 +137,19 @@
   }
   .shooting-star {
     position: absolute;
-    width: 140px; height: 2px;
+    width: 160px; height: 2px;
     background: linear-gradient(90deg, transparent, white, transparent);
     border-radius: 999px;
     filter: drop-shadow(0 0 6px white);
-    transform: rotate(20deg);
+    transform: rotate(160deg);
     animation: shoot 7s linear infinite;
     opacity: 0;
   }
   @keyframes shoot {
-    0% { transform: translate(0,0) rotate(20deg); opacity: 0; }
+    0% { transform: translate(0,0) rotate(160deg); opacity: 0; }
     5% { opacity: 1; }
     40% { opacity: 1; }
-    60%, 100% { transform: translate(900px, 320px) rotate(20deg); opacity: 0; }
+    60%, 100% { transform: translate(-900px, 320px) rotate(160deg); opacity: 0; }
   }
   .section-light {
     background:
