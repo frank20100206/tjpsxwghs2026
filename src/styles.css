@@ -116,19 +116,19 @@
   }
   .shooting-star {
     position: absolute;
-    width: 140px; height: 2px;
+    width: 160px; height: 2px;
     background: linear-gradient(90deg, transparent, white, transparent);
     border-radius: 999px;
     filter: drop-shadow(0 0 6px white);
-    transform: rotate(20deg);
+    transform: rotate(160deg);
     animation: shoot 7s linear infinite;
     opacity: 0;
   }
   @keyframes shoot {
-    0% { transform: translate(0,0) rotate(20deg); opacity: 0; }
+    0% { transform: translate(0,0) rotate(160deg); opacity: 0; }
     5% { opacity: 1; }
     40% { opacity: 1; }
-    60%, 100% { transform: translate(900px, 320px) rotate(20deg); opacity: 0; }
+    60%, 100% { transform: translate(-900px, 320px) rotate(160deg); opacity: 0; }
   }
   .section-light {
     background:
