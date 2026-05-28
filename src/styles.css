@@ -84,6 +84,8 @@
     opacity: 0.55;
     animation: twinkle 5s ease-in-out infinite;
   }
+}
+
 
 @layer utilities {
   .text-gradient {
