@@ -144,40 +144,78 @@ function Index() {
 
 function Nav() {
   const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
   useEffect(() => {
     const on = () => setScrolled(window.scrollY > 20);
     on();
     window.addEventListener("scroll", on, { passive: true });
     return () => window.removeEventListener("scroll", on);
   }, []);
+  const links = [
+    ["#about", "關於營隊"],
+    ["#missions", "四大任務"],
+    ["#escape", "全員逃走中"],
+    ["#schedule", "當日流程"],
+    ["#apply", "報名資訊"],
+  ];
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "backdrop-blur-xl bg-background/70 border-b border-white/10 shadow-lg shadow-black/20"
+        scrolled || open
+          ? "backdrop-blur-xl bg-background/80 border-b border-white/10 shadow-lg shadow-black/20"
           : "bg-transparent"
       }`}
     >
       <div className="mx-auto max-w-7xl px-5 py-4 flex items-center justify-between">
-        <a href="#top" className="flex items-baseline gap-2">
+        <a href="#top" className="flex items-baseline gap-2" onClick={() => setOpen(false)}>
           <span className="text-xl font-black text-gradient">地球守衛隊</span>
           <span className="hidden sm:inline text-xs text-muted-foreground">守護任務啟動</span>
         </a>
         <nav className="hidden md:flex items-center gap-7 text-sm text-muted-foreground">
-          <a href="#about" className="hover:text-foreground transition story-link">關於營隊</a>
-          <a href="#missions" className="hover:text-foreground transition story-link">四大任務</a>
-          <a href="#escape" className="hover:text-foreground transition story-link">全員逃走中</a>
-          <a href="#schedule" className="hover:text-foreground transition story-link">當日流程</a>
-          <a href="#apply" className="hover:text-foreground transition story-link">報名資訊</a>
+          {links.map(([h, t]) => (
+            <a key={h} href={h} className="hover:text-foreground transition story-link">{t}</a>
+          ))}
         </nav>
-        <a
-          href={FORM_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="rounded-full bg-primary px-5 py-2 text-sm font-bold text-primary-foreground hover:opacity-90 transition shadow-lg shadow-primary/30"
-        >
-          立即報名
-        </a>
+        <div className="flex items-center gap-2">
+          <a
+            href={FORM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full bg-primary px-4 sm:px-5 py-2 text-xs sm:text-sm font-bold text-primary-foreground hover:opacity-90 transition shadow-lg shadow-primary/30"
+          >
+            立即報名
+          </a>
+          <button
+            onClick={() => setOpen((v) => !v)}
+            aria-label="開啟選單"
+            aria-expanded={open}
+            className="md:hidden w-10 h-10 rounded-full glass flex items-center justify-center"
+          >
+            <span className="relative w-5 h-3.5 block">
+              <span className={`absolute left-0 right-0 top-0 h-0.5 bg-foreground rounded transition-transform ${open ? "translate-y-1.5 rotate-45" : ""}`} />
+              <span className={`absolute left-0 right-0 top-1.5 h-0.5 bg-foreground rounded transition-opacity ${open ? "opacity-0" : ""}`} />
+              <span className={`absolute left-0 right-0 top-3 h-0.5 bg-foreground rounded transition-transform ${open ? "-translate-y-1.5 -rotate-45" : ""}`} />
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        className={`md:hidden overflow-hidden transition-[max-height,opacity] duration-300 ${
+          open ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        <nav className="px-5 pb-4 pt-1 flex flex-col gap-1 text-sm">
+          {links.map(([h, t]) => (
+            <a
+              key={h}
+              href={h}
+              onClick={() => setOpen(false)}
+              className="rounded-xl px-4 py-3 glass hover:bg-white/10 transition"
+            >
+              {t}
+            </a>
+          ))}
+        </nav>
       </div>
     </header>
   );
