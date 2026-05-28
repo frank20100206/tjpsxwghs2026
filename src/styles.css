@@ -63,8 +63,27 @@
     color: var(--color-foreground);
     font-family: var(--font-display);
     min-height: 100vh;
+    position: relative;
   }
-}
+  body::before {
+    content: "";
+    position: fixed; inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-image:
+      radial-gradient(1.5px 1.5px at 12% 22%, white, transparent 60%),
+      radial-gradient(1px 1px at 68% 58%, white, transparent 60%),
+      radial-gradient(1.5px 1.5px at 38% 78%, white, transparent 60%),
+      radial-gradient(1px 1px at 82% 18%, white, transparent 60%),
+      radial-gradient(1px 1px at 8% 68%, white, transparent 60%),
+      radial-gradient(2px 2px at 52% 12%, white, transparent 60%),
+      radial-gradient(1px 1px at 28% 48%, white, transparent 60%),
+      radial-gradient(1.5px 1.5px at 92% 82%, white, transparent 60%);
+    background-size: 900px 900px;
+    background-repeat: repeat;
+    opacity: 0.55;
+    animation: twinkle 5s ease-in-out infinite;
+  }
 
 @layer utilities {
   .text-gradient {
