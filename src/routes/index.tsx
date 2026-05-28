@@ -275,7 +275,7 @@ function Hero() {
           <img
             src={flyerHero}
             alt="地球守衛隊 活動主視覺"
-            className="relative rounded-3xl shadow-2xl ring-1 ring-white/20"
+            className="relative rounded-3xl shadow-2xl ring-1 ring-white/20 animate-sway origin-top"
           />
           <div className="absolute -bottom-4 left-4 glass rounded-full px-4 py-2 text-xs font-bold">
             ✦ 8/26 倒數中
