@@ -180,6 +180,16 @@
     50% { transform: rotate(1.8deg); }
   }
   .animate-sway { animation: sway 3.5s ease-in-out infinite; transform-origin: top center; }
+  @keyframes sway-left {
+    0%, 100% { transform: rotate(-4deg) translateY(0); }
+    50% { transform: rotate(4deg) translateY(-6px); }
+  }
+  @keyframes sway-right {
+    0%, 100% { transform: rotate(3deg) translateY(0); }
+    50% { transform: rotate(-3deg) translateY(-8px); }
+  }
+  .animate-sway-left { animation: sway-left 3.8s ease-in-out infinite; transform-origin: bottom center; }
+  .animate-sway-right { animation: sway-right 4.2s ease-in-out infinite 0.4s; transform-origin: bottom center; }
   @keyframes searchlight {
     0%,100% { transform: translateX(-20%) rotate(12deg); opacity: 0.6; }
     50% { transform: translateX(20%) rotate(-8deg); opacity: 1; }
