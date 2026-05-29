@@ -284,13 +284,13 @@ function Hero() {
               src={characterBoy}
               alt=""
               aria-hidden
-              className="pointer-events-none absolute left-[-22%] top-[38%] w-[34%] animate-sway-left origin-bottom drop-shadow-[0_18px_24px_rgba(0,0,0,0.45)]"
+              className="pointer-events-none absolute left-[2%] top-[30%] w-[34%] animate-sway-left origin-bottom drop-shadow-[0_18px_24px_rgba(0,0,0,0.45)]"
             />
             <img
               src={characterGirl}
               alt=""
               aria-hidden
-              className="pointer-events-none absolute right-[-22%] top-[40%] w-[34%] animate-sway-right origin-bottom drop-shadow-[0_18px_24px_rgba(0,0,0,0.45)]"
+              className="pointer-events-none absolute right-[2%] top-[30%] w-[32%] animate-sway-right origin-bottom drop-shadow-[0_18px_24px_rgba(0,0,0,0.45)]"
             />
           </div>
           <div className="absolute -bottom-4 left-4 glass rounded-full px-4 py-2 text-xs font-bold">
