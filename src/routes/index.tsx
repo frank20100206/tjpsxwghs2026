@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import flyerHero from "@/assets/flyer-hero.png";
+import characterBoy from "@/assets/character-boy.png";
+import characterGirl from "@/assets/character-girl.png";
 
 function Reveal({ children, delay = 0, className = "" }: { children: ReactNode; delay?: number; className?: string }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -272,11 +274,25 @@ function Hero() {
         </div>
         <div className="relative animate-float">
           <div className="absolute -inset-6 rounded-3xl bg-gradient-to-br from-sky/40 to-mint/30 blur-3xl" />
-          <img
-            src={flyerHero}
-            alt="地球守衛隊 活動主視覺"
-            className="relative rounded-3xl shadow-2xl ring-1 ring-white/20 animate-sway origin-top"
-          />
+          <div className="relative">
+            <img
+              src={flyerHero}
+              alt="地球守衛隊 活動主視覺"
+              className="relative rounded-3xl shadow-2xl ring-1 ring-white/20"
+            />
+            <img
+              src={characterBoy}
+              alt=""
+              aria-hidden
+              className="pointer-events-none absolute -left-10 -top-10 w-[42%] animate-sway-left origin-bottom drop-shadow-[0_18px_24px_rgba(0,0,0,0.45)]"
+            />
+            <img
+              src={characterGirl}
+              alt=""
+              aria-hidden
+              className="pointer-events-none absolute -right-12 -bottom-8 w-[44%] animate-sway-right origin-bottom drop-shadow-[0_18px_24px_rgba(0,0,0,0.45)]"
+            />
+          </div>
           <div className="absolute -bottom-4 left-4 glass rounded-full px-4 py-2 text-xs font-bold">
             ✦ 8/26 倒數中
           </div>
