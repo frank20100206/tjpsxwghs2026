@@ -3,6 +3,8 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 import flyerHero from "@/assets/flyer-hero.png";
 import characterBoy from "@/assets/character-boy.png";
 import characterGirl from "@/assets/character-girl.png";
+import escapeRunnerGirl from "@/assets/escape-runner-girl.png";
+import escapeRunnerBoy from "@/assets/escape-runner-boy.png";
 
 function Reveal({ children, delay = 0, className = "" }: { children: ReactNode; delay?: number; className?: string }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -654,30 +656,25 @@ function Escape() {
             ))}
           </div>
 
-          <div className="mt-8 flex flex-wrap gap-3">
-            <a
-              href={FORM_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative rounded-full px-7 py-3 text-sm font-black tracking-widest text-primary-foreground overflow-hidden"
-              style={{
-                background:
-                  "linear-gradient(135deg, oklch(0.75 0.2 290), oklch(0.82 0.16 200))",
-                boxShadow:
-                  "0 0 24px oklch(0.7 0.22 290 / 0.6), 0 0 48px oklch(0.6 0.2 290 / 0.35)",
-              }}
-            >
-              <span className="relative z-10">► 加入任務</span>
-              <span className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition" />
-            </a>
-            <a
-              href="#missions"
-              className="rounded-full border border-[oklch(0.7_0.2_290_/_0.5)] px-7 py-3 text-sm font-bold tracking-widest text-[oklch(0.92_0.08_280)] hover:bg-[oklch(0.7_0.2_290_/_0.15)] transition"
-            >
-              查看裝備
-            </a>
+          {/* Roles: 潛伏者 / 逃走者 */}
+          <div className="mt-8 grid sm:grid-cols-2 gap-4 max-w-lg">
+            <div className="rounded-2xl p-5 border border-[oklch(0.7_0.25_25_/_0.5)] bg-[oklch(0.25_0.12_20_/_0.35)] backdrop-blur hover:-translate-y-1 transition">
+              <div className="text-3xl">🕶️</div>
+              <h3 className="mt-2 text-xl font-black text-[oklch(0.9_0.15_25)]">潛伏者</h3>
+              <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+                潛伏在校園各處的獵人，冷靜、快速、絕不留情。觸碰出局。
+              </p>
+            </div>
+            <div className="rounded-2xl p-5 border border-[oklch(0.7_0.2_290_/_0.5)] bg-[oklch(0.25_0.12_280_/_0.35)] backdrop-blur hover:-translate-y-1 transition">
+              <div className="text-3xl">🏃‍♂️</div>
+              <h3 className="mt-2 text-xl font-black text-neon">逃走者</h3>
+              <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+                你和隊友是地球最後的希望，運用整天累積的線索與默契，撐到鈴響就是勝利。
+              </p>
+            </div>
           </div>
         </div>
+
 
         {/* RIGHT: characters bursting in from the right, breaking the frame */}
         <div className="relative h-[480px] sm:h-[560px] lg:h-[640px]">
@@ -721,7 +718,7 @@ function Escape() {
 
           {/* Girl — burst in first, breaks top-right of frame */}
           <img
-            src={characterGirl}
+            src={escapeRunnerGirl}
             alt=""
             aria-hidden
             className="pointer-events-none absolute right-[-12%] top-[-6%] w-[78%] animate-dash-in-right animate-neon-pulse"
@@ -729,7 +726,7 @@ function Escape() {
           />
           {/* Boy — chases, breaks bottom-left of HUD area */}
           <img
-            src={characterBoy}
+            src={escapeRunnerBoy}
             alt=""
             aria-hidden
             className="pointer-events-none absolute left-[-8%] bottom-[-4%] w-[68%] animate-dash-in-right animate-float-soft"
