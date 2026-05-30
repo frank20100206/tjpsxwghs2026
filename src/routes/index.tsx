@@ -533,68 +533,241 @@ function Countdown() {
 }
 
 function Escape() {
+  // deterministic particle positions to avoid hydration mismatch
+  const particles = Array.from({ length: 18 }, (_, i) => ({
+    left: (i * 53) % 100,
+    top: (i * 37) % 100,
+    delay: (i % 6) * 0.9,
+    duration: 4 + (i % 5),
+    size: 2 + (i % 3),
+  }));
   return (
-    <section id="escape" className="relative px-5 py-28 overflow-hidden">
-      {/* Dramatic red/orange glow */}
+    <section
+      id="escape"
+      className="relative px-5 py-28 overflow-hidden"
+      style={{
+        background:
+          "radial-gradient(900px 500px at 15% 30%, oklch(0.35 0.18 280 / 0.7), transparent 65%), radial-gradient(700px 400px at 90% 80%, oklch(0.45 0.22 300 / 0.55), transparent 65%), linear-gradient(180deg, oklch(0.18 0.12 265), oklch(0.12 0.1 270))",
+      }}
+    >
+      {/* Sci-fi scan grid */}
+      <div aria-hidden className="absolute inset-0 mission-grid pointer-events-none" />
+
+      {/* Horizontal scan line */}
       <div
         aria-hidden
-        className="absolute inset-0 pointer-events-none"
+        className="absolute inset-x-0 h-[2px] pointer-events-none animate-scan"
         style={{
           background:
-            "radial-gradient(700px 360px at 20% 30%, oklch(0.55 0.27 25 / 0.55), transparent 60%), radial-gradient(600px 320px at 85% 75%, oklch(0.65 0.22 60 / 0.45), transparent 60%), linear-gradient(180deg, transparent, oklch(0.15 0.1 20 / 0.4))",
+            "linear-gradient(90deg, transparent, oklch(0.85 0.18 290 / 0.9), transparent)",
+          boxShadow: "0 0 18px oklch(0.75 0.2 290 / 0.8)",
         }}
       />
-      {/* Searchlight sweep */}
+
+      {/* Speed streaks */}
       <div aria-hidden className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute -top-20 left-1/3 w-[60vw] h-[140%] origin-top rotate-12 bg-gradient-to-b from-yellow-200/10 via-yellow-200/[0.04] to-transparent blur-2xl animate-[searchlight_6s_ease-in-out_infinite]" />
+        {[15, 38, 62, 80].map((top, i) => (
+          <div
+            key={top}
+            className="absolute h-[2px] w-[40%] animate-streak"
+            style={{
+              top: `${top}%`,
+              left: 0,
+              background:
+                "linear-gradient(90deg, transparent, oklch(0.85 0.18 290 / 0.7), transparent)",
+              animationDelay: `${i * 0.6}s`,
+              animationDuration: `${1.8 + i * 0.3}s`,
+            }}
+          />
+        ))}
       </div>
 
-      <div className="relative mx-auto max-w-5xl">
-        <Reveal>
-          <div className="text-center">
-            <p className="text-sm tracking-[0.4em] text-red-300/90">FINAL BOSS</p>
-            <h2 className="mt-3 text-5xl sm:text-7xl font-black tracking-tight">
-              <span className="text-gradient">全員逃走中</span>
-            </h2>
-            <p className="mt-3 text-base sm:text-lg font-bold text-foreground/90">
-              ‧ 擊敗反派的最後一關 ‧
-            </p>
-          </div>
-        </Reveal>
+      {/* Particles */}
+      <div aria-hidden className="absolute inset-0 pointer-events-none overflow-hidden">
+        {particles.map((p, i) => (
+          <span
+            key={i}
+            className="absolute rounded-full bg-white/80 animate-particle"
+            style={{
+              left: `${p.left}%`,
+              top: `${p.top}%`,
+              width: p.size,
+              height: p.size,
+              boxShadow: "0 0 8px oklch(0.85 0.18 290 / 0.9)",
+              animationDelay: `${p.delay}s`,
+              animationDuration: `${p.duration}s`,
+            }}
+          />
+        ))}
+      </div>
 
-        <Reveal delay={120}>
-          <div className="mt-12 grid sm:grid-cols-2 gap-5">
-            <div className="glass rounded-3xl p-7 border-l-4 border-red-400/70 hover:-translate-y-1 transition">
-              <div className="text-5xl animate-pulse">🕶️</div>
-              <h3 className="mt-3 text-2xl font-black text-red-200">潛伏者</h3>
-              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                潛伏在校園各處的獵人，冷靜、快速、絕不留情。觸碰出局。
-              </p>
-            </div>
-            <div className="glass rounded-3xl p-7 border-l-4 border-primary/70 hover:-translate-y-1 transition">
-              <div className="text-5xl animate-bounce">🏃‍♂️</div>
-              <h3 className="mt-3 text-2xl font-black text-primary">逃走者</h3>
-              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                你和隊友是地球最後的希望，運用整天累積的線索與默契，撐到鈴響就是勝利。
-              </p>
-            </div>
-          </div>
-        </Reveal>
+      <div className="relative mx-auto max-w-7xl grid lg:grid-cols-2 gap-10 items-center">
+        {/* LEFT: mission briefing */}
+        <div className="relative animate-slide-in-left">
+          {/* corner brackets */}
+          <div aria-hidden className="pointer-events-none absolute -top-3 -left-3 w-8 h-8 border-l-2 border-t-2 border-[oklch(0.85_0.18_290)]" />
+          <div aria-hidden className="pointer-events-none absolute -bottom-3 -right-3 w-8 h-8 border-r-2 border-b-2 border-[oklch(0.85_0.18_290)]" />
 
-        <Reveal delay={220}>
-          <div className="mt-10 glass rounded-3xl p-8 text-center relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-r from-red-500/10 via-transparent to-primary/10" />
-            <p className="relative text-lg sm:text-xl font-bold leading-relaxed">
-              這是擊敗反派、守護地球的 <span className="text-gradient">最後一關</span>。
+          <div className="inline-flex items-center gap-2 rounded-full glass px-3 py-1 text-[11px] tracking-[0.4em] text-[oklch(0.9_0.12_290)] animate-neon-pulse">
+            <span className="w-1.5 h-1.5 rounded-full bg-[oklch(0.85_0.18_290)] animate-pulse" />
+            CLASSIFIED · FINAL MISSION
+          </div>
+
+          <h2 className="mt-5 text-6xl sm:text-7xl lg:text-8xl font-black leading-[0.9] tracking-tight">
+            <span className="block text-neon animate-neon-pulse">全員</span>
+            <span className="block text-gradient">逃走中</span>
+          </h2>
+
+          <p className="mt-4 text-sm sm:text-base tracking-[0.3em] text-[oklch(0.85_0.1_280)]">
+            ‧ EARTH GUARDIANS · OPERATION RUNAWAY ‧
+          </p>
+
+          <div className="mt-8 space-y-4 max-w-lg">
+            <p className="text-lg leading-relaxed text-foreground/90">
+              <span className="text-neon font-bold">15:30 倒數啟動。</span>
               <br />
-              撐到 15:30 鈴響，你就是真正的 <span className="text-red-200">地球守衛隊精英</span>。
+              潛伏者已封鎖校園，地球守衛隊請立即就位。
+            </p>
+            <p className="text-base leading-relaxed text-muted-foreground">
+              整合一日累積的線索、默契與裝備，
+              在限時追捕中突破封鎖、撐到鈴響——
+              <span className="text-[oklch(0.9_0.15_290)]">你就是真正的精英特務。</span>
             </p>
           </div>
-        </Reveal>
+
+          {/* mission stats */}
+          <div className="mt-8 grid grid-cols-3 gap-3 max-w-lg">
+            {[
+              ["TARGETS", "30", "守衛隊員"],
+              ["DURATION", "40", "MIN"],
+              ["LEVEL", "S", "RANK"],
+            ].map(([k, v, s]) => (
+              <div
+                key={k}
+                className="relative rounded-xl border border-[oklch(0.7_0.2_290_/_0.4)] bg-[oklch(0.2_0.1_270_/_0.5)] backdrop-blur p-3 overflow-hidden"
+              >
+                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[oklch(0.85_0.18_290)] to-transparent" />
+                <div className="text-[10px] tracking-[0.25em] text-[oklch(0.8_0.12_290)]">{k}</div>
+                <div className="text-3xl font-black text-neon leading-tight tabular-nums">{v}</div>
+                <div className="text-[10px] text-muted-foreground tracking-widest">{s}</div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a
+              href={FORM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative rounded-full px-7 py-3 text-sm font-black tracking-widest text-primary-foreground overflow-hidden"
+              style={{
+                background:
+                  "linear-gradient(135deg, oklch(0.75 0.2 290), oklch(0.82 0.16 200))",
+                boxShadow:
+                  "0 0 24px oklch(0.7 0.22 290 / 0.6), 0 0 48px oklch(0.6 0.2 290 / 0.35)",
+              }}
+            >
+              <span className="relative z-10">► 加入任務</span>
+              <span className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition" />
+            </a>
+            <a
+              href="#missions"
+              className="rounded-full border border-[oklch(0.7_0.2_290_/_0.5)] px-7 py-3 text-sm font-bold tracking-widest text-[oklch(0.92_0.08_280)] hover:bg-[oklch(0.7_0.2_290_/_0.15)] transition"
+            >
+              查看裝備
+            </a>
+          </div>
+        </div>
+
+        {/* RIGHT: characters bursting in from the right, breaking the frame */}
+        <div className="relative h-[480px] sm:h-[560px] lg:h-[640px]">
+          {/* HUD frame */}
+          <div
+            aria-hidden
+            className="absolute inset-4 rounded-3xl border border-[oklch(0.7_0.2_290_/_0.35)]"
+            style={{
+              boxShadow:
+                "inset 0 0 60px oklch(0.6 0.25 290 / 0.25), 0 0 40px oklch(0.5 0.22 290 / 0.3)",
+            }}
+          />
+          {/* HUD corners */}
+          {[
+            "top-2 left-2 border-l-2 border-t-2",
+            "top-2 right-2 border-r-2 border-t-2",
+            "bottom-2 left-2 border-l-2 border-b-2",
+            "bottom-2 right-2 border-r-2 border-b-2",
+          ].map((cls) => (
+            <div key={cls} className={`absolute ${cls} w-10 h-10 border-[oklch(0.85_0.18_290)] pointer-events-none`} />
+          ))}
+
+          {/* target reticle */}
+          <div
+            aria-hidden
+            className="absolute top-6 right-6 text-[10px] tracking-[0.3em] text-[oklch(0.9_0.12_290)] flex items-center gap-2"
+          >
+            <span className="w-2 h-2 rounded-full bg-[oklch(0.7_0.25_25)] animate-pulse" />
+            REC · TRACKING
+          </div>
+
+          {/* radial glow behind characters */}
+          <div
+            aria-hidden
+            className="absolute inset-0 rounded-3xl"
+            style={{
+              background:
+                "radial-gradient(closest-side, oklch(0.65 0.25 290 / 0.45), transparent 70%)",
+            }}
+          />
+
+          {/* Girl — burst in first, breaks top-right of frame */}
+          <img
+            src={characterGirl}
+            alt=""
+            aria-hidden
+            className="pointer-events-none absolute right-[-12%] top-[-6%] w-[78%] animate-dash-in-right animate-neon-pulse"
+            style={{ animationDelay: "0s, 1s" }}
+          />
+          {/* Boy — chases, breaks bottom-left of HUD area */}
+          <img
+            src={characterBoy}
+            alt=""
+            aria-hidden
+            className="pointer-events-none absolute left-[-8%] bottom-[-4%] w-[68%] animate-dash-in-right animate-float-soft"
+            style={{ animationDelay: "0.35s, 0s", filter: "drop-shadow(0 0 18px oklch(0.7 0.22 290 / 0.7))" }}
+          />
+
+          {/* coords readout */}
+          <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-[10px] tracking-widest text-[oklch(0.85_0.12_280)] font-mono">
+            <span>X: 25.0478° N</span>
+            <span className="text-[oklch(0.7_0.25_25)]">● LIVE</span>
+            <span>Y: 121.5170° E</span>
+          </div>
+        </div>
       </div>
+
+      {/* Bottom mission banner */}
+      <Reveal delay={200}>
+        <div
+          className="relative mx-auto max-w-5xl mt-16 rounded-3xl p-7 sm:p-9 overflow-hidden"
+          style={{
+            background:
+              "linear-gradient(135deg, oklch(0.25 0.15 270 / 0.7), oklch(0.3 0.18 290 / 0.6))",
+            border: "1px solid oklch(0.7 0.2 290 / 0.4)",
+            boxShadow: "0 0 50px oklch(0.55 0.22 290 / 0.35)",
+          }}
+        >
+          <div aria-hidden className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[oklch(0.85_0.18_290)] to-transparent" />
+          <p className="relative text-center text-base sm:text-xl font-bold leading-relaxed">
+            撐到 <span className="text-neon">15:30</span> 鈴響，
+            <br className="sm:hidden" />
+            你就是真正的 <span className="text-gradient">地球守衛隊精英特務</span>。
+          </p>
+        </div>
+      </Reveal>
     </section>
   );
 }
+
 
 function BackToTop() {
   const [show, setShow] = useState(false);
