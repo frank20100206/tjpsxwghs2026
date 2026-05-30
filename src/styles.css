@@ -194,4 +194,73 @@
     0%,100% { transform: translateX(-20%) rotate(12deg); opacity: 0.6; }
     50% { transform: translateX(20%) rotate(-8deg); opacity: 1; }
   }
+
+  /* === Futuristic spy / agent mission === */
+  @keyframes neon-pulse {
+    0%, 100% { opacity: 0.6; filter: drop-shadow(0 0 6px var(--sky)) drop-shadow(0 0 14px oklch(0.6 0.25 290 / 0.45)); }
+    50%      { opacity: 1;   filter: drop-shadow(0 0 12px var(--sky)) drop-shadow(0 0 30px oklch(0.65 0.3 290 / 0.8)); }
+  }
+  .animate-neon-pulse { animation: neon-pulse 2.6s ease-in-out infinite; }
+
+  @keyframes grid-scroll {
+    from { background-position: 0 0, 0 0; }
+    to   { background-position: 80px 80px, 80px 80px; }
+  }
+  .mission-grid {
+    background-image:
+      linear-gradient(oklch(0.7 0.2 290 / 0.18) 1px, transparent 1px),
+      linear-gradient(90deg, oklch(0.7 0.2 290 / 0.18) 1px, transparent 1px);
+    background-size: 80px 80px, 80px 80px;
+    animation: grid-scroll 14s linear infinite;
+    mask-image: radial-gradient(ellipse at center, black 40%, transparent 85%);
+  }
+
+  @keyframes scan-line {
+    0%   { transform: translateY(-10%); opacity: 0; }
+    10%, 90%  { opacity: 1; }
+    100% { transform: translateY(110%); opacity: 0; }
+  }
+  .animate-scan { animation: scan-line 4.5s linear infinite; }
+
+  @keyframes dash-in-right {
+    0%   { transform: translateX(60%) scale(1.05); opacity: 0; filter: blur(8px); }
+    60%  { opacity: 1; filter: blur(0); }
+    100% { transform: translateX(0) scale(1); opacity: 1; filter: blur(0); }
+  }
+  .animate-dash-in-right { animation: dash-in-right 1.2s cubic-bezier(.16,.84,.3,1) both; }
+
+  @keyframes speed-streak {
+    0%   { transform: translateX(120%); opacity: 0; }
+    20%  { opacity: 1; }
+    100% { transform: translateX(-120%); opacity: 0; }
+  }
+  .animate-streak { animation: speed-streak 2.2s linear infinite; }
+
+  @keyframes particle-drift {
+    0%   { transform: translate3d(0,0,0); opacity: 0; }
+    10%  { opacity: 1; }
+    100% { transform: translate3d(-140px, -90px, 0); opacity: 0; }
+  }
+  .animate-particle { animation: particle-drift 6s linear infinite; }
+
+  @keyframes float-soft {
+    0%,100% { transform: translateY(0); }
+    50%     { transform: translateY(-8px); }
+  }
+  .animate-float-soft { animation: float-soft 4.5s ease-in-out infinite; }
+
+  @keyframes slide-in-left {
+    from { opacity: 0; transform: translateX(-40px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+  .animate-slide-in-left { animation: slide-in-left 0.9s cubic-bezier(.2,.7,.2,1) both; }
+
+  .text-neon {
+    color: oklch(0.96 0.05 280);
+    text-shadow:
+      0 0 6px oklch(0.85 0.18 290 / 0.9),
+      0 0 18px oklch(0.65 0.25 290 / 0.7),
+      0 0 38px oklch(0.55 0.27 280 / 0.5);
+  }
 }
+
