@@ -718,7 +718,7 @@ function Escape() {
 
           {/* Girl — burst in first, breaks top-right of frame */}
           <img
-            src={characterGirl}
+            src={escapeRunnerGirl}
             alt=""
             aria-hidden
             className="pointer-events-none absolute right-[-12%] top-[-6%] w-[78%] animate-dash-in-right animate-neon-pulse"
@@ -726,7 +726,7 @@ function Escape() {
           />
           {/* Boy — chases, breaks bottom-left of HUD area */}
           <img
-            src={characterBoy}
+            src={escapeRunnerBoy}
             alt=""
             aria-hidden
             className="pointer-events-none absolute left-[-8%] bottom-[-4%] w-[68%] animate-dash-in-right animate-float-soft"
