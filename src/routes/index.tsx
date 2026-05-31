@@ -603,7 +603,7 @@ function Escape() {
         ))}
       </div>
 
-      <div className="relative mx-auto max-w-7xl grid lg:grid-cols-2 gap-10 items-center">
+      <div className="relative mx-auto max-w-7xl grid lg:grid-cols-2 gap-10 lg:gap-16 xl:gap-20 items-center">
         {/* LEFT: mission briefing */}
         <div className="relative animate-slide-in-left">
           {/* corner brackets */}
@@ -677,7 +677,7 @@ function Escape() {
 
 
         {/* RIGHT: characters bursting in from the right, breaking the frame */}
-        <div className="relative h-[480px] sm:h-[560px] lg:h-[640px]">
+        <div className="relative h-[420px] sm:h-[520px] md:h-[580px] lg:h-[600px] xl:h-[640px] overflow-hidden lg:overflow-visible rounded-3xl">
           {/* HUD frame */}
           <div
             aria-hidden
@@ -700,7 +700,7 @@ function Escape() {
           {/* target reticle */}
           <div
             aria-hidden
-            className="absolute top-6 right-6 text-[10px] tracking-[0.3em] text-[oklch(0.9_0.12_290)] flex items-center gap-2"
+            className="absolute top-6 right-6 text-[10px] tracking-[0.3em] text-[oklch(0.9_0.12_290)] flex items-center gap-2 z-10"
           >
             <span className="w-2 h-2 rounded-full bg-[oklch(0.7_0.25_25)] animate-pulse" />
             REC · TRACKING
@@ -721,7 +721,7 @@ function Escape() {
             src={escapeRunnerGirl}
             alt=""
             aria-hidden
-            className="pointer-events-none absolute right-[-12%] top-[-6%] w-[78%] animate-dash-in-right animate-neon-pulse"
+            className="pointer-events-none absolute right-[-4%] sm:right-[-6%] lg:right-[-10%] xl:right-[-12%] top-[2%] sm:top-[-2%] lg:top-[-4%] w-[62%] sm:w-[66%] lg:w-[72%] xl:w-[78%] animate-dash-in-right animate-neon-pulse"
             style={{ animationDelay: "0s, 1s" }}
           />
           {/* Boy — chases, breaks bottom-left of HUD area */}
@@ -729,9 +729,10 @@ function Escape() {
             src={escapeRunnerBoy}
             alt=""
             aria-hidden
-            className="pointer-events-none absolute left-[-8%] bottom-[-4%] w-[68%] animate-dash-in-right animate-float-soft"
+            className="pointer-events-none absolute left-[-2%] sm:left-[-4%] lg:left-[-8%] xl:left-[-10%] bottom-[4%] sm:bottom-[0%] lg:bottom-[-2%] xl:bottom-[-4%] w-[54%] sm:w-[58%] lg:w-[64%] xl:w-[70%] animate-dash-in-right animate-float-soft"
             style={{ animationDelay: "0.35s, 0s", filter: "drop-shadow(0 0 18px oklch(0.7 0.22 290 / 0.7))" }}
           />
+
 
           {/* coords readout */}
           <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-[10px] tracking-widest text-[oklch(0.85_0.12_280)] font-mono">
