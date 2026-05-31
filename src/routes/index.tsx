@@ -743,6 +743,180 @@ function Escape() {
         </div>
       </div>
 
+      {/* === MISSION DOSSIER : 規則 / 人員 / 道具 / 結局 === */}
+      <div className="relative mx-auto max-w-7xl mt-20">
+        <Reveal>
+          <div className="flex items-center gap-3 mb-8">
+            <span className="h-px flex-1 bg-gradient-to-r from-transparent via-[oklch(0.7_0.2_290_/_0.6)] to-[oklch(0.7_0.2_290_/_0.6)]" />
+            <span className="text-[11px] tracking-[0.5em] text-[oklch(0.9_0.12_290)] font-bold">
+              MISSION DOSSIER · 任務檔案
+            </span>
+            <span className="h-px flex-1 bg-gradient-to-l from-transparent via-[oklch(0.7_0.2_290_/_0.6)] to-[oklch(0.7_0.2_290_/_0.6)]" />
+          </div>
+        </Reveal>
+
+        {/* 規則 */}
+        <Reveal delay={80}>
+          <div
+            className="relative rounded-3xl p-6 sm:p-8 backdrop-blur overflow-hidden"
+            style={{
+              background: "linear-gradient(135deg, oklch(0.22 0.13 270 / 0.7), oklch(0.18 0.12 280 / 0.5))",
+              border: "1px solid oklch(0.7 0.2 290 / 0.35)",
+              boxShadow: "0 0 40px oklch(0.55 0.22 290 / 0.2)",
+            }}
+          >
+            <div aria-hidden className="absolute -top-3 -left-3 w-8 h-8 border-l-2 border-t-2 border-[oklch(0.85_0.18_290)]" />
+            <div aria-hidden className="absolute -bottom-3 -right-3 w-8 h-8 border-r-2 border-b-2 border-[oklch(0.85_0.18_290)]" />
+            <div className="flex items-center gap-3 mb-6">
+              <span className="text-2xl">📜</span>
+              <h3 className="text-2xl sm:text-3xl font-black text-neon tracking-wide">遊戲規則</h3>
+              <span className="ml-auto text-[10px] tracking-[0.3em] text-[oklch(0.8_0.12_290)]">RULES · 01</span>
+            </div>
+            <ol className="grid sm:grid-cols-2 gap-3 sm:gap-4">
+              {[
+                "四個組別。到了大逃殺時間，每組拆成兩小隊。",
+                "每個小隊配上一位隊輔，隊輔要判斷是否被抓到（魔鬼氈）。",
+                "闖關者要躲避魔王，尋找關主闖關。",
+                "關主需留意，要全員（包括隊輔）在場才允許闖關。",
+                "每個關主能提供的印章數量可不同，關卡也可不同。",
+                "若隊輔判斷有成員被魔王抓到，整隊停下討論，由魔王劃掉該隊某個關卡的闖關資格。",
+                "如有意外，以組為單位到醫療區。安置隊員後可再出發（可給予額外印章補償）。",
+                "時限內未抵達集合處，將扣除印章。",
+              ].map((rule, i) => (
+                <li
+                  key={i}
+                  className="group relative flex gap-3 rounded-xl p-3 sm:p-4 bg-[oklch(0.2_0.1_270_/_0.4)] border border-[oklch(0.7_0.2_290_/_0.2)] hover:border-[oklch(0.7_0.2_290_/_0.6)] transition"
+                >
+                  <span className="shrink-0 w-8 h-8 rounded-lg flex items-center justify-center text-sm font-black text-[oklch(0.95_0.05_280)] bg-[oklch(0.4_0.2_290_/_0.5)] border border-[oklch(0.7_0.2_290_/_0.5)] tabular-nums">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <p className="text-sm leading-relaxed text-foreground/90">{rule}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </Reveal>
+
+        {/* 人員配置 + 道具 */}
+        <div className="grid lg:grid-cols-2 gap-6 mt-6">
+          <Reveal delay={120}>
+            <div
+              className="relative h-full rounded-3xl p-6 sm:p-8 backdrop-blur overflow-hidden"
+              style={{
+                background: "linear-gradient(135deg, oklch(0.25 0.15 260 / 0.65), oklch(0.18 0.12 280 / 0.5))",
+                border: "1px solid oklch(0.7 0.2 290 / 0.35)",
+                boxShadow: "0 0 30px oklch(0.55 0.22 290 / 0.18)",
+              }}
+            >
+              <div className="flex items-center gap-3 mb-5">
+                <span className="text-2xl">👥</span>
+                <h3 className="text-2xl font-black text-neon tracking-wide">人員配置</h3>
+                <span className="ml-auto text-[10px] tracking-[0.3em] text-[oklch(0.8_0.12_290)]">UNIT · 02</span>
+              </div>
+              <div className="space-y-3">
+                {[
+                  ["隊輔", "8", "判定魔鬼氈、帶領小隊"],
+                  ["關主", "16", "室內外布場、出題闖關（暫定）"],
+                  ["醫療區", "4", "固定地點、安置受傷隊員"],
+                ].map(([role, count, desc]) => (
+                  <div
+                    key={role}
+                    className="flex items-center gap-4 rounded-xl p-4 bg-[oklch(0.2_0.1_270_/_0.45)] border border-[oklch(0.7_0.2_290_/_0.2)]"
+                  >
+                    <div className="text-3xl sm:text-4xl font-black text-neon tabular-nums leading-none w-14 text-center">
+                      {count}
+                    </div>
+                    <div className="h-10 w-px bg-[oklch(0.7_0.2_290_/_0.4)]" />
+                    <div className="flex-1">
+                      <div className="font-bold text-foreground">{role}</div>
+                      <div className="text-xs text-muted-foreground mt-0.5">{desc}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Reveal>
+
+          <Reveal delay={160}>
+            <div
+              className="relative h-full rounded-3xl p-6 sm:p-8 backdrop-blur overflow-hidden"
+              style={{
+                background: "linear-gradient(135deg, oklch(0.25 0.15 300 / 0.6), oklch(0.18 0.12 270 / 0.5))",
+                border: "1px solid oklch(0.7 0.2 290 / 0.35)",
+                boxShadow: "0 0 30px oklch(0.55 0.22 290 / 0.18)",
+              }}
+            >
+              <div className="flex items-center gap-3 mb-5">
+                <span className="text-2xl">🎒</span>
+                <h3 className="text-2xl font-black text-neon tracking-wide">任務道具</h3>
+                <span className="ml-auto text-[10px] tracking-[0.3em] text-[oklch(0.8_0.12_290)]">GEAR · 03</span>
+              </div>
+              <div className="grid sm:grid-cols-2 gap-3">
+                {[
+                  ["🎫", "闖關卡", "標示每個關卡與通關狀態"],
+                  ["📖", "手冊", "完整遊戲規則隨身帶"],
+                  ["🪢", "魔鬼粘", "每位隊員配戴、判定中招"],
+                  ["🎨", "顏色膠帶", "用顏色區分四個組別"],
+                ].map(([icon, name, desc]) => (
+                  <div
+                    key={name}
+                    className="rounded-xl p-4 bg-[oklch(0.2_0.1_280_/_0.45)] border border-[oklch(0.7_0.2_290_/_0.25)] hover:-translate-y-0.5 hover:border-[oklch(0.7_0.2_290_/_0.6)] transition"
+                  >
+                    <div className="text-2xl mb-2">{icon}</div>
+                    <div className="font-black text-foreground">{name}</div>
+                    <div className="text-xs text-muted-foreground mt-1 leading-relaxed">{desc}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Reveal>
+        </div>
+
+        {/* 結局 */}
+        <Reveal delay={200}>
+          <div
+            className="relative mt-6 rounded-3xl p-6 sm:p-8 backdrop-blur overflow-hidden"
+            style={{
+              background: "linear-gradient(135deg, oklch(0.3 0.18 295 / 0.6), oklch(0.22 0.15 270 / 0.55))",
+              border: "1px solid oklch(0.75 0.2 290 / 0.45)",
+              boxShadow: "0 0 50px oklch(0.6 0.25 290 / 0.3)",
+            }}
+          >
+            <div aria-hidden className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[oklch(0.85_0.18_290)] to-transparent" />
+            <div className="flex items-center gap-3 mb-6">
+              <span className="text-2xl">🏆</span>
+              <h3 className="text-2xl sm:text-3xl font-black text-gradient tracking-wide">最終結局</h3>
+              <span className="ml-auto text-[10px] tracking-[0.3em] text-[oklch(0.8_0.12_290)]">ENDING · 04</span>
+            </div>
+            <div className="grid md:grid-cols-3 gap-4">
+              <div className="rounded-2xl p-5 bg-[oklch(0.2_0.1_270_/_0.5)] border border-[oklch(0.7_0.25_25_/_0.4)]">
+                <div className="text-[10px] tracking-[0.3em] text-[oklch(0.9_0.15_25)] font-bold">ENDING 01</div>
+                <div className="mt-2 text-xl font-black text-[oklch(0.9_0.15_25)]">魔王必敗</div>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  地球守衛隊終將取勝，沒有例外。
+                </p>
+              </div>
+              <div className="rounded-2xl p-5 bg-[oklch(0.2_0.1_270_/_0.5)] border border-[oklch(0.7_0.2_290_/_0.5)]">
+                <div className="text-[10px] tracking-[0.3em] text-[oklch(0.9_0.12_290)] font-bold">ENDING 02</div>
+                <div className="mt-2 text-xl font-black text-neon">能量傳遞</div>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  各組依印章高低，化為陳育穎在影片中的戰力。
+                </p>
+              </div>
+              <div className="rounded-2xl p-5 bg-[oklch(0.2_0.1_270_/_0.5)] border border-[oklch(0.7_0.18_145_/_0.45)]">
+                <div className="text-[10px] tracking-[0.3em] text-[oklch(0.85_0.18_145)] font-bold">ENDING 03</div>
+                <div className="mt-2 text-xl font-black text-[oklch(0.85_0.18_145)]">頒獎時刻</div>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  活動後發放參加證明，各組休息完畢後，分數最高者頒獎。
+                </p>
+              </div>
+            </div>
+          </div>
+        </Reveal>
+      </div>
+
+
+
       {/* Bottom mission banner */}
       <Reveal delay={200}>
         <div
