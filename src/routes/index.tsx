@@ -603,7 +603,7 @@ function Escape() {
         ))}
       </div>
 
-      <div className="relative mx-auto max-w-7xl grid lg:grid-cols-2 gap-10 items-center">
+      <div className="relative mx-auto max-w-7xl grid lg:grid-cols-2 gap-10 lg:gap-16 xl:gap-20 items-center">
         {/* LEFT: mission briefing */}
         <div className="relative animate-slide-in-left">
           {/* corner brackets */}
