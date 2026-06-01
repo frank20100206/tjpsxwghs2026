@@ -743,7 +743,7 @@ function Escape() {
         </div>
       </div>
 
-      {/* === MISSION DOSSIER : 規則 / 人員 / 道具 / 結局 === */}
+      {/* === MISSION DOSSIER : 規則 === */}
       <div className="relative mx-auto max-w-7xl mt-20">
         <Reveal>
           <div className="flex items-center gap-3 mb-8">
@@ -775,7 +775,7 @@ function Escape() {
             <ol className="grid sm:grid-cols-2 gap-3 sm:gap-4">
               {[
                 "四個組別。到了大逃殺時間，每組拆成兩小隊。",
-                "每個小隊配上一位隊輔，隊輔要判斷是否被抓到（魔鬼氈）。",
+                "每個小隊配上一位隊輔，隊輔要判斷是否被魔王抓到。",
                 "闖關者要躲避魔王，尋找關主闖關。",
                 "關主需留意，要全員（包括隊輔）在場才允許闖關。",
                 "每個關主能提供的印章數量可不同，關卡也可不同。",
