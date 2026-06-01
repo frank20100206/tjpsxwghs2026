@@ -832,47 +832,6 @@ function Escape() {
             </div>
         </Reveal>
 
-        {/* 結局 */}
-        <Reveal delay={200}>
-          <div
-            className="relative mt-6 rounded-3xl p-6 sm:p-8 backdrop-blur overflow-hidden"
-            style={{
-              background: "linear-gradient(135deg, oklch(0.3 0.18 295 / 0.6), oklch(0.22 0.15 270 / 0.55))",
-              border: "1px solid oklch(0.75 0.2 290 / 0.45)",
-              boxShadow: "0 0 50px oklch(0.6 0.25 290 / 0.3)",
-            }}
-          >
-            <div aria-hidden className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[oklch(0.85_0.18_290)] to-transparent" />
-            <div className="flex items-center gap-3 mb-6">
-              <span className="text-2xl">🏆</span>
-              <h3 className="text-2xl sm:text-3xl font-black text-gradient tracking-wide">最終結局</h3>
-              <span className="ml-auto text-[10px] tracking-[0.3em] text-[oklch(0.8_0.12_290)]">ENDING · 04</span>
-            </div>
-            <div className="grid md:grid-cols-3 gap-4">
-              <div className="rounded-2xl p-5 bg-[oklch(0.2_0.1_270_/_0.5)] border border-[oklch(0.7_0.25_25_/_0.4)]">
-                <div className="text-[10px] tracking-[0.3em] text-[oklch(0.9_0.15_25)] font-bold">ENDING 01</div>
-                <div className="mt-2 text-xl font-black text-[oklch(0.9_0.15_25)]">魔王必敗</div>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  地球守衛隊終將取勝，沒有例外。
-                </p>
-              </div>
-              <div className="rounded-2xl p-5 bg-[oklch(0.2_0.1_270_/_0.5)] border border-[oklch(0.7_0.2_290_/_0.5)]">
-                <div className="text-[10px] tracking-[0.3em] text-[oklch(0.9_0.12_290)] font-bold">ENDING 02</div>
-                <div className="mt-2 text-xl font-black text-neon">能量傳遞</div>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  各組依印章高低，化為陳育穎在影片中的戰力。
-                </p>
-              </div>
-              <div className="rounded-2xl p-5 bg-[oklch(0.2_0.1_270_/_0.5)] border border-[oklch(0.7_0.18_145_/_0.45)]">
-                <div className="text-[10px] tracking-[0.3em] text-[oklch(0.85_0.18_145)] font-bold">ENDING 03</div>
-                <div className="mt-2 text-xl font-black text-[oklch(0.85_0.18_145)]">頒獎時刻</div>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  活動後發放參加證明，各組休息完畢後，分數最高者頒獎。
-                </p>
-              </div>
-            </div>
-          </div>
-        </Reveal>
       </div>
 
 
