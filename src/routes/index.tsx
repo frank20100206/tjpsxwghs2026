@@ -830,8 +830,7 @@ function Escape() {
                 ))}
               </div>
             </div>
-          </Reveal>
-        </div>
+        </Reveal>
 
         {/* 結局 */}
         <Reveal delay={200}>
