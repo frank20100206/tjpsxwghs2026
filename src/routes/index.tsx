@@ -628,7 +628,7 @@ function Escape() {
             <p className="text-lg leading-relaxed text-foreground/90">
               <span className="text-neon font-bold">15:30 倒數啟動。</span>
               <br />
-              潛伏者已封鎖校園，地球守衛隊請立即就位。
+              魔王已封鎖校園，地球守衛隊請立即就位。
             </p>
             <p className="text-base leading-relaxed text-muted-foreground">
               整合一日累積的線索、默契與裝備，
@@ -656,11 +656,11 @@ function Escape() {
             ))}
           </div>
 
-          {/* Roles: 潛伏者 / 逃走者 */}
+          {/* Roles: 魔王 / 逃走者 */}
           <div className="mt-8 grid sm:grid-cols-2 gap-4 max-w-lg">
             <div className="rounded-2xl p-5 border border-[oklch(0.7_0.25_25_/_0.5)] bg-[oklch(0.25_0.12_20_/_0.35)] backdrop-blur hover:-translate-y-1 transition">
               <div className="text-3xl">🕶️</div>
-              <h3 className="mt-2 text-xl font-black text-[oklch(0.9_0.15_25)]">潛伏者</h3>
+              <h3 className="mt-2 text-xl font-black text-[oklch(0.9_0.15_25)]">魔王</h3>
               <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
                 潛伏在校園各處的獵人，冷靜、快速、絕不留情。觸碰出局。
               </p>
@@ -669,7 +669,7 @@ function Escape() {
               <div className="text-3xl">🏃‍♂️</div>
               <h3 className="mt-2 text-xl font-black text-neon">逃走者</h3>
               <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-                你和隊友是地球最後的希望，運用整天累積的線索與默契，撐到鈴響就是勝利。
+                闖關收集印章，運用整天累積的線索與默契，撐到鈴響就是勝利。
               </p>
             </div>
           </div>
@@ -797,40 +797,6 @@ function Escape() {
           </div>
         </Reveal>
 
-        {/* 道具 */}
-        <Reveal delay={120}>
-            <div
-              className="relative h-full rounded-3xl p-6 sm:p-8 backdrop-blur overflow-hidden"
-              style={{
-                background: "linear-gradient(135deg, oklch(0.25 0.15 300 / 0.6), oklch(0.18 0.12 270 / 0.5))",
-                border: "1px solid oklch(0.7 0.2 290 / 0.35)",
-                boxShadow: "0 0 30px oklch(0.55 0.22 290 / 0.18)",
-              }}
-            >
-              <div className="flex items-center gap-3 mb-5">
-                <span className="text-2xl">🎒</span>
-                <h3 className="text-2xl font-black text-neon tracking-wide">任務道具</h3>
-                <span className="ml-auto text-[10px] tracking-[0.3em] text-[oklch(0.8_0.12_290)]">GEAR · 03</span>
-              </div>
-              <div className="grid sm:grid-cols-2 gap-3">
-                {[
-                  ["🎫", "闖關卡", "標示每個關卡與通關狀態"],
-                  ["📖", "手冊", "完整遊戲規則隨身帶"],
-                  ["🪢", "魔鬼粘", "每位隊員配戴、判定中招"],
-                  ["🎨", "顏色膠帶", "用顏色區分四個組別"],
-                ].map(([icon, name, desc]) => (
-                  <div
-                    key={name}
-                    className="rounded-xl p-4 bg-[oklch(0.2_0.1_280_/_0.45)] border border-[oklch(0.7_0.2_290_/_0.25)] hover:-translate-y-0.5 hover:border-[oklch(0.7_0.2_290_/_0.6)] transition"
-                  >
-                    <div className="text-2xl mb-2">{icon}</div>
-                    <div className="font-black text-foreground">{name}</div>
-                    <div className="text-xs text-muted-foreground mt-1 leading-relaxed">{desc}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-        </Reveal>
 
       </div>
 
