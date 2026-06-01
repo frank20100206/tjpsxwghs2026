@@ -96,17 +96,17 @@ const missions = [
 ];
 
 const schedule = [
-  ["09:00", "學員報到"],
-  ["09:30", "開場小劇場 ‧ 任務發佈"],
-  ["09:50", "小隊輔破冰時間"],
-  ["10:20", "小組課程 A"],
-  ["11:10", "小組課程 B"],
-  ["11:50", "用餐 ‧ 午休"],
-  ["13:10", "小組課程 C"],
-  ["14:00", "小組課程 D"],
-  ["14:50", "全員逃走中 大團體戰"],
-  ["15:40", "頒獎 ‧ 大合照"],
-  ["16:00", "賦歸"],
+  ["9:00 AM", "學員報到"],
+  ["9:30 AM", "開場小劇場 ‧ 任務發佈"],
+  ["9:50 AM", "小隊輔破冰時間"],
+  ["10:20 AM", "小組課程 A"],
+  ["11:10 AM", "小組課程 B"],
+  ["11:50 AM", "用餐 ‧ 午休"],
+  ["1:10 PM", "小組課程 C"],
+  ["2:00 PM", "小組課程 D"],
+  ["2:50 PM", "全員逃走中 大團體戰"],
+  ["3:40 PM", "頒獎 ‧ 大合照"],
+  ["4:00 PM", "賦歸"],
 ];
 
 const faqs = [
@@ -124,7 +124,7 @@ const faqs = [
   },
   {
     q: "放學如何接送？",
-    a: "16:00 自行返家，搭乘捷運者由隊輔整隊帶至大橋頭捷運站；家長接送緩衝時間為 16:00–16:30。",
+    a: "4:00 PM 自行返家，搭乘捷運者由隊輔整隊帶至大橋頭捷運站；家長接送緩衝時間為 4:00–4:30 PM。",
   },
 ];
 
@@ -435,7 +435,7 @@ function Schedule() {
 function Apply() {
   const items = [
     ["活動日期", "2026 / 08 / 26（三）"],
-    ["活動時間", "09:00 – 16:00"],
+    ["活動時間", "9:00 AM – 4:00 PM"],
     ["活動地點", "台北市大同區 ‧ 大橋國小"],
     ["招生對象", "大橋國小 二升三、三升四、四升五年級 ‧ 限 30 名"],
     ["報名方式", "紙本報名表（班級發放）／線上報名表單"],
@@ -626,7 +626,7 @@ function Escape() {
 
           <div className="mt-8 space-y-4 max-w-lg">
             <p className="text-lg leading-relaxed text-foreground/90">
-              <span className="text-neon font-bold">15:30 倒數啟動。</span>
+              <span className="text-neon font-bold">3:30 PM 倒數啟動。</span>
               <br />
               魔王已封鎖校園，地球守衛隊請立即就位。
             </p>
@@ -815,7 +815,7 @@ function Escape() {
         >
           <div aria-hidden className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[oklch(0.85_0.18_290)] to-transparent" />
           <p className="relative text-center text-base sm:text-xl font-bold leading-relaxed">
-            撐到 <span className="text-neon">15:30</span> 鈴響，
+            撐到 <span className="text-neon">3:30 PM</span> 鈴響，
             <br className="sm:hidden" />
             你就是真正的 <span className="text-gradient">地球守衛隊精英特務</span>。
           </p>
