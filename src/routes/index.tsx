@@ -799,8 +799,6 @@ function Escape() {
 
         {/* 道具 */}
         <Reveal delay={120}>
-
-          <Reveal delay={160}>
             <div
               className="relative h-full rounded-3xl p-6 sm:p-8 backdrop-blur overflow-hidden"
               style={{
