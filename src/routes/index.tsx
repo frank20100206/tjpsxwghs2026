@@ -797,45 +797,8 @@ function Escape() {
           </div>
         </Reveal>
 
-        {/* 人員配置 + 道具 */}
-        <div className="grid lg:grid-cols-2 gap-6 mt-6">
-          <Reveal delay={120}>
-            <div
-              className="relative h-full rounded-3xl p-6 sm:p-8 backdrop-blur overflow-hidden"
-              style={{
-                background: "linear-gradient(135deg, oklch(0.25 0.15 260 / 0.65), oklch(0.18 0.12 280 / 0.5))",
-                border: "1px solid oklch(0.7 0.2 290 / 0.35)",
-                boxShadow: "0 0 30px oklch(0.55 0.22 290 / 0.18)",
-              }}
-            >
-              <div className="flex items-center gap-3 mb-5">
-                <span className="text-2xl">👥</span>
-                <h3 className="text-2xl font-black text-neon tracking-wide">人員配置</h3>
-                <span className="ml-auto text-[10px] tracking-[0.3em] text-[oklch(0.8_0.12_290)]">UNIT · 02</span>
-              </div>
-              <div className="space-y-3">
-                {[
-                  ["隊輔", "8", "判定魔鬼氈、帶領小隊"],
-                  ["關主", "16", "室內外布場、出題闖關（暫定）"],
-                  ["醫療區", "4", "固定地點、安置受傷隊員"],
-                ].map(([role, count, desc]) => (
-                  <div
-                    key={role}
-                    className="flex items-center gap-4 rounded-xl p-4 bg-[oklch(0.2_0.1_270_/_0.45)] border border-[oklch(0.7_0.2_290_/_0.2)]"
-                  >
-                    <div className="text-3xl sm:text-4xl font-black text-neon tabular-nums leading-none w-14 text-center">
-                      {count}
-                    </div>
-                    <div className="h-10 w-px bg-[oklch(0.7_0.2_290_/_0.4)]" />
-                    <div className="flex-1">
-                      <div className="font-bold text-foreground">{role}</div>
-                      <div className="text-xs text-muted-foreground mt-0.5">{desc}</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </Reveal>
+        {/* 道具 */}
+        <Reveal delay={120}>
 
           <Reveal delay={160}>
             <div
