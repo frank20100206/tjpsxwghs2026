@@ -823,9 +823,11 @@ function Escape() {
         >
           <div aria-hidden className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[oklch(0.85_0.18_290)] to-transparent" />
           <p className="relative text-center text-base sm:text-xl font-bold leading-relaxed">
-            撐到 <span className="text-neon">15:30</span> 鈴響，
-            <br className="sm:hidden" />
-            你就是真正的 <span className="text-gradient">地球守衛隊精英特務</span>。
+            你能在時間結束前完成使命嗎？
+            <br />
+            你的每一枚<span className="text-neon">印章</span>,都將化為守衛隊能量。
+            <br />
+            最終決戰中,你的努力將決定指揮官是否有足夠力量<span className="text-gradient">擊敗魔王</span>。
           </p>
         </div>
       </Reveal>
