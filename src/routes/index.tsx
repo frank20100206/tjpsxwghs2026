@@ -616,8 +616,8 @@ function Escape() {
           </div>
 
           <h2 className="mt-5 text-6xl sm:text-7xl lg:text-8xl font-black leading-[0.9] tracking-tight">
-            <span className="block text-neon animate-neon-pulse">地球</span>
-            <span className="block text-gradient">最終防衛戰</span>
+            <span className="block text-neon animate-neon-pulse">最終任務</span>
+            <span className="block text-gradient">全員逃走中</span>
           </h2>
 
           <p className="mt-4 text-sm sm:text-base tracking-[0.3em] text-[oklch(0.85_0.1_280)]">
