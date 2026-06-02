@@ -269,7 +269,7 @@ function Hero() {
           </div>
           <div className="mt-10 grid grid-cols-3 gap-3 max-w-lg">
             <Stat icon="📅" label="活動日期" big="8/26" sub="2026" />
-            <Stat icon="⏰" label="活動時間" big="9 AM – 4 PM" sub="一整天" />
+            <Stat icon="⏰" label="活動時間" big={"9 AM –\n4 PM"} sub="一整天" />
             <Stat icon="📣" label="招生名額" big="30" sub="升 3 / 4 / 5 年級" />
           </div>
           <Countdown />
