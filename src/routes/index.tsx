@@ -309,7 +309,7 @@ function Stat({ icon, label, big, sub }: { icon: string; label: string; big: str
     <div className="glass rounded-2xl p-4">
       <div className="text-2xl">{icon}</div>
       <div className="mt-2 text-[11px] text-muted-foreground">{label}</div>
-      <div className="text-2xl font-black text-gradient leading-tight">{big}</div>
+      <div className="text-2xl font-black text-gradient leading-tight whitespace-pre-line break-words">{big}</div>
       <div className="text-[11px] text-muted-foreground">{sub}</div>
     </div>
   );
