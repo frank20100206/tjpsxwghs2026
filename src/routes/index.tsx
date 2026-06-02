@@ -616,24 +616,32 @@ function Escape() {
           </div>
 
           <h2 className="mt-5 text-6xl sm:text-7xl lg:text-8xl font-black leading-[0.9] tracking-tight">
-            <span className="block text-neon animate-neon-pulse">全員</span>
-            <span className="block text-gradient">逃走中</span>
+            <span className="block text-neon animate-neon-pulse">地球</span>
+            <span className="block text-gradient">最終防衛戰</span>
           </h2>
 
           <p className="mt-4 text-sm sm:text-base tracking-[0.3em] text-[oklch(0.85_0.1_280)]">
-            ‧ EARTH GUARDIANS · OPERATION RUNAWAY ‧
+            ‧ EARTH GUARDIANS · FINAL DEFENSE ‧
           </p>
 
           <div className="mt-8 space-y-4 max-w-lg">
             <p className="text-lg leading-relaxed text-foreground/90">
-              <span className="text-neon font-bold">15:30 倒數啟動。</span>
+              <span className="text-neon font-bold">上午的訓練已經結束。</span>
               <br />
-              魔王已封鎖校園，地球守衛隊請立即就位。
+              現在,地球守衛隊必須分散行動。
+              <br />
+              在魔王追捕下尋找情報站,
+              <br />
+              回答生態、歷史、科學與能源任務,
+              <br />
+              蒐集拯救地球的能量核心。
             </p>
             <p className="text-base leading-relaxed text-muted-foreground">
-              整合一日累積的線索、默契與裝備，
-              在限時追捕中突破封鎖、撐到鈴響——
-              <span className="text-[oklch(0.9_0.15_290)]">你就是真正的精英特務。</span>
+              你能在時間結束前完成使命嗎?
+              你的每一枚<span className="text-neon font-bold">印章</span>,
+              都將化為守衛隊能量。
+              最終決戰中,
+              <span className="text-[oklch(0.9_0.15_290)]">你的努力將決定指揮官是否有足夠力量擊敗魔王。</span>
             </p>
           </div>
 
