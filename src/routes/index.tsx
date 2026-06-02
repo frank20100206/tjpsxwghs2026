@@ -269,7 +269,7 @@ function Hero() {
           </div>
           <div className="mt-10 grid grid-cols-3 gap-3 max-w-lg">
             <Stat icon="📅" label="活動日期" big="8/26" sub="2026" />
-            <Stat icon="⏰" label="活動時間" big="9 AM – 4 PM" sub="一整天" />
+            <Stat icon="⏰" label="活動時間" big={"9 AM –\n4 PM"} sub="一整天" />
             <Stat icon="📣" label="招生名額" big="30" sub="升 3 / 4 / 5 年級" />
           </div>
           <Countdown />
@@ -309,7 +309,7 @@ function Stat({ icon, label, big, sub }: { icon: string; label: string; big: str
     <div className="glass rounded-2xl p-4">
       <div className="text-2xl">{icon}</div>
       <div className="mt-2 text-[11px] text-muted-foreground">{label}</div>
-      <div className="text-2xl font-black text-gradient leading-tight">{big}</div>
+      <div className="text-2xl font-black text-gradient leading-tight whitespace-pre-line break-words">{big}</div>
       <div className="text-[11px] text-muted-foreground">{sub}</div>
     </div>
   );
