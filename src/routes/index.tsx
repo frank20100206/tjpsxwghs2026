@@ -140,7 +140,6 @@ function Index() {
       <Schedule />
       <Apply />
       <FAQ />
-      <Contact />
       <Footer />
       <BackToTop />
     </div>
