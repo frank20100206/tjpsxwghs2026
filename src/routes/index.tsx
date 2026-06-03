@@ -140,6 +140,7 @@ function Index() {
       <Schedule />
       <Apply />
       <FAQ />
+      <Contact />
       <Footer />
       <BackToTop />
     </div>
@@ -493,6 +494,38 @@ function FAQ() {
               {open === i && (
                 <div className="px-6 pb-5 text-sm text-muted-foreground leading-relaxed">{f.a}</div>
               )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Contact() {
+  const contacts = [
+    { role: "總召", name: "陳育穎", tel: "0938-718-655" },
+    { role: "負責老師", name: "鄭雅文 老師", tel: "0988-968-386" },
+  ];
+  return (
+    <section id="contact" className="px-5 py-20 bg-white/[0.03]">
+      <div className="mx-auto max-w-3xl">
+        <div className="text-center">
+          <p className="text-sm tracking-[0.3em] text-primary">CONTACT</p>
+          <h2 className="mt-3 text-3xl sm:text-4xl font-black">聯絡資訊</h2>
+          <p className="mt-3 text-sm text-muted-foreground">如有任何疑問，歡迎來電洽詢</p>
+        </div>
+        <div className="mt-10 grid sm:grid-cols-2 gap-4">
+          {contacts.map((c) => (
+            <div key={c.role} className="glass rounded-2xl p-6 text-center">
+              <div className="text-xs tracking-widest text-primary">{c.role}</div>
+              <div className="mt-2 text-lg font-bold">{c.name}</div>
+              <a
+                href={`tel:${c.tel.replace(/-/g, "")}`}
+                className="mt-3 inline-block text-base font-bold text-gradient tracking-wider"
+              >
+                📞 {c.tel}
+              </a>
             </div>
           ))}
         </div>
