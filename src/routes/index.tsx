@@ -112,11 +112,11 @@ const schedule = [
 const faqs = [
   {
     q: "誰可以報名？",
-    a: "大橋國小 二年級升三年級、三年級升四年級、四年級升五年級 的同學，限額 30 名。超額將以抽籤方式隨機錄取。",
+    a: "大橋國小 二年級升三年級、三年級升四年級、四年級升五年級 的同學，限額 32 名。報名人數超過名額時，將以抽籤方式隨機錄取。",
   },
   {
     q: "怎麼報名？",
-    a: "提供兩種報名方式：(1) 紙本報名表將由各班級發放，帶回給家長填寫後於截止日前繳回班級導師；(2) 也可直接掃描海報上的 QR Code 或透過線上報名表單完成報名。",
+    a: "本次僅提供線上報名，請掃描海報上的 QR Code 或點擊「立即線上報名」按鈕，至線上表單完成報名。",
   },
   {
     q: "需要自備什麼？",
@@ -140,6 +140,7 @@ function Index() {
       <Schedule />
       <Apply />
       <FAQ />
+      <Contact />
       <Footer />
       <BackToTop />
     </div>
@@ -270,7 +271,7 @@ function Hero() {
           <div className="mt-10 grid grid-cols-3 gap-3 max-w-lg">
             <Stat icon="📅" label="活動日期" big="8/26" sub="2026" />
             <Stat icon="⏰" label="活動時間" big={"9 AM –\n4 PM"} sub="一整天" />
-            <Stat icon="📣" label="招生名額" big="30" sub="升 3 / 4 / 5 年級" />
+            <Stat icon="📣" label="招生名額" big="32" sub="升 3 / 4 / 5 年級" />
           </div>
           <Countdown />
         </div>
@@ -437,9 +438,9 @@ function Apply() {
     ["活動日期", "2026 / 08 / 26（三）"],
     ["活動時間", "09:00 – 16:00"],
     ["活動地點", "台北市大同區 ‧ 大橋國小"],
-    ["招生對象", "大橋國小 二升三、三升四、四升五年級 ‧ 限 30 名"],
-    ["報名方式", "紙本報名表（班級發放）／線上報名表單"],
-    ["主辦單位", "薇閣高中 一年丙班 ‧ 一年己班"],
+    ["招生對象", "大橋國小 二升三、三升四、四升五年級 ‧ 限 32 名（報名超過以抽籤決定）"],
+    ["報名方式", "僅線上報名（線上報名表單）"],
+    ["主辦單位", "薇閣高中 高一甲 ‧ 高一丙 ‧ 高一己"],
   ];
   return (
     <section id="apply" className="px-5 py-24 bg-white/[0.03]">
@@ -493,6 +494,38 @@ function FAQ() {
               {open === i && (
                 <div className="px-6 pb-5 text-sm text-muted-foreground leading-relaxed">{f.a}</div>
               )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Contact() {
+  const contacts = [
+    { role: "總召", name: "陳育穎", tel: "0938-718-655" },
+    { role: "負責老師", name: "鄭雅文 老師", tel: "0988-968-386" },
+  ];
+  return (
+    <section id="contact" className="px-5 py-20 bg-white/[0.03]">
+      <div className="mx-auto max-w-3xl">
+        <div className="text-center">
+          <p className="text-sm tracking-[0.3em] text-primary">CONTACT</p>
+          <h2 className="mt-3 text-3xl sm:text-4xl font-black">聯絡資訊</h2>
+          <p className="mt-3 text-sm text-muted-foreground">如有任何疑問，歡迎來電洽詢</p>
+        </div>
+        <div className="mt-10 grid sm:grid-cols-2 gap-4">
+          {contacts.map((c) => (
+            <div key={c.role} className="glass rounded-2xl p-6 text-center">
+              <div className="text-xs tracking-widest text-primary">{c.role}</div>
+              <div className="mt-2 text-lg font-bold">{c.name}</div>
+              <a
+                href={`tel:${c.tel.replace(/-/g, "")}`}
+                className="mt-3 inline-block text-base font-bold text-gradient tracking-wider"
+              >
+                📞 {c.tel}
+              </a>
             </div>
           ))}
         </div>
@@ -648,7 +681,7 @@ function Escape() {
           {/* mission stats */}
           <div className="mt-8 grid grid-cols-3 gap-3 max-w-lg">
             {[
-              ["TARGETS", "30", "守衛隊員"],
+              ["TARGETS", "32", "守衛隊員"],
               ["DURATION", "40", "MIN"],
               ["LEVEL", "S", "RANK"],
             ].map(([k, v, s]) => (
