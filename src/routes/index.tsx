@@ -474,60 +474,62 @@ function Apply() {
 
 function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
-  return (
-    <section id="faq" className="px-5 py-24">
-      <div className="mx-auto max-w-3xl">
-        <div className="text-center">
-          <p className="text-sm tracking-[0.3em] text-primary">FAQ</p>
-          <h3 className="mt-3 text-4xl sm:text-5xl font-black">常見問題</h3>
-        </div>
-        <div className="mt-10 space-y-3">
-          {faqs.map((f, i) => (
-            <div key={f.q} className="glass rounded-2xl overflow-hidden">
-              <button
-                onClick={() => setOpen(open === i ? null : i)}
-                className="w-full flex items-center justify-between px-6 py-5 text-left text-base font-bold"
-              >
-                <span>{f.q}</span>
-                <span className="text-primary text-xl">{open === i ? "−" : "+"}</span>
-              </button>
-              {open === i && (
-                <div className="px-6 pb-5 text-sm text-muted-foreground leading-relaxed">{f.a}</div>
-              )}
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function Contact() {
   const contacts = [
     { role: "總召", name: "陳育穎", tel: "0938-718-655" },
     { role: "負責老師", name: "鄭雅文 老師", tel: "0988-968-386" },
   ];
   return (
-    <section id="contact" className="px-5 py-20 bg-white/[0.03]">
-      <div className="mx-auto max-w-3xl">
+    <section id="faq" className="px-5 py-24">
+      <div className="mx-auto max-w-6xl">
         <div className="text-center">
-          <p className="text-sm tracking-[0.3em] text-primary">CONTACT</p>
-          <h2 className="mt-3 text-3xl sm:text-4xl font-black">聯絡資訊</h2>
-          <p className="mt-3 text-sm text-muted-foreground">如有任何疑問，歡迎來電洽詢</p>
+          <p className="text-sm tracking-[0.3em] text-primary">FAQ & CONTACT</p>
+          <h3 className="mt-3 text-4xl sm:text-5xl font-black">常見問題 ‧ 聯絡資訊</h3>
         </div>
-        <div className="mt-10 grid sm:grid-cols-2 gap-4">
-          {contacts.map((c) => (
-            <div key={c.role} className="glass rounded-2xl p-6 text-center">
-              <div className="text-xs tracking-widest text-primary">{c.role}</div>
-              <div className="mt-2 text-lg font-bold">{c.name}</div>
-              <a
-                href={`tel:${c.tel.replace(/-/g, "")}`}
-                className="mt-3 inline-block text-base font-bold text-gradient tracking-wider"
-              >
-                📞 {c.tel}
-              </a>
+        <div className="mt-12 grid lg:grid-cols-5 gap-6 lg:gap-10">
+          {/* FAQ — left */}
+          <div className="lg:col-span-3 space-y-3">
+            {faqs.map((f, i) => (
+              <div key={f.q} className="glass rounded-2xl overflow-hidden">
+                <button
+                  onClick={() => setOpen(open === i ? null : i)}
+                  className="w-full flex items-center justify-between px-6 py-5 text-left text-base font-bold"
+                >
+                  <span>{f.q}</span>
+                  <span className="text-primary text-xl">{open === i ? "−" : "+"}</span>
+                </button>
+                {open === i && (
+                  <div className="px-6 pb-5 text-sm text-muted-foreground leading-relaxed">{f.a}</div>
+                )}
+              </div>
+            ))}
+          </div>
+          {/* Contact — right */}
+          <div className="lg:col-span-2" id="contact">
+            <div className="glass rounded-2xl p-6 sm:p-7 h-full">
+              <div>
+                <p className="text-xs tracking-[0.3em] text-primary">CONTACT</p>
+                <h4 className="mt-2 text-2xl font-black">聯絡資訊</h4>
+                <p className="mt-2 text-sm text-muted-foreground">如有任何疑問，歡迎來電洽詢</p>
+              </div>
+              <div className="mt-6 space-y-4">
+                {contacts.map((c) => (
+                  <div
+                    key={c.role}
+                    className="rounded-xl p-4 bg-white/[0.04] border border-white/10"
+                  >
+                    <div className="text-xs tracking-widest text-primary">{c.role}</div>
+                    <div className="mt-1 text-lg font-bold">{c.name}</div>
+                    <a
+                      href={`tel:${c.tel.replace(/-/g, "")}`}
+                      className="mt-2 inline-block text-base font-bold text-gradient tracking-wider"
+                    >
+                      📞 {c.tel}
+                    </a>
+                  </div>
+                ))}
+              </div>
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </section>
