@@ -138,6 +138,7 @@ function Index() {
       <Missions />
       <Escape />
       <Schedule />
+      <Video />
       <Apply />
       <FAQ />
       <Footer />
@@ -161,6 +162,7 @@ function Nav() {
     ["#escape", "全員逃走中"],
     ["#schedule", "當日流程"],
     ["#apply", "報名資訊"],
+    ["#video", "宣傳影片"],
     ["#faq", "常見問題"],
     ["#contact", "聯絡資訊"],
   ];
@@ -467,6 +469,33 @@ function Apply() {
           >
             前往線上報名表單 ↗
           </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Video() {
+  return (
+    <section id="video" className="section-light px-5 py-24">
+      <div className="mx-auto max-w-5xl">
+        <div className="text-center">
+          <p className="text-sm tracking-[0.3em] text-primary">PROMO VIDEO</p>
+          <h3 className="mt-3 text-4xl sm:text-5xl font-black">宣傳影片</h3>
+          <p className="mt-4 text-foreground/70">搶先看 ‧ 全員逃走中 ‧ 守衛隊招募</p>
+        </div>
+        <div className="mt-12 rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-primary/20 bg-black">
+          <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
+            <iframe
+              className="absolute inset-0 h-full w-full"
+              src="https://www.youtube.com/embed/0EcVr-ZtcUY"
+              title="全員逃走中 宣傳影片"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            />
+          </div>
         </div>
       </div>
     </section>
