@@ -738,7 +738,17 @@ function Escape() {
               </p>
             </div>
           </div>
+
+          {/* Mission briefing paragraph */}
+          <p className="mt-8 max-w-lg text-base leading-relaxed text-muted-foreground">
+            你能在時間結束前完成使命嗎?
+            你的每一枚<span className="text-neon font-bold">印章</span>,
+            都將化為守衛隊能量。
+            最終決戰中,
+            <span className="text-[oklch(0.9_0.15_290)]">你的努力將決定指揮官是否有足夠力量擊敗魔王。</span>
+          </p>
         </div>
+
 
 
         {/* RIGHT: characters bursting in from the right, breaking the frame */}
@@ -806,18 +816,8 @@ function Escape() {
             <span>Y: 121.5170° E</span>
           </div>
         </div>
-
-        {/* Mission briefing — under the right-side image */}
-        <div className="lg:col-start-2 -mt-4">
-          <p className="text-base leading-relaxed text-muted-foreground">
-            你能在時間結束前完成使命嗎?
-            你的每一枚<span className="text-neon font-bold">印章</span>,
-            都將化為守衛隊能量。
-            最終決戰中,
-            <span className="text-[oklch(0.9_0.15_290)]">你的努力將決定指揮官是否有足夠力量擊敗魔王。</span>
-          </p>
-        </div>
       </div>
+
 
       {/* === MISSION DOSSIER : 規則 === */}
       <div className="relative mx-auto max-w-7xl mt-10">
