@@ -238,7 +238,7 @@ function Hero() {
       <div className="mx-auto max-w-7xl grid lg:grid-cols-2 gap-12 items-center">
         <div>
           <p className="inline-block rounded-full glass px-4 py-1.5 text-xs tracking-wider">
-            大橋國小 × 薇閣中學 ‧ 2026 暑期一日營隊
+            大橋國小 × 薇閣中學 高一丙己 ‧ 全員逃走中
           </p>
           <h1 className="mt-6 text-6xl sm:text-7xl lg:text-8xl font-black leading-[0.95] text-gradient">
             地球守衛隊
