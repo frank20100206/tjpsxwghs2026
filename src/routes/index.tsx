@@ -713,7 +713,7 @@ function Escape() {
 
 
         {/* RIGHT: characters bursting in from the right, breaking the frame */}
-        <div className="relative h-[420px] sm:h-[520px] md:h-[580px] lg:h-[600px] xl:h-[640px] overflow-hidden lg:overflow-visible rounded-3xl">
+        <div className="relative h-[340px] sm:h-[420px] md:h-[460px] lg:h-[480px] xl:h-[520px] overflow-hidden lg:overflow-visible rounded-3xl">
           {/* HUD frame */}
           <div
             aria-hidden
