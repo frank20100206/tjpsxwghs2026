@@ -138,6 +138,7 @@ function Index() {
       <Missions />
       <Escape />
       <Schedule />
+      <Video />
       <Apply />
       <FAQ />
       <Footer />
