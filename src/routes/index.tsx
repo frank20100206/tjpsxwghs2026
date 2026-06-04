@@ -162,6 +162,7 @@ function Nav() {
     ["#escape", "全員逃走中"],
     ["#schedule", "當日流程"],
     ["#apply", "報名資訊"],
+    ["#video", "宣傳影片"],
     ["#faq", "常見問題"],
     ["#contact", "聯絡資訊"],
   ];
