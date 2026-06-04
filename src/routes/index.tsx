@@ -161,6 +161,8 @@ function Nav() {
     ["#escape", "全員逃走中"],
     ["#schedule", "當日流程"],
     ["#apply", "報名資訊"],
+    ["#faq", "常見問題"],
+    ["#contact", "聯絡資訊"],
   ];
   return (
     <header
@@ -236,7 +238,7 @@ function Hero() {
       <div className="mx-auto max-w-7xl grid lg:grid-cols-2 gap-12 items-center">
         <div>
           <p className="inline-block rounded-full glass px-4 py-1.5 text-xs tracking-wider">
-            大橋國小 × 薇閣中學 ‧ 2026 暑期一日營隊
+            大橋國小 × 薇閣中學 高一丙己 ‧ 全員逃走中
           </p>
           <h1 className="mt-6 text-6xl sm:text-7xl lg:text-8xl font-black leading-[0.95] text-gradient">
             地球守衛隊
@@ -670,21 +672,13 @@ function Escape() {
               <br />
               蒐集拯救地球的能量核心。
             </p>
-            <p className="text-base leading-relaxed text-muted-foreground">
-              你能在時間結束前完成使命嗎?
-              你的每一枚<span className="text-neon font-bold">印章</span>,
-              都將化為守衛隊能量。
-              最終決戰中,
-              <span className="text-[oklch(0.9_0.15_290)]">你的努力將決定指揮官是否有足夠力量擊敗魔王。</span>
-            </p>
           </div>
 
           {/* mission stats */}
-          <div className="mt-8 grid grid-cols-3 gap-3 max-w-lg">
+          <div className="mt-8 grid grid-cols-2 gap-3 max-w-lg">
             {[
               ["TARGETS", "32", "守衛隊員"],
               ["DURATION", "40", "MIN"],
-              ["LEVEL", "S", "RANK"],
             ].map(([k, v, s]) => (
               <div
                 key={k}
@@ -782,6 +776,17 @@ function Escape() {
             <span className="text-[oklch(0.7_0.25_25)]">● LIVE</span>
             <span>Y: 121.5170° E</span>
           </div>
+        </div>
+
+        {/* Mission briefing — under the right-side image */}
+        <div className="lg:col-start-2">
+          <p className="text-base leading-relaxed text-muted-foreground">
+            你能在時間結束前完成使命嗎?
+            你的每一枚<span className="text-neon font-bold">印章</span>,
+            都將化為守衛隊能量。
+            最終決戰中,
+            <span className="text-[oklch(0.9_0.15_290)]">你的努力將決定指揮官是否有足夠力量擊敗魔王。</span>
+          </p>
         </div>
       </div>
 
