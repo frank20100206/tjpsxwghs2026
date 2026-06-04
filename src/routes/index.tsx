@@ -816,9 +816,8 @@ function Escape() {
             <span>Y: 121.5170° E</span>
           </div>
         </div>
-
-        </div>
       </div>
+
 
       {/* === MISSION DOSSIER : 規則 === */}
       <div className="relative mx-auto max-w-7xl mt-10">
