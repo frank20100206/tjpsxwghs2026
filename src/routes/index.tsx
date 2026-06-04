@@ -713,7 +713,7 @@ function Escape() {
 
 
         {/* RIGHT: characters bursting in from the right, breaking the frame */}
-        <div className="relative h-[420px] sm:h-[520px] md:h-[580px] lg:h-[600px] xl:h-[640px] overflow-hidden lg:overflow-visible rounded-3xl">
+        <div className="relative h-[340px] sm:h-[420px] md:h-[460px] lg:h-[480px] xl:h-[520px] overflow-hidden lg:overflow-visible rounded-3xl">
           {/* HUD frame */}
           <div
             aria-hidden
@@ -779,7 +779,7 @@ function Escape() {
         </div>
 
         {/* Mission briefing — under the right-side image */}
-        <div className="lg:col-start-2">
+        <div className="lg:col-start-2 -mt-4">
           <p className="text-base leading-relaxed text-muted-foreground">
             你能在時間結束前完成使命嗎?
             你的每一枚<span className="text-neon font-bold">印章</span>,
@@ -791,7 +791,7 @@ function Escape() {
       </div>
 
       {/* === MISSION DOSSIER : 規則 === */}
-      <div className="relative mx-auto max-w-7xl mt-20">
+      <div className="relative mx-auto max-w-7xl mt-10">
         <Reveal>
           <div className="flex items-center gap-3 mb-8">
             <span className="h-px flex-1 bg-gradient-to-r from-transparent via-[oklch(0.7_0.2_290_/_0.6)] to-[oklch(0.7_0.2_290_/_0.6)]" />
