@@ -672,21 +672,13 @@ function Escape() {
               <br />
               蒐集拯救地球的能量核心。
             </p>
-            <p className="text-base leading-relaxed text-muted-foreground">
-              你能在時間結束前完成使命嗎?
-              你的每一枚<span className="text-neon font-bold">印章</span>,
-              都將化為守衛隊能量。
-              最終決戰中,
-              <span className="text-[oklch(0.9_0.15_290)]">你的努力將決定指揮官是否有足夠力量擊敗魔王。</span>
-            </p>
           </div>
 
           {/* mission stats */}
-          <div className="mt-8 grid grid-cols-3 gap-3 max-w-lg">
+          <div className="mt-8 grid grid-cols-2 gap-3 max-w-lg">
             {[
               ["TARGETS", "32", "守衛隊員"],
               ["DURATION", "40", "MIN"],
-              ["LEVEL", "S", "RANK"],
             ].map(([k, v, s]) => (
               <div
                 key={k}
