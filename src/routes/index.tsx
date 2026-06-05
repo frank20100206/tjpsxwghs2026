@@ -209,7 +209,7 @@ function Nav() {
       </div>
       <div
         className={`md:hidden overflow-hidden transition-[max-height,opacity] duration-300 ${
-          open ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+          open ? "max-h-[80vh] opacity-100 overflow-y-auto" : "max-h-0 opacity-0"
         }`}
       >
         <nav className="px-5 pb-4 pt-1 flex flex-col gap-1 text-sm">
