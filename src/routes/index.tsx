@@ -112,7 +112,7 @@ const schedule = [
 const faqs = [
   {
     q: "誰可以報名？",
-    a: "大橋國小 二年級升三年級、三年級升四年級、四年級升五年級 的同學，限額 32 名。報名人數超過名額時，將以抽籤方式隨機錄取。",
+    a: "大橋國小 二年級升三年級、三年級升四年級、四年級升五年級 的同學，限額 32 名。報名人數若超出名額限制，將依抽籤結果決定錄取名單。",
   },
   {
     q: "怎麼報名？",
@@ -209,7 +209,7 @@ function Nav() {
       </div>
       <div
         className={`md:hidden overflow-hidden transition-[max-height,opacity] duration-300 ${
-          open ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+          open ? "max-h-[80vh] opacity-100 overflow-y-auto" : "max-h-0 opacity-0"
         }`}
       >
         <nav className="px-5 pb-4 pt-1 flex flex-col gap-1 text-sm">
@@ -441,7 +441,7 @@ function Apply() {
     ["活動日期", "2026 / 08 / 26（三）"],
     ["活動時間", "09:00 – 16:00"],
     ["活動地點", "台北市大同區 ‧ 大橋國小"],
-    ["招生對象", "大橋國小 二升三、三升四、四升五年級 ‧ 限 32 名（報名超過以抽籤決定）"],
+    ["招生對象", "大橋國小 二升三、三升四、四升五年級 ‧ 限 32 名（報名人數若超出名額限制，將依抽籤結果決定錄取名單）"],
     ["報名方式", "僅線上報名（線上報名表單）"],
     ["主辦單位", "薇閣高中 高一丙 ‧ 高一己"],
   ];
@@ -488,7 +488,7 @@ function Video() {
           <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
             <iframe
               className="absolute inset-0 h-full w-full"
-              src="https://www.youtube.com/embed/0EcVr-ZtcUY"
+              src="https://www.youtube.com/embed/x2Ya1swTCp0"
               title="全員逃走中 宣傳影片"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -505,8 +505,8 @@ function Video() {
 function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
   const contacts = [
-    { role: "總召", name: "陳育穎", tel: "0938-718-655" },
-    { role: "負責老師", name: "鄭雅文 老師", tel: "0988-968-386" },
+    { role: "負責老師", name: "鄭雅文 老師", email: "ywcheng23@gmail.com" },
+    { role: "總召", name: "陳育穎", email: "h1140635@stu.wghs.tp.edu.tw" },
   ];
   return (
     <section id="faq" className="px-5 py-24">
@@ -539,7 +539,7 @@ function FAQ() {
               <div>
                 <p className="text-xs tracking-[0.3em] text-primary">CONTACT</p>
                 <h4 className="mt-2 text-2xl font-black">聯絡資訊</h4>
-                <p className="mt-2 text-sm text-muted-foreground">如有任何疑問，歡迎來電洽詢</p>
+                <p className="mt-2 text-sm text-muted-foreground">如有任何疑問，歡迎來信洽詢</p>
               </div>
               <div className="mt-6 space-y-4">
                 {contacts.map((c) => (
@@ -550,10 +550,10 @@ function FAQ() {
                     <div className="text-xs tracking-widest text-primary">{c.role}</div>
                     <div className="mt-1 text-lg font-bold">{c.name}</div>
                     <a
-                      href={`tel:${c.tel.replace(/-/g, "")}`}
-                      className="mt-2 inline-block text-base font-bold text-gradient tracking-wider"
+                      href={`mailto:${c.email}`}
+                      className="mt-2 inline-block text-base font-bold text-gradient tracking-wider break-all"
                     >
-                      📞 {c.tel}
+                      ✉️ {c.email}
                     </a>
                   </div>
                 ))}
