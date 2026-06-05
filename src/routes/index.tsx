@@ -550,10 +550,10 @@ function FAQ() {
                     <div className="text-xs tracking-widest text-primary">{c.role}</div>
                     <div className="mt-1 text-lg font-bold">{c.name}</div>
                     <a
-                      href={`tel:${c.tel.replace(/-/g, "")}`}
-                      className="mt-2 inline-block text-base font-bold text-gradient tracking-wider"
+                      href={`mailto:${c.email}`}
+                      className="mt-2 inline-block text-base font-bold text-gradient tracking-wider break-all"
                     >
-                      📞 {c.tel}
+                      ✉️ {c.email}
                     </a>
                   </div>
                 ))}
