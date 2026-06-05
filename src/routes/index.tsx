@@ -505,8 +505,8 @@ function Video() {
 function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
   const contacts = [
-    { role: "負責老師", name: "鄭雅文 老師", email: "ywcheng23@gmail.com" },
-    { role: "總召", name: "陳育穎", email: "h1140635@stu.wghs.tp.edu.tw" },
+    { role: "負責老師", name: "鄭雅文 老師", email: "ywcheng23@gmail.com", phone: "0988968386" },
+    { role: "總召", name: "陳育穎", email: "h1140635@stu.wghs.tp.edu.tw", phone: "0938718655" },
   ];
   return (
     <section id="faq" className="px-5 py-24">
@@ -539,7 +539,7 @@ function FAQ() {
               <div>
                 <p className="text-xs tracking-[0.3em] text-primary">CONTACT</p>
                 <h4 className="mt-2 text-2xl font-black">聯絡資訊</h4>
-                <p className="mt-2 text-sm text-muted-foreground">如有任何疑問，歡迎來信洽詢</p>
+                <p className="mt-2 text-sm text-muted-foreground">如有任何疑問，歡迎來信或來電洽詢</p>
               </div>
               <div className="mt-6 space-y-4">
                 {contacts.map((c) => (
@@ -551,9 +551,15 @@ function FAQ() {
                     <div className="mt-1 text-lg font-bold">{c.name}</div>
                     <a
                       href={`mailto:${c.email}`}
-                      className="mt-2 inline-block text-base font-bold text-gradient tracking-wider break-all"
+                      className="mt-2 inline-block text-sm font-bold text-gradient tracking-wider break-all"
                     >
                       ✉️ {c.email}
+                    </a>
+                    <a
+                      href={`tel:${c.phone}`}
+                      className="mt-1 block text-sm font-bold text-gradient tracking-wider"
+                    >
+                      📞 {c.phone}
                     </a>
                   </div>
                 ))}
