@@ -581,7 +581,13 @@ function Footer() {
 }
 
 function Countdown() {
-  const { ready, d, h, m, s } = useCountdown(new Date("2026-08-26T09:00:00+08:00"));
+  const deadline = new Date("2026-06-13T00:00:00+08:00");
+  const eventDate = new Date("2026-08-26T09:00:00+08:00");
+  const deadlineCd = useCountdown(deadline);
+  const eventCd = useCountdown(eventDate);
+  const deadlinePassed = deadlineCd.ready && deadlineCd.d === 0 && deadlineCd.h === 0 && deadlineCd.m === 0 && deadlineCd.s === 0;
+  const { ready, d, h, m, s } = deadlinePassed ? eventCd : deadlineCd;
+  const label = deadlinePassed ? "距離出任務還有" : "距離報名截止還有";
   const cells: [string, number][] = [
     ["DAYS", d],
     ["HRS", h],
@@ -590,7 +596,7 @@ function Countdown() {
   ];
   return (
     <div className="mt-6 glass rounded-2xl p-4 max-w-lg">
-      <div className="text-[11px] tracking-[0.3em] text-primary mb-2">距離出任務還有</div>
+      <div className="text-[11px] tracking-[0.3em] text-primary mb-2">{label}</div>
       <div className="grid grid-cols-4 gap-2">
         {cells.map(([l, v]) => (
           <div key={l} className="text-center bg-white/5 rounded-xl py-3">
