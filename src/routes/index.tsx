@@ -443,7 +443,7 @@ function Apply() {
     ["活動地點", "台北市大同區 ‧ 大橋國小"],
     ["招生對象", "大橋國小 二升三、三升四、四升五年級 ‧ 限 32 名（報名人數若超出名額限制，將依抽籤結果決定錄取名單）"],
     ["報名方式", "線上表單填寫"],
-    ["主辦單位", "薇閣高中 高一丙 ‧ 高一己"],
+    ["指導單位", "大橋國小 ‧ 薇閣中學 高一丙 ‧ 高一己 班級導師"],
   ];
   return (
     <section id="apply" className="px-5 py-24 bg-white/[0.03]">
@@ -555,12 +555,6 @@ function FAQ() {
                     >
                       ✉️ {c.email}
                     </a>
-                    <a
-                      href={`tel:${c.phone}`}
-                      className="mt-1 block text-sm font-bold text-gradient tracking-wider"
-                    >
-                      📞 {c.phone}
-                    </a>
                   </div>
                 ))}
               </div>
@@ -581,26 +575,54 @@ function Footer() {
 }
 
 function Countdown() {
-  const deadline = new Date("2026-06-13T00:00:00+08:00");
+  const deadline = new Date("2026-06-23T00:00:00+08:00");
   const eventDate = new Date("2026-08-26T09:00:00+08:00");
   const deadlineCd = useCountdown(deadline);
   const eventCd = useCountdown(eventDate);
   const deadlinePassed = deadlineCd.ready && deadlineCd.d === 0 && deadlineCd.h === 0 && deadlineCd.m === 0 && deadlineCd.s === 0;
   const { ready, d, h, m, s } = deadlinePassed ? eventCd : deadlineCd;
-  const label = deadlinePassed ? "距離出任務還有" : "距離報名截止還有";
+  const label = deadlinePassed ? "距離出任務還有" : "距離報名截止只剩";
   const cells: [string, number][] = [
     ["DAYS", d],
     ["HRS", h],
     ["MIN", m],
     ["SEC", s],
   ];
+  const alert = !deadlinePassed;
   return (
-    <div className="mt-6 glass rounded-2xl p-4 max-w-lg">
-      <div className="text-[11px] tracking-[0.3em] text-primary mb-2">{label}</div>
+    <div
+      className={`mt-6 glass rounded-2xl p-4 max-w-lg relative overflow-hidden ${
+        alert ? "ring-2 ring-red-400/60 shadow-[0_0_30px_-5px_rgba(248,113,113,0.6)]" : ""
+      }`}
+    >
+      {alert && (
+        <span className="pointer-events-none absolute -top-1 -right-1 flex h-3 w-3">
+          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-400 opacity-75"></span>
+          <span className="relative inline-flex h-3 w-3 rounded-full bg-red-500"></span>
+        </span>
+      )}
+      <div
+        className={`text-[11px] tracking-[0.3em] mb-2 flex items-center gap-2 ${
+          alert ? "text-red-300 animate-pulse font-bold" : "text-primary"
+        }`}
+      >
+        {alert && <span className="text-base">⚠️</span>}
+        <span>{label}</span>
+        {alert && <span className="text-[10px] tracking-[0.2em] text-red-300/80">‧ 6/22 截止</span>}
+      </div>
       <div className="grid grid-cols-4 gap-2">
         {cells.map(([l, v]) => (
-          <div key={l} className="text-center bg-white/5 rounded-xl py-3">
-            <div className="text-2xl sm:text-3xl font-black text-gradient tabular-nums">
+          <div
+            key={l}
+            className={`text-center rounded-xl py-3 ${
+              alert ? "bg-red-500/10 border border-red-400/30" : "bg-white/5"
+            }`}
+          >
+            <div
+              className={`text-2xl sm:text-3xl font-black tabular-nums ${
+                alert ? "text-red-200 drop-shadow-[0_0_8px_rgba(248,113,113,0.7)]" : "text-gradient"
+              }`}
+            >
               {ready ? String(v).padStart(2, "0") : "--"}
             </div>
             <div className="text-[10px] text-muted-foreground tracking-widest">{l}</div>
@@ -610,6 +632,7 @@ function Countdown() {
     </div>
   );
 }
+
 
 function Escape() {
   // deterministic particle positions to avoid hydration mismatch
