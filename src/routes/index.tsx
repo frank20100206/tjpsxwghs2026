@@ -488,7 +488,7 @@ function Video() {
           <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
             <iframe
               className="absolute inset-0 h-full w-full"
-              src="https://www.youtube.com/embed/x2Ya1swTCp0"
+              src="https://www.youtube.com/embed/22W9XpWdLpU"
               title="全員逃走中 宣傳影片"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -592,35 +592,28 @@ function Countdown() {
   return (
     <div
       className={`mt-6 glass rounded-2xl p-4 max-w-lg relative overflow-hidden ${
-        alert ? "ring-2 ring-red-400/60 shadow-[0_0_30px_-5px_rgba(248,113,113,0.6)]" : ""
+        alert ? "ring-1 ring-sky-300/50 shadow-[0_0_30px_-5px_rgba(125,211,252,0.5)]" : ""
       }`}
     >
-      {alert && (
-        <span className="pointer-events-none absolute -top-1 -right-1 flex h-3 w-3">
-          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-400 opacity-75"></span>
-          <span className="relative inline-flex h-3 w-3 rounded-full bg-red-500"></span>
-        </span>
-      )}
       <div
         className={`text-[11px] tracking-[0.3em] mb-2 flex items-center gap-2 ${
-          alert ? "text-red-300 animate-pulse font-bold" : "text-primary"
+          alert ? "text-sky-200 animate-pulse font-bold" : "text-primary"
         }`}
       >
-        {alert && <span className="text-base">⚠️</span>}
         <span>{label}</span>
-        {alert && <span className="text-[10px] tracking-[0.2em] text-red-300/80">‧ 6/22 截止</span>}
+        {alert && <span className="text-[10px] tracking-[0.2em] text-sky-200/80">‧ 6/22 截止</span>}
       </div>
       <div className="grid grid-cols-4 gap-2">
         {cells.map(([l, v]) => (
           <div
             key={l}
             className={`text-center rounded-xl py-3 ${
-              alert ? "bg-red-500/10 border border-red-400/30" : "bg-white/5"
+              alert ? "bg-sky-400/10 border border-sky-300/30" : "bg-white/5"
             }`}
           >
             <div
               className={`text-2xl sm:text-3xl font-black tabular-nums ${
-                alert ? "text-red-200 drop-shadow-[0_0_8px_rgba(248,113,113,0.7)]" : "text-gradient"
+                alert ? "text-sky-100 drop-shadow-[0_0_8px_rgba(125,211,252,0.7)]" : "text-gradient"
               }`}
             >
               {ready ? String(v).padStart(2, "0") : "--"}
