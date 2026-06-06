@@ -555,12 +555,6 @@ function FAQ() {
                     >
                       ✉️ {c.email}
                     </a>
-                    <a
-                      href={`tel:${c.phone}`}
-                      className="mt-1 block text-sm font-bold text-gradient tracking-wider"
-                    >
-                      📞 {c.phone}
-                    </a>
                   </div>
                 ))}
               </div>
