@@ -539,7 +539,7 @@ function FAQ() {
               <div>
                 <p className="text-xs tracking-[0.3em] text-primary">CONTACT</p>
                 <h4 className="mt-2 text-2xl font-black">聯絡資訊</h4>
-                <p className="mt-2 text-sm text-muted-foreground">如有任何疑問，歡迎來信或來電洽詢</p>
+                <p className="mt-2 text-sm text-muted-foreground">如有任何疑問，歡迎來信洽詢</p>
               </div>
               <div className="mt-6 space-y-4">
                 {contacts.map((c) => (
