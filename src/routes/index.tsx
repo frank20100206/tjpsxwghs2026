@@ -488,7 +488,7 @@ function Video() {
           <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
             <iframe
               className="absolute inset-0 h-full w-full"
-              src="https://www.youtube.com/embed/x2Ya1swTCp0"
+              src="https://www.youtube.com/embed/22W9XpWdLpU"
               title="全員逃走中 宣傳影片"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
