@@ -250,9 +250,17 @@ function HeroCarousel() {
   const [i, setI] = useState(0);
   const prev = () => setI((v) => (v - 1 + slides.length) % slides.length);
   const next = () => setI((v) => (v + 1) % slides.length);
+  const glowBg =
+    i === 0
+      ? "radial-gradient(ellipse 60% 60% at 50% 50%, oklch(0.08 0.02 265 / 0.95), transparent 75%)"
+      : "radial-gradient(ellipse 60% 60% at 50% 50%, oklch(0.28 0.13 265 / 0.85), transparent 75%)";
   return (
     <div className="relative animate-float">
-      <div className="pointer-events-none absolute -inset-16 rounded-[3rem] blur-3xl" style={{ background: "radial-gradient(ellipse 60% 60% at 50% 50%, oklch(0.28 0.13 265 / 0.85), transparent 75%)" }} />
+      <div
+        className="pointer-events-none absolute -inset-16 rounded-[3rem] blur-3xl transition-[background] duration-700"
+        style={{ background: glowBg }}
+      />
+
       <div className="relative">
         {slides.map((s, idx) => (
           <div
