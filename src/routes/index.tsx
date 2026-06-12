@@ -279,31 +279,8 @@ function Hero() {
           </div>
           <Countdown />
         </div>
-        <div className="relative animate-float">
-          <div className="absolute -inset-6 rounded-3xl bg-gradient-to-br from-sky/40 to-mint/30 blur-3xl" />
-          <div className="relative">
-            <img
-              src={flyerHero}
-              alt="地球守衛隊 活動主視覺"
-              className="relative rounded-3xl shadow-2xl ring-1 ring-white/20"
-            />
-            <img
-              src={characterBoy}
-              alt=""
-              aria-hidden
-              className="pointer-events-none absolute left-[-4%] top-[26%] w-[40%] animate-sway-left origin-bottom drop-shadow-[0_24px_32px_rgba(0,0,0,0.55)]"
-            />
-            <img
-              src={characterGirl}
-              alt=""
-              aria-hidden
-              className="pointer-events-none absolute right-[-4%] top-[26%] w-[38%] animate-sway-right origin-bottom drop-shadow-[0_24px_32px_rgba(0,0,0,0.55)]"
-            />
-          </div>
-          <div className="absolute -bottom-4 left-4 glass rounded-full px-4 py-2 text-xs font-bold">
-            ✦ 8/26 倒數中
-          </div>
-        </div>
+        <HeroCarousel />
+
       </div>
     </section>
   );
