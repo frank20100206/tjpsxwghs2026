@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import flyerHero from "@/assets/flyer-hero.png";
 import flyerHeroEmpty from "@/assets/flyer-hero-empty.png.asset.json";
+import detectiveCharacter from "@/assets/detective-character.png.asset.json";
 import characterBoy from "@/assets/character-boy.png";
 import characterGirl from "@/assets/character-girl.png";
 import escapeRunnerGirl from "@/assets/escape-runner-girl.png";
