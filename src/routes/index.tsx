@@ -237,8 +237,8 @@ function HeroCarousel() {
       bg: flyerHero,
       mask: "radial-gradient(ellipse 100% 100% at 50% 50%, #000 60%, transparent 100%)",
       overlays: [
-        { src: characterBoy, className: "left-[-4%] top-[26%] w-[40%] animate-sway-left" },
-        { src: characterGirl, className: "right-[-4%] top-[26%] w-[38%] animate-sway-right" },
+        { src: characterBoy, className: "left-[-1%] top-[24%] w-[43%] sm:left-[-4%] sm:top-[26%] sm:w-[40%] animate-sway-left" },
+        { src: characterGirl, className: "right-[-1%] top-[25%] w-[41%] sm:right-[-4%] sm:top-[26%] sm:w-[38%] animate-sway-right" },
       ],
     },
     {
@@ -302,7 +302,7 @@ function HeroCarousel() {
                 src={o.src}
                 alt=""
                 aria-hidden
-                className={`pointer-events-none absolute origin-bottom drop-shadow-[0_24px_32px_rgba(0,0,0,0.55)] ${o.className}`}
+                className={`pointer-events-none absolute z-20 origin-bottom select-none drop-shadow-[0_24px_32px_rgba(0,0,0,0.55)] ${o.className}`}
               />
             ))}
           </div>
@@ -374,6 +374,9 @@ function Hero() {
               探索四大任務
             </a>
           </div>
+          <div className="mt-8 lg:hidden">
+            <HeroCarousel />
+          </div>
           <div className="mt-10 grid grid-cols-3 gap-3 max-w-lg">
             <Stat icon="📅" label="活動日期" big="8/26" sub="2026" />
             <Stat icon="⏰" label="活動時間" big={"9 AM –\n4 PM"} sub="一整天" />
@@ -381,7 +384,9 @@ function Hero() {
           </div>
           <Countdown />
         </div>
-        <HeroCarousel />
+        <div className="hidden lg:block">
+          <HeroCarousel />
+        </div>
 
       </div>
     </section>
