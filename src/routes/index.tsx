@@ -291,9 +291,9 @@ function HeroCarousel() {
               className="relative rounded-3xl w-full"
               style={{
                 WebkitMaskImage:
-                  "radial-gradient(ellipse 100% 100% at 50% 50%, #000 60%, transparent 100%)",
+                  "radial-gradient(ellipse 100% 100% at 50% 50%, #000 92%, transparent 100%)",
                 maskImage:
-                  "radial-gradient(ellipse 100% 100% at 50% 50%, #000 60%, transparent 100%)",
+                  "radial-gradient(ellipse 100% 100% at 50% 50%, #000 92%, transparent 100%)",
               }}
             />
             {s.overlays.map((o, oi) => (
