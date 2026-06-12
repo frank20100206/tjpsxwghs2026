@@ -108,12 +108,12 @@
     --sun: oklch(0.88 0.16 90);
     --border: oklch(0.55 0.12 265 / 35%);
   }
-  /* Light sections switch to black + amber under amber theme */
+  /* Light sections switch to black + amber under amber theme — keep base transparent so fixed stars show through */
   body[data-theme="amber"] .section-light {
     background:
-      radial-gradient(800px 400px at 10% 0%, oklch(0.22 0.10 60 / 0.55), transparent 60%),
-      radial-gradient(700px 400px at 95% 100%, oklch(0.18 0.08 50 / 0.45), transparent 60%),
-      linear-gradient(180deg, oklch(0.08 0.02 60), oklch(0.05 0.01 60)) !important;
+      radial-gradient(800px 400px at 10% 0%, oklch(0.22 0.10 60 / 0.45), transparent 60%),
+      radial-gradient(700px 400px at 95% 100%, oklch(0.18 0.08 50 / 0.35), transparent 60%) !important;
+    background-color: transparent !important;
     color: oklch(0.92 0.06 80) !important;
   }
   body[data-theme="amber"] .section-light .text-muted-foreground {
