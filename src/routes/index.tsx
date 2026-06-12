@@ -292,10 +292,8 @@ function HeroCarousel() {
               alt="地球守衛隊 活動主視覺"
               className="relative rounded-3xl w-full"
               style={{
-                WebkitMaskImage:
-                  "radial-gradient(ellipse 100% 100% at 50% 50%, #000 92%, transparent 100%)",
-                maskImage:
-                  "radial-gradient(ellipse 100% 100% at 50% 50%, #000 92%, transparent 100%)",
+                WebkitMaskImage: s.mask,
+                maskImage: s.mask,
               }}
             />
             {s.overlays.map((o, oi) => (
