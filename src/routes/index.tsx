@@ -243,7 +243,7 @@ function HeroCarousel() {
     {
       bg: flyerHeroEmpty.url,
       overlays: [
-        { src: detectiveCharacter.url, className: "right-[-4%] top-[42%] w-[60%] animate-sway-right" },
+        { src: detectiveCharacter.url, className: "right-[-8%] top-[38%] w-[70%] animate-sway-right" },
       ],
     },
   ];
@@ -252,7 +252,7 @@ function HeroCarousel() {
   const next = () => setI((v) => (v + 1) % slides.length);
   return (
     <div className="relative animate-float">
-      <div className="absolute -inset-6 rounded-3xl bg-gradient-to-br from-sky/40 to-mint/30 blur-3xl" />
+      <div className="pointer-events-none absolute -inset-16 rounded-[3rem] blur-3xl" style={{ background: "radial-gradient(ellipse 60% 60% at 50% 50%, oklch(0.28 0.13 265 / 0.85), transparent 75%)" }} />
       <div className="relative">
         {slides.map((s, idx) => (
           <div
@@ -266,12 +266,11 @@ function HeroCarousel() {
               className="relative rounded-3xl w-full"
               style={{
                 WebkitMaskImage:
-                  "radial-gradient(ellipse 95% 95% at 50% 50%, #000 55%, transparent 100%)",
+                  "radial-gradient(ellipse 100% 100% at 50% 50%, #000 60%, transparent 100%)",
                 maskImage:
-                  "radial-gradient(ellipse 95% 95% at 50% 50%, #000 55%, transparent 100%)",
+                  "radial-gradient(ellipse 100% 100% at 50% 50%, #000 60%, transparent 100%)",
               }}
             />
-            <div className="pointer-events-none absolute inset-0 rounded-3xl" style={{ boxShadow: "inset 0 0 120px 40px oklch(0.28 0.13 265)" }} />
             {s.overlays.map((o, oi) => (
               <img
                 key={oi}
