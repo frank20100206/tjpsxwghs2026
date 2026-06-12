@@ -456,7 +456,7 @@ function Apply() {
           {items.map(([t, d]) => (
             <div key={t} className="glass rounded-2xl p-6">
               <div className="text-xs tracking-widest text-primary">{t}</div>
-              <div className="mt-2 text-lg font-bold">{d}</div>
+              <div className="mt-2 text-lg font-bold whitespace-pre-line">{d}</div>
             </div>
           ))}
         </div>
