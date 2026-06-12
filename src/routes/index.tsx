@@ -554,13 +554,19 @@ function FAQ() {
                     className="rounded-xl p-4 bg-white/[0.04] border border-white/10"
                   >
                     <div className="text-xs tracking-widest text-primary">{c.role}</div>
-                    <div className="mt-1 text-lg font-bold">{c.name}</div>
-                    <a
-                      href={`mailto:${c.email}`}
-                      className="mt-2 inline-block text-sm font-bold text-gradient tracking-wider break-all"
-                    >
-                      ✉️ {c.email}
-                    </a>
+                    <div className="mt-2 space-y-3">
+                      {c.members.map((m) => (
+                        <div key={m.email}>
+                          <div className="text-lg font-bold">{m.name}</div>
+                          <a
+                            href={`mailto:${m.email}`}
+                            className="mt-1 inline-block text-sm font-bold text-gradient tracking-wider break-all"
+                          >
+                            ✉️ {m.email}
+                          </a>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 ))}
               </div>
