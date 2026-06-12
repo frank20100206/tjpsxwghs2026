@@ -149,18 +149,23 @@
     pointer-events: none;
     z-index: 0;
     background-image:
-      radial-gradient(1.5px 1.5px at 12% 22%, white, transparent 60%),
-      radial-gradient(1px 1px at 68% 58%, white, transparent 60%),
-      radial-gradient(1.5px 1.5px at 38% 78%, white, transparent 60%),
-      radial-gradient(1px 1px at 82% 18%, white, transparent 60%),
-      radial-gradient(1px 1px at 8% 68%, white, transparent 60%),
-      radial-gradient(2px 2px at 52% 12%, white, transparent 60%),
-      radial-gradient(1px 1px at 28% 48%, white, transparent 60%),
-      radial-gradient(1.5px 1.5px at 92% 82%, white, transparent 60%);
-    background-size: 900px 900px;
+      radial-gradient(2.5px 2.5px at 12% 22%, white, transparent 65%),
+      radial-gradient(2px 2px at 68% 58%, white, transparent 65%),
+      radial-gradient(2.5px 2.5px at 38% 78%, white, transparent 65%),
+      radial-gradient(2px 2px at 82% 18%, white, transparent 65%),
+      radial-gradient(2px 2px at 8% 68%, white, transparent 65%),
+      radial-gradient(3px 3px at 52% 12%, white, transparent 65%),
+      radial-gradient(2px 2px at 28% 48%, white, transparent 65%),
+      radial-gradient(2.5px 2.5px at 92% 82%, white, transparent 65%),
+      radial-gradient(1.5px 1.5px at 45% 35%, white, transparent 60%),
+      radial-gradient(1.5px 1.5px at 75% 88%, white, transparent 60%),
+      radial-gradient(2px 2px at 18% 92%, white, transparent 60%),
+      radial-gradient(1.5px 1.5px at 60% 25%, white, transparent 60%);
+    background-size: 700px 700px;
     background-repeat: repeat;
-    opacity: 0.55;
-    animation: twinkle 5s ease-in-out infinite;
+    opacity: 0.9;
+    filter: drop-shadow(0 0 3px white) drop-shadow(0 0 6px oklch(0.85 0.1 230 / 0.6));
+    animation: twinkle 4s ease-in-out infinite;
   }
 }
 
