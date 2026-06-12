@@ -683,11 +683,13 @@ function Countdown() {
   const alert = !deadlinePassed;
   return (
     <div
+      data-countdown
       className={`mt-6 glass rounded-2xl p-4 max-w-lg relative overflow-hidden ${
         alert ? "ring-1 ring-sky-300/50 shadow-[0_0_30px_-5px_rgba(125,211,252,0.5)]" : ""
       }`}
     >
       <div
+        data-countdown-label
         className={`text-[11px] tracking-[0.3em] mb-2 flex items-center gap-2 ${
           alert ? "text-sky-200 animate-pulse font-bold" : "text-primary"
         }`}
@@ -699,11 +701,13 @@ function Countdown() {
         {cells.map(([l, v]) => (
           <div
             key={l}
+            data-countdown-cell
             className={`text-center rounded-xl py-3 ${
               alert ? "bg-sky-400/10 border border-sky-300/30" : "bg-white/5"
             }`}
           >
             <div
+              data-countdown-value
               className={`text-2xl sm:text-3xl font-black tabular-nums ${
                 alert ? "text-sky-100 drop-shadow-[0_0_8px_rgba(125,211,252,0.7)]" : "text-gradient"
               }`}
