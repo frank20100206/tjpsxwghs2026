@@ -147,7 +147,8 @@
     content: "";
     position: fixed; inset: 0;
     pointer-events: none;
-    z-index: 0;
+    z-index: 9999;
+    mix-blend-mode: screen;
     background-image:
       radial-gradient(2.5px 2.5px at 12% 22%, white, transparent 65%),
       radial-gradient(2px 2px at 68% 58%, white, transparent 65%),
@@ -163,7 +164,7 @@
       radial-gradient(1.5px 1.5px at 60% 25%, white, transparent 60%);
     background-size: 700px 700px;
     background-repeat: repeat;
-    opacity: 0.9;
+    opacity: 0.85;
     filter: drop-shadow(0 0 3px white) drop-shadow(0 0 6px oklch(0.85 0.1 230 / 0.6));
     animation: twinkle 4s ease-in-out infinite;
   }
