@@ -250,15 +250,26 @@ function HeroCarousel() {
   const [i, setI] = useState(0);
   const prev = () => setI((v) => (v - 1 + slides.length) % slides.length);
   const next = () => setI((v) => (v + 1) % slides.length);
-  const glowBg =
-    i === 0
-      ? "radial-gradient(ellipse 60% 60% at 50% 50%, oklch(0.08 0.02 265 / 0.95), transparent 75%)"
-      : "radial-gradient(ellipse 60% 60% at 50% 50%, oklch(0.28 0.13 265 / 0.85), transparent 75%)";
+  const isDark = i === 0;
   return (
     <div className="relative animate-float">
+      {/* 外圍大範圍光暈 — slide 1 純黑、slide 2 深藍紫 */}
       <div
-        className="pointer-events-none absolute -inset-16 rounded-[3rem] blur-3xl transition-[background] duration-700"
-        style={{ background: glowBg }}
+        className="pointer-events-none absolute -inset-24 rounded-[3rem] blur-3xl transition-[background,opacity] duration-700"
+        style={{
+          background: isDark
+            ? "radial-gradient(ellipse 70% 70% at 50% 50%, oklch(0.05 0 0 / 1), transparent 80%)"
+            : "radial-gradient(ellipse 60% 60% at 50% 50%, oklch(0.28 0.13 265 / 0.85), transparent 75%)",
+        }}
+      />
+      {/* slide 1 額外的深黑底盤,讓海報更聚焦 */}
+      <div
+        className="pointer-events-none absolute -inset-6 rounded-[2.5rem] transition-opacity duration-700"
+        style={{
+          opacity: isDark ? 1 : 0,
+          background:
+            "radial-gradient(ellipse 80% 80% at 50% 50%, oklch(0.02 0 0 / 0.85), oklch(0.05 0 0 / 0.5) 60%, transparent 100%)",
+        }}
       />
 
       <div className="relative">
@@ -290,6 +301,7 @@ function HeroCarousel() {
             ))}
           </div>
         ))}
+
         <button
           type="button"
           onClick={prev}
