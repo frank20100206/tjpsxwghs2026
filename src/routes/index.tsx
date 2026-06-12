@@ -441,9 +441,9 @@ function Apply() {
     ["活動日期", "2026 / 08 / 26（三）"],
     ["活動時間", "09:00 – 16:00"],
     ["活動地點", "台北市大同區 ‧ 大橋國小"],
-    ["招生對象", "大橋國小 二升三、三升四、四升五年級 ‧ 限 32 名（報名人數若超出名額限制，將依抽籤結果決定錄取名單）"],
+    ["招生對象", "大橋國小 二升三、三升四、四升五年級 ‧ 限 32 名\n（報名人數若超出名額限制，將依抽籤結果決定錄取名單）"],
     ["報名方式", "線上表單填寫"],
-    ["指導單位", "大橋國小 ‧ 薇閣中學 高一丙 ‧ 高一己 班級導師"],
+    ["指導單位", "大橋國小\n薇閣中學 高一丙 ‧ 高一己 班級導師"],
   ];
   return (
     <section id="apply" className="px-5 py-24 bg-white/[0.03]">
@@ -456,7 +456,7 @@ function Apply() {
           {items.map(([t, d]) => (
             <div key={t} className="glass rounded-2xl p-6">
               <div className="text-xs tracking-widest text-primary">{t}</div>
-              <div className="mt-2 text-lg font-bold">{d}</div>
+              <div className="mt-2 text-lg font-bold whitespace-pre-line">{d}</div>
             </div>
           ))}
         </div>
