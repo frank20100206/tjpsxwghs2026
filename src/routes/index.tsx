@@ -243,7 +243,7 @@ function HeroCarousel() {
     {
       bg: flyerHeroEmpty.url,
       overlays: [
-        { src: detectiveCharacter.url, className: "right-[-4%] top-[26%] w-[60%] animate-sway-right" },
+        { src: detectiveCharacter.url, className: "right-[-4%] top-[42%] w-[60%] animate-sway-right" },
       ],
     },
   ];
@@ -271,6 +271,7 @@ function HeroCarousel() {
                   "radial-gradient(ellipse 95% 95% at 50% 50%, #000 55%, transparent 100%)",
               }}
             />
+            <div className="pointer-events-none absolute inset-0 rounded-3xl" style={{ boxShadow: "inset 0 0 120px 40px oklch(0.28 0.13 265)" }} />
             {s.overlays.map((o, oi) => (
               <img
                 key={oi}
@@ -280,7 +281,6 @@ function HeroCarousel() {
                 className={`pointer-events-none absolute origin-bottom drop-shadow-[0_24px_32px_rgba(0,0,0,0.55)] ${o.className}`}
               />
             ))}
-            <div className="pointer-events-none absolute inset-0 rounded-3xl" style={{ boxShadow: "inset 0 0 120px 40px oklch(0.28 0.13 265)" }} />
           </div>
         ))}
         <button
