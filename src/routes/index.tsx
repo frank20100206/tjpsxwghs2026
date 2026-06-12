@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import flyerHero from "@/assets/flyer-hero.png";
+import flyerHeroEmpty from "@/assets/flyer-hero-empty.png.asset.json";
 import characterBoy from "@/assets/character-boy.png";
 import characterGirl from "@/assets/character-girl.png";
 import escapeRunnerGirl from "@/assets/escape-runner-girl.png";
@@ -229,6 +230,75 @@ function Nav() {
   );
 }
 
+function HeroCarousel() {
+  const slides = [
+    {
+      bg: flyerHero,
+      overlays: [
+        { src: characterBoy, className: "left-[-4%] top-[26%] w-[40%] animate-sway-left" },
+        { src: characterGirl, className: "right-[-4%] top-[26%] w-[38%] animate-sway-right" },
+      ],
+    },
+    {
+      bg: flyerHeroEmpty.url,
+      overlays: [
+        { src: characterGirl, className: "right-[-2%] top-[28%] w-[58%] animate-sway-right" },
+      ],
+    },
+  ];
+  const [i, setI] = useState(0);
+  const prev = () => setI((v) => (v - 1 + slides.length) % slides.length);
+  const next = () => setI((v) => (v + 1) % slides.length);
+  return (
+    <div className="relative animate-float">
+      <div className="absolute -inset-6 rounded-3xl bg-gradient-to-br from-sky/40 to-mint/30 blur-3xl" />
+      <div className="relative">
+        {slides.map((s, idx) => (
+          <div
+            key={idx}
+            className={`${idx === i ? "relative opacity-100" : "absolute inset-0 opacity-0"} transition-opacity duration-500`}
+            aria-hidden={idx !== i}
+          >
+            <img
+              src={s.bg}
+              alt="地球守衛隊 活動主視覺"
+              className="relative rounded-3xl shadow-2xl ring-1 ring-white/20 w-full"
+            />
+            {s.overlays.map((o, oi) => (
+              <img
+                key={oi}
+                src={o.src}
+                alt=""
+                aria-hidden
+                className={`pointer-events-none absolute origin-bottom drop-shadow-[0_24px_32px_rgba(0,0,0,0.55)] ${o.className}`}
+              />
+            ))}
+          </div>
+        ))}
+        <button
+          type="button"
+          onClick={prev}
+          aria-label="上一張"
+          className="absolute left-2 top-1/2 -translate-y-1/2 z-10 h-11 w-11 rounded-full glass flex items-center justify-center text-2xl font-black hover:bg-white/20 transition"
+        >
+          ‹
+        </button>
+        <button
+          type="button"
+          onClick={next}
+          aria-label="下一張"
+          className="absolute right-2 top-1/2 -translate-y-1/2 z-10 h-11 w-11 rounded-full glass flex items-center justify-center text-2xl font-black hover:bg-white/20 transition"
+        >
+          ›
+        </button>
+      </div>
+      <div className="absolute -bottom-4 left-4 glass rounded-full px-4 py-2 text-xs font-bold">
+        ✦ 8/26 倒數中
+      </div>
+    </div>
+  );
+}
+
 function Hero() {
   return (
     <section id="top" className="relative star-field min-h-screen pt-32 pb-20 px-5 overflow-hidden">
@@ -278,31 +348,8 @@ function Hero() {
           </div>
           <Countdown />
         </div>
-        <div className="relative animate-float">
-          <div className="absolute -inset-6 rounded-3xl bg-gradient-to-br from-sky/40 to-mint/30 blur-3xl" />
-          <div className="relative">
-            <img
-              src={flyerHero}
-              alt="地球守衛隊 活動主視覺"
-              className="relative rounded-3xl shadow-2xl ring-1 ring-white/20"
-            />
-            <img
-              src={characterBoy}
-              alt=""
-              aria-hidden
-              className="pointer-events-none absolute left-[-4%] top-[26%] w-[40%] animate-sway-left origin-bottom drop-shadow-[0_24px_32px_rgba(0,0,0,0.55)]"
-            />
-            <img
-              src={characterGirl}
-              alt=""
-              aria-hidden
-              className="pointer-events-none absolute right-[-4%] top-[26%] w-[38%] animate-sway-right origin-bottom drop-shadow-[0_24px_32px_rgba(0,0,0,0.55)]"
-            />
-          </div>
-          <div className="absolute -bottom-4 left-4 glass rounded-full px-4 py-2 text-xs font-bold">
-            ✦ 8/26 倒數中
-          </div>
-        </div>
+        <HeroCarousel />
+
       </div>
     </section>
   );
