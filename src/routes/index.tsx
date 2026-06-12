@@ -263,7 +263,13 @@ function HeroCarousel() {
             <img
               src={s.bg}
               alt="地球守衛隊 活動主視覺"
-              className="relative rounded-3xl shadow-2xl ring-1 ring-white/20 w-full"
+              className="relative rounded-3xl w-full"
+              style={{
+                WebkitMaskImage:
+                  "radial-gradient(ellipse 95% 95% at 50% 50%, #000 55%, transparent 100%)",
+                maskImage:
+                  "radial-gradient(ellipse 95% 95% at 50% 50%, #000 55%, transparent 100%)",
+              }}
             />
             {s.overlays.map((o, oi) => (
               <img
@@ -274,6 +280,7 @@ function HeroCarousel() {
                 className={`pointer-events-none absolute origin-bottom drop-shadow-[0_24px_32px_rgba(0,0,0,0.55)] ${o.className}`}
               />
             ))}
+            <div className="pointer-events-none absolute inset-0 rounded-3xl" style={{ boxShadow: "inset 0 0 120px 40px oklch(0.28 0.13 265)" }} />
           </div>
         ))}
         <button
