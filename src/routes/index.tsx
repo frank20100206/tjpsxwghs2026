@@ -505,9 +505,14 @@ function Video() {
 function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
   const contacts = [
-    { role: "大橋國小", name: "許喻茹 老師", email: "a8650461@tjps.tp.edu.tw", phone: "" },
-    { role: "負責老師", name: "鄭雅文 老師", email: "ywcheng23@gmail.com", phone: "0988968386" },
-    { role: "總召", name: "陳育穎", email: "h1140635@stu.wghs.tp.edu.tw", phone: "0938718655" },
+    { role: "大橋國小", members: [{ name: "許喻茹 老師", email: "a8650461@tjps.tp.edu.tw" }] },
+    {
+      role: "薇閣中學",
+      members: [
+        { name: "鄭雅文 老師", email: "ywcheng23@gmail.com" },
+        { name: "陳育穎 總召", email: "h1140635@stu.wghs.tp.edu.tw" },
+      ],
+    },
   ];
   return (
     <section id="faq" className="px-5 py-24">
@@ -549,13 +554,19 @@ function FAQ() {
                     className="rounded-xl p-4 bg-white/[0.04] border border-white/10"
                   >
                     <div className="text-xs tracking-widest text-primary">{c.role}</div>
-                    <div className="mt-1 text-lg font-bold">{c.name}</div>
-                    <a
-                      href={`mailto:${c.email}`}
-                      className="mt-2 inline-block text-sm font-bold text-gradient tracking-wider break-all"
-                    >
-                      ✉️ {c.email}
-                    </a>
+                    <div className="mt-2 space-y-3">
+                      {c.members.map((m) => (
+                        <div key={m.email}>
+                          <div className="text-lg font-bold">{m.name}</div>
+                          <a
+                            href={`mailto:${m.email}`}
+                            className="mt-1 inline-block text-sm font-bold text-gradient tracking-wider break-all"
+                          >
+                            ✉️ {m.email}
+                          </a>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 ))}
               </div>
