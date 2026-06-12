@@ -235,6 +235,7 @@ function HeroCarousel() {
   const slides = [
     {
       bg: flyerHero,
+      mask: "radial-gradient(ellipse 100% 100% at 50% 50%, #000 60%, transparent 100%)",
       overlays: [
         { src: characterBoy, className: "left-[-4%] top-[26%] w-[40%] animate-sway-left" },
         { src: characterGirl, className: "right-[-4%] top-[26%] w-[38%] animate-sway-right" },
@@ -242,6 +243,7 @@ function HeroCarousel() {
     },
     {
       bg: flyerHeroEmpty.url,
+      mask: "radial-gradient(ellipse 100% 100% at 50% 50%, #000 92%, transparent 100%)",
       overlays: [
         { src: detectiveCharacter.url, className: "right-[-8%] top-[38%] w-[70%] animate-sway-right" },
       ],
