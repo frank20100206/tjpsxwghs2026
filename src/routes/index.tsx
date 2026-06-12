@@ -690,17 +690,17 @@ function Countdown() {
     <div
       data-countdown
       className={`mt-6 glass rounded-2xl p-4 max-w-lg relative overflow-hidden ${
-        alert ? "ring-1 ring-sky-300/50 shadow-[0_0_30px_-5px_rgba(125,211,252,0.5)]" : ""
+        alert ? "ring-1 ring-amber-300/60 shadow-[0_0_30px_-5px_rgba(251,191,36,0.6)]" : ""
       }`}
     >
       <div
         data-countdown-label
         className={`text-[11px] tracking-[0.3em] mb-2 flex items-center gap-2 ${
-          alert ? "text-sky-200 animate-pulse font-bold" : "text-primary"
+          alert ? "text-amber-200 animate-pulse font-bold" : "text-primary"
         }`}
       >
         <span>{label}</span>
-        {alert && <span className="text-[10px] tracking-[0.2em] text-sky-200/80">‧ 6/22 截止</span>}
+        {alert && <span className="text-[10px] tracking-[0.2em] text-amber-200/80">‧ 6/22 截止</span>}
       </div>
       <div className="grid grid-cols-4 gap-2">
         {cells.map(([l, v]) => (
@@ -708,15 +708,16 @@ function Countdown() {
             key={l}
             data-countdown-cell
             className={`text-center rounded-xl py-3 ${
-              alert ? "bg-sky-400/10 border border-sky-300/30" : "bg-white/5"
+              alert ? "bg-amber-400/10 border border-amber-300/30" : "bg-white/5"
             }`}
           >
             <div
               data-countdown-value
               className={`text-2xl sm:text-3xl font-black tabular-nums ${
-                alert ? "text-sky-100 drop-shadow-[0_0_8px_rgba(125,211,252,0.7)]" : "text-gradient"
+                alert ? "text-amber-100 drop-shadow-[0_0_8px_rgba(251,191,36,0.8)]" : "text-gradient"
               }`}
             >
+
               {ready ? String(v).padStart(2, "0") : "--"}
             </div>
             <div className="text-[10px] text-muted-foreground tracking-widest">{l}</div>
