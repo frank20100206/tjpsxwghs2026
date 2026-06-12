@@ -505,7 +505,6 @@ function Video() {
 function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
   const contacts = [
-    { role: "大橋國小", members: [{ name: "許喻茹 老師", email: "a8650461@tjps.tp.edu.tw" }] },
     {
       role: "薇閣中學",
       members: [
@@ -513,6 +512,7 @@ function FAQ() {
         { name: "陳育穎 總召", email: "h1140635@stu.wghs.tp.edu.tw" },
       ],
     },
+    { role: "大橋國小", members: [{ name: "許喻茹 老師", email: "a8650461@tjps.tp.edu.tw" }] },
   ];
   return (
     <section id="faq" className="px-5 py-24">
