@@ -251,6 +251,11 @@ function HeroCarousel() {
   const prev = () => setI((v) => (v - 1 + slides.length) % slides.length);
   const next = () => setI((v) => (v + 1) % slides.length);
   const isDark = i === 1;
+  useEffect(() => {
+    if (isDark) document.body.dataset.theme = "amber";
+    else delete document.body.dataset.theme;
+    return () => { delete document.body.dataset.theme; };
+  }, [isDark]);
   return (
     <div className="relative animate-float">
       {/* 外圍大範圍光暈 — slide 2 純黑、slide 1 深藍紫 */}
