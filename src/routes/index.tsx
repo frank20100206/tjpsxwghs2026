@@ -243,7 +243,7 @@ function HeroCarousel() {
     {
       bg: flyerHeroEmpty.url,
       overlays: [
-        { src: detectiveCharacter.url, className: "right-[-4%] top-[26%] w-[60%] animate-sway-right" },
+        { src: detectiveCharacter.url, className: "right-[-4%] top-[42%] w-[60%] animate-sway-right" },
       ],
     },
   ];
