@@ -422,7 +422,7 @@ function Marquee() {
 
 function About() {
   return (
-    <section id="about" className="section-light px-5 py-24">
+    <section id="about" className="section-light px-4 sm:px-5 py-16 sm:py-24">
       <div className="mx-auto max-w-5xl text-center">
         <p className="text-sm tracking-[0.3em] text-primary-foreground/70" style={{ color: "oklch(0.5 0.18 220)" }}>ABOUT</p>
         <h2 className="mt-3 text-4xl sm:text-5xl font-black">
@@ -458,7 +458,7 @@ function About() {
 
 function Missions() {
   return (
-    <section id="missions" className="px-5 py-24 bg-white/[0.03]">
+    <section id="missions" className="px-4 sm:px-5 py-16 sm:py-24 bg-white/[0.03]">
       <div className="mx-auto max-w-6xl">
         <div className="text-center">
           <p className="text-sm tracking-[0.3em] text-primary">MISSIONS</p>
@@ -493,7 +493,7 @@ function Missions() {
 
 function Schedule() {
   return (
-    <section id="schedule" className="section-light px-5 py-24">
+    <section id="schedule" className="section-light px-4 sm:px-5 py-16 sm:py-24">
       <div className="mx-auto max-w-4xl">
         <div className="text-center">
           <p className="text-sm tracking-[0.3em]" style={{ color: "oklch(0.5 0.18 220)" }}>SCHEDULE</p>
@@ -531,7 +531,7 @@ function Apply() {
     ["指導單位", "大橋國小\n薇閣中學 高一丙 ‧ 高一己 班級導師"],
   ];
   return (
-    <section id="apply" className="px-5 py-24 bg-white/[0.03]">
+    <section id="apply" className="px-4 sm:px-5 py-16 sm:py-24 bg-white/[0.03]">
       <div className="mx-auto max-w-5xl">
         <div className="text-center">
           <p className="text-sm tracking-[0.3em] text-primary">APPLY</p>
@@ -562,7 +562,7 @@ function Apply() {
 
 function Video() {
   return (
-    <section id="video" className="section-light px-5 py-24">
+    <section id="video" className="section-light px-4 sm:px-5 py-16 sm:py-24">
       <div className="mx-auto max-w-5xl">
         <div className="text-center">
           <p className="text-sm tracking-[0.3em] text-primary">PROMO VIDEO</p>
@@ -600,7 +600,7 @@ function FAQ() {
     { role: "大橋國小", members: [{ name: "許喻茹 老師", email: "a8650461@tjps.tp.edu.tw" }] },
   ];
   return (
-    <section id="faq" className="px-5 py-24">
+    <section id="faq" className="px-4 sm:px-5 py-16 sm:py-24">
       <div className="mx-auto max-w-6xl">
         <div className="text-center">
           <p className="text-sm tracking-[0.3em] text-primary">FAQ & CONTACT</p>
