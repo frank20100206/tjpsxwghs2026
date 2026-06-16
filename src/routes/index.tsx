@@ -358,18 +358,18 @@ function Hero() {
             <br />
             穿上守衛隊制服，用知識與行動，一起把家園守護下來！
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-8 flex flex-col sm:flex-row flex-wrap gap-3">
             <a
               href={FORM_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full bg-primary px-6 py-3 text-sm font-bold text-primary-foreground shadow-lg shadow-primary/30 hover:opacity-90 transition"
+              className="rounded-full bg-primary px-6 py-3 text-sm font-bold text-primary-foreground shadow-lg shadow-primary/30 hover:opacity-90 transition text-center"
             >
               立即線上報名 →
             </a>
             <a
               href="#missions"
-              className="rounded-full glass px-6 py-3 text-sm font-bold hover:bg-white/10 transition"
+              className="rounded-full glass px-6 py-3 text-sm font-bold hover:bg-white/10 transition text-center"
             >
               探索四大任務
             </a>
