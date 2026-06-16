@@ -768,7 +768,7 @@ function Escape() {
   return (
     <section
       id="escape"
-      className="relative px-5 py-28 overflow-hidden"
+      className="relative px-4 sm:px-5 py-20 sm:py-28 overflow-hidden"
       style={{
         background:
           "radial-gradient(900px 500px at 15% 30%, oklch(0.35 0.18 280 / 0.7), transparent 65%), radial-gradient(700px 400px at 90% 80%, oklch(0.45 0.22 300 / 0.55), transparent 65%), linear-gradient(180deg, oklch(0.18 0.12 265), oklch(0.12 0.1 270))",
