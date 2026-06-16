@@ -181,12 +181,12 @@ function Nav() {
           <span className="text-xl font-black text-gradient">地球守衛隊</span>
           <span className="hidden sm:inline text-xs text-muted-foreground">守護任務啟動</span>
         </a>
-        <nav className="hidden md:flex items-center gap-7 text-sm text-muted-foreground">
+        <nav className="hidden lg:flex items-center gap-6 xl:gap-7 text-sm text-muted-foreground">
           {links.map(([h, t]) => (
             <a key={h} href={h} className="hover:text-foreground transition story-link">{t}</a>
           ))}
         </nav>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 shrink-0">
           <a
             href={FORM_URL}
             target="_blank"
@@ -199,7 +199,7 @@ function Nav() {
             onClick={() => setOpen((v) => !v)}
             aria-label="開啟選單"
             aria-expanded={open}
-            className="md:hidden w-10 h-10 rounded-full glass flex items-center justify-center"
+            className="lg:hidden w-10 h-10 rounded-full glass flex items-center justify-center"
           >
             <span className="relative w-5 h-3.5 block">
               <span className={`absolute left-0 right-0 top-0 h-0.5 bg-foreground rounded transition-transform ${open ? "translate-y-1.5 rotate-45" : ""}`} />
@@ -210,7 +210,7 @@ function Nav() {
         </div>
       </div>
       <div
-        className={`md:hidden overflow-hidden transition-[max-height,opacity] duration-300 ${
+        className={`lg:hidden overflow-hidden transition-[max-height,opacity] duration-300 ${
           open ? "max-h-[80vh] opacity-100 overflow-y-auto" : "max-h-0 opacity-0"
         }`}
       >
@@ -334,42 +334,42 @@ function HeroCarousel() {
 
 function Hero() {
   return (
-    <section id="top" className="relative star-field min-h-screen pt-32 pb-20 px-5 overflow-hidden">
+    <section id="top" className="relative star-field min-h-screen pt-28 sm:pt-32 pb-16 sm:pb-20 px-4 sm:px-5 overflow-hidden">
       <span className="shooting-star" style={{ top: "8%", right: "-10%", animationDelay: "0s" }} />
       <span className="shooting-star" style={{ top: "22%", right: "-20%", animationDelay: "2.5s" }} />
       <span className="shooting-star" style={{ top: "45%", right: "-15%", animationDelay: "5s" }} />
       <span className="shooting-star" style={{ top: "5%", right: "20%", animationDelay: "1.2s" }} />
 
       <div className="mx-auto max-w-7xl grid lg:grid-cols-2 gap-12 items-center">
-        <div>
-          <p className="inline-block rounded-full glass px-4 py-1.5 text-xs tracking-wider">
+        <div className="min-w-0">
+          <p className="inline-block rounded-full glass px-4 py-1.5 text-[11px] sm:text-xs tracking-wider">
             大橋國小 × 薇閣中學 高一丙己 ‧ 全員逃走中
           </p>
-          <h1 className="mt-6 text-6xl sm:text-7xl lg:text-8xl font-black leading-[0.95] text-gradient">
+          <h1 className="mt-6 text-5xl sm:text-6xl lg:text-8xl font-black leading-[0.95] text-gradient">
             地球守衛隊
           </h1>
-          <h2 className="mt-4 text-3xl sm:text-4xl font-bold text-foreground">
+          <h2 className="mt-4 text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground">
             守護任務 ‧ 正式啟動
           </h2>
-          <p className="mt-6 text-base sm:text-lg leading-relaxed text-muted-foreground max-w-lg">
+          <p className="mt-6 text-sm sm:text-base lg:text-lg leading-relaxed text-muted-foreground max-w-lg">
             地球正在發出求救訊號。
             <br />
             你，是被選召的小小科學家。
             <br />
             穿上守衛隊制服，用知識與行動，一起把家園守護下來！
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-8 flex flex-col sm:flex-row flex-wrap gap-3">
             <a
               href={FORM_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full bg-primary px-6 py-3 text-sm font-bold text-primary-foreground shadow-lg shadow-primary/30 hover:opacity-90 transition"
+              className="rounded-full bg-primary px-6 py-3 text-sm font-bold text-primary-foreground shadow-lg shadow-primary/30 hover:opacity-90 transition text-center"
             >
               立即線上報名 →
             </a>
             <a
               href="#missions"
-              className="rounded-full glass px-6 py-3 text-sm font-bold hover:bg-white/10 transition"
+              className="rounded-full glass px-6 py-3 text-sm font-bold hover:bg-white/10 transition text-center"
             >
               探索四大任務
             </a>
@@ -422,7 +422,7 @@ function Marquee() {
 
 function About() {
   return (
-    <section id="about" className="section-light px-5 py-24">
+    <section id="about" className="section-light px-4 sm:px-5 py-16 sm:py-24">
       <div className="mx-auto max-w-5xl text-center">
         <p className="text-sm tracking-[0.3em] text-primary-foreground/70" style={{ color: "oklch(0.5 0.18 220)" }}>ABOUT</p>
         <h2 className="mt-3 text-4xl sm:text-5xl font-black">
@@ -458,7 +458,7 @@ function About() {
 
 function Missions() {
   return (
-    <section id="missions" className="px-5 py-24 bg-white/[0.03]">
+    <section id="missions" className="px-4 sm:px-5 py-16 sm:py-24 bg-white/[0.03]">
       <div className="mx-auto max-w-6xl">
         <div className="text-center">
           <p className="text-sm tracking-[0.3em] text-primary">MISSIONS</p>
@@ -493,7 +493,7 @@ function Missions() {
 
 function Schedule() {
   return (
-    <section id="schedule" className="section-light px-5 py-24">
+    <section id="schedule" className="section-light px-4 sm:px-5 py-16 sm:py-24">
       <div className="mx-auto max-w-4xl">
         <div className="text-center">
           <p className="text-sm tracking-[0.3em]" style={{ color: "oklch(0.5 0.18 220)" }}>SCHEDULE</p>
@@ -531,7 +531,7 @@ function Apply() {
     ["指導單位", "大橋國小\n薇閣中學 高一丙 ‧ 高一己 班級導師"],
   ];
   return (
-    <section id="apply" className="px-5 py-24 bg-white/[0.03]">
+    <section id="apply" className="px-4 sm:px-5 py-16 sm:py-24 bg-white/[0.03]">
       <div className="mx-auto max-w-5xl">
         <div className="text-center">
           <p className="text-sm tracking-[0.3em] text-primary">APPLY</p>
@@ -562,7 +562,7 @@ function Apply() {
 
 function Video() {
   return (
-    <section id="video" className="section-light px-5 py-24">
+    <section id="video" className="section-light px-4 sm:px-5 py-16 sm:py-24">
       <div className="mx-auto max-w-5xl">
         <div className="text-center">
           <p className="text-sm tracking-[0.3em] text-primary">PROMO VIDEO</p>
@@ -600,7 +600,7 @@ function FAQ() {
     { role: "大橋國小", members: [{ name: "許喻茹 老師", email: "a8650461@tjps.tp.edu.tw" }] },
   ];
   return (
-    <section id="faq" className="px-5 py-24">
+    <section id="faq" className="px-4 sm:px-5 py-16 sm:py-24">
       <div className="mx-auto max-w-6xl">
         <div className="text-center">
           <p className="text-sm tracking-[0.3em] text-primary">FAQ & CONTACT</p>
@@ -768,7 +768,7 @@ function Escape() {
   return (
     <section
       id="escape"
-      className="relative px-5 py-28 overflow-hidden"
+      className="relative px-4 sm:px-5 py-20 sm:py-28 overflow-hidden"
       style={{
         background:
           "radial-gradient(900px 500px at 15% 30%, oklch(0.35 0.18 280 / 0.7), transparent 65%), radial-gradient(700px 400px at 90% 80%, oklch(0.45 0.22 300 / 0.55), transparent 65%), linear-gradient(180deg, oklch(0.18 0.12 265), oklch(0.12 0.1 270))",
@@ -837,7 +837,7 @@ function Escape() {
             CLASSIFIED · FINAL MISSION
           </div>
 
-          <h2 className="mt-5 text-6xl sm:text-7xl lg:text-8xl font-black leading-[0.9] tracking-tight">
+          <h2 className="mt-5 text-5xl sm:text-6xl lg:text-8xl font-black leading-[0.9] tracking-tight">
             <span className="block text-neon animate-neon-pulse">最終任務</span>
             <span className="block text-gradient">全員逃走中</span>
           </h2>
