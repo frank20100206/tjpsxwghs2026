@@ -837,7 +837,7 @@ function Escape() {
             CLASSIFIED · FINAL MISSION
           </div>
 
-          <h2 className="mt-5 text-6xl sm:text-7xl lg:text-8xl font-black leading-[0.9] tracking-tight">
+          <h2 className="mt-5 text-5xl sm:text-6xl lg:text-8xl font-black leading-[0.9] tracking-tight">
             <span className="block text-neon animate-neon-pulse">最終任務</span>
             <span className="block text-gradient">全員逃走中</span>
           </h2>
