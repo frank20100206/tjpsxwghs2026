@@ -334,24 +334,24 @@ function HeroCarousel() {
 
 function Hero() {
   return (
-    <section id="top" className="relative star-field min-h-screen pt-32 pb-20 px-5 overflow-hidden">
+    <section id="top" className="relative star-field min-h-screen pt-28 sm:pt-32 pb-16 sm:pb-20 px-4 sm:px-5 overflow-hidden">
       <span className="shooting-star" style={{ top: "8%", right: "-10%", animationDelay: "0s" }} />
       <span className="shooting-star" style={{ top: "22%", right: "-20%", animationDelay: "2.5s" }} />
       <span className="shooting-star" style={{ top: "45%", right: "-15%", animationDelay: "5s" }} />
       <span className="shooting-star" style={{ top: "5%", right: "20%", animationDelay: "1.2s" }} />
 
       <div className="mx-auto max-w-7xl grid lg:grid-cols-2 gap-12 items-center">
-        <div>
-          <p className="inline-block rounded-full glass px-4 py-1.5 text-xs tracking-wider">
+        <div className="min-w-0">
+          <p className="inline-block rounded-full glass px-4 py-1.5 text-[11px] sm:text-xs tracking-wider">
             大橋國小 × 薇閣中學 高一丙己 ‧ 全員逃走中
           </p>
-          <h1 className="mt-6 text-6xl sm:text-7xl lg:text-8xl font-black leading-[0.95] text-gradient">
+          <h1 className="mt-6 text-5xl sm:text-6xl lg:text-8xl font-black leading-[0.95] text-gradient">
             地球守衛隊
           </h1>
-          <h2 className="mt-4 text-3xl sm:text-4xl font-bold text-foreground">
+          <h2 className="mt-4 text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground">
             守護任務 ‧ 正式啟動
           </h2>
-          <p className="mt-6 text-base sm:text-lg leading-relaxed text-muted-foreground max-w-lg">
+          <p className="mt-6 text-sm sm:text-base lg:text-lg leading-relaxed text-muted-foreground max-w-lg">
             地球正在發出求救訊號。
             <br />
             你，是被選召的小小科學家。
