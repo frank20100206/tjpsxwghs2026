@@ -181,12 +181,12 @@ function Nav() {
           <span className="text-xl font-black text-gradient">地球守衛隊</span>
           <span className="hidden sm:inline text-xs text-muted-foreground">守護任務啟動</span>
         </a>
-        <nav className="hidden md:flex items-center gap-7 text-sm text-muted-foreground">
+        <nav className="hidden lg:flex items-center gap-6 xl:gap-7 text-sm text-muted-foreground">
           {links.map(([h, t]) => (
             <a key={h} href={h} className="hover:text-foreground transition story-link">{t}</a>
           ))}
         </nav>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 shrink-0">
           <a
             href={FORM_URL}
             target="_blank"
@@ -199,7 +199,7 @@ function Nav() {
             onClick={() => setOpen((v) => !v)}
             aria-label="開啟選單"
             aria-expanded={open}
-            className="md:hidden w-10 h-10 rounded-full glass flex items-center justify-center"
+            className="lg:hidden w-10 h-10 rounded-full glass flex items-center justify-center"
           >
             <span className="relative w-5 h-3.5 block">
               <span className={`absolute left-0 right-0 top-0 h-0.5 bg-foreground rounded transition-transform ${open ? "translate-y-1.5 rotate-45" : ""}`} />
@@ -210,7 +210,7 @@ function Nav() {
         </div>
       </div>
       <div
-        className={`md:hidden overflow-hidden transition-[max-height,opacity] duration-300 ${
+        className={`lg:hidden overflow-hidden transition-[max-height,opacity] duration-300 ${
           open ? "max-h-[80vh] opacity-100 overflow-y-auto" : "max-h-0 opacity-0"
         }`}
       >
