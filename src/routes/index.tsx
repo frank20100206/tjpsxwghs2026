@@ -56,6 +56,9 @@ function useCountdown(target: Date) {
 
 const FORM_URL = "https://forms.gle/GymxqtmTtdAQgboj8";
 
+const SITE_URL = "https://tjpsxwghs2026.lovable.app/";
+const OG_IMAGE = "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/962e3523-d951-4bef-9c2d-6d8e41b4bb0e/id-preview-083a912f--70167ef7-abb1-42bc-8b2b-97fb0321ad6f.lovable.app-1779887597874.png";
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -63,6 +66,34 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "2026/8/26 一日營隊：生態探索、綠能任務、歷史解謎、科學競賽。加入地球守衛隊，一起守護我們的家園！" },
       { property: "og:title", content: "地球守衛隊 ‧ 2026 暑期一日營隊" },
       { property: "og:description", content: "大橋國小 × 薇閣中學 ‧ 四大主題課程 ‧ 8/26 等你來守護地球" },
+      { property: "og:url", content: SITE_URL },
+      { property: "og:image", content: OG_IMAGE },
+      { name: "twitter:title", content: "地球守衛隊 ‧ 2026 暑期一日營隊" },
+      { name: "twitter:description", content: "大橋國小 × 薇閣中學 ‧ 四大主題課程 ‧ 8/26 等你來守護地球" },
+      { name: "twitter:image", content: OG_IMAGE },
+    ],
+    links: [{ rel: "canonical", href: SITE_URL }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Event",
+          name: "地球守衛隊・大橋國小 × 薇閣中學 2026 暑期一日營隊",
+          startDate: "2026-08-26T08:30:00+08:00",
+          endDate: "2026-08-26T16:00:00+08:00",
+          eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+          eventStatus: "https://schema.org/EventScheduled",
+          location: { "@type": "Place", name: "臺北市大橋國小" },
+          organizer: [
+            { "@type": "Organization", name: "臺北市大橋國民小學" },
+            { "@type": "Organization", name: "薇閣中學" },
+          ],
+          image: OG_IMAGE,
+          description: "2026/8/26 一日營隊：生態探索、綠能任務、歷史解謎、科學競賽。",
+          url: SITE_URL,
+        }),
+      },
     ],
   }),
   component: Index,
