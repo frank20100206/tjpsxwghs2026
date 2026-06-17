@@ -75,18 +75,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "大橋國小x薇閣中學 暑期一日課程" },
-      { name: "description", content: "地球守衛隊" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "大橋國小x薇閣中學 暑期一日課程" },
-      { property: "og:description", content: "地球守衛隊" },
+      { title: "地球守衛隊 ‧ 大橋國小 × 薇閣中學 2026 暑期一日營隊" },
+      { name: "description", content: "2026/8/26 一日營隊：生態探索、綠能任務、歷史解謎、科學競賽。加入地球守衛隊，一起守護我們的家園！" },
+      { property: "og:site_name", content: "地球守衛隊 2026" },
+      { property: "og:locale", content: "zh_TW" },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "大橋國小x薇閣中學 暑期一日課程" },
-      { name: "twitter:description", content: "地球守衛隊" },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/962e3523-d951-4bef-9c2d-6d8e41b4bb0e/id-preview-083a912f--70167ef7-abb1-42bc-8b2b-97fb0321ad6f.lovable.app-1779887597874.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/962e3523-d951-4bef-9c2d-6d8e41b4bb0e/id-preview-083a912f--70167ef7-abb1-42bc-8b2b-97fb0321ad6f.lovable.app-1779887597874.png" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       {
