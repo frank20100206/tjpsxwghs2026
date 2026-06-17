@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState, type ReactNode } from "react";
+import { Share2 } from "lucide-react";
+import { toast } from "sonner";
 import flyerHero from "@/assets/flyer-hero.png";
 import flyerHeroEmpty from "@/assets/flyer-hero-empty.png.asset.json";
 import detectiveCharacter from "@/assets/detective-character.png.asset.json";
@@ -187,6 +189,36 @@ function Nav() {
           ))}
         </nav>
         <div className="flex items-center gap-2 shrink-0">
+          <button
+            type="button"
+            onClick={async () => {
+              const shareData = {
+                title: "地球守衛隊・守護任務啟動",
+                text: "大橋國小 x 薇閣中學 暑期一日課程，一起加入地球守衛隊！",
+                url: typeof window !== "undefined" ? window.location.href : "",
+              };
+              try {
+                if (typeof navigator !== "undefined" && navigator.share) {
+                  await navigator.share(shareData);
+                } else {
+                  await navigator.clipboard.writeText(shareData.url);
+                  toast.success("已複製連結！");
+                }
+              } catch (err) {
+                if ((err as DOMException)?.name === "AbortError") return;
+                try {
+                  await navigator.clipboard.writeText(shareData.url);
+                  toast.success("已複製連結！");
+                } catch {
+                  toast.error("分享失敗");
+                }
+              }
+            }}
+            aria-label="分享此頁"
+            className="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-white/10 transition"
+          >
+            <Share2 className="w-4 h-4" />
+          </button>
           <a
             href={FORM_URL}
             target="_blank"
