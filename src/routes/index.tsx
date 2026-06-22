@@ -437,6 +437,7 @@ function Hero() {
               探索四大任務
             </a>
           </div>
+          <Countdown />
           <div className="mt-8 lg:hidden">
             <HeroCarousel />
           </div>
@@ -445,7 +446,6 @@ function Hero() {
             <Stat icon="⏰" label="活動時間" big={"9 AM –\n4 PM"} sub="一整天" />
             <Stat icon="📣" label="招生名額" big="32" sub="升 3 / 4 / 5 年級" />
           </div>
-          <Countdown />
         </div>
         <div className="hidden lg:block">
           <HeroCarousel />
