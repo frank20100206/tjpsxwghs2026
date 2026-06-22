@@ -768,8 +768,8 @@ function Countdown() {
       className={`mt-6 glass rounded-2xl p-4 max-w-lg relative overflow-hidden transition-[box-shadow] duration-500 ${
         alert
           ? gold
-            ? "ring-1 ring-amber-300/60 shadow-[0_0_30px_-5px_rgba(251,191,36,0.6)]"
-            : "ring-1 ring-sky-300/50 shadow-[0_0_30px_-5px_rgba(125,211,252,0.5)]"
+            ? "ring-1 ring-amber-300/60 shadow-[0_0_30px_-5px_rgba(251,191,36,0.6)] border-beam"
+            : "ring-1 ring-sky-300/50 shadow-[0_0_30px_-5px_rgba(125,211,252,0.5)] border-beam"
           : ""
       }`}
     >
@@ -781,9 +781,10 @@ function Countdown() {
       >
         <span>{label}</span>
         {alert && (
-          <span className={`text-[10px] tracking-[0.2em] ${gold ? "text-amber-200/80" : "text-sky-200/80"}`}>‧ 6/22 截止</span>
+          <span className={`text-[10px] tracking-[0.2em] ${gold ? "text-amber-200/80" : "text-sky-200/80"}`}>‧ 6/23 截止</span>
         )}
       </div>
+
       <div className="grid grid-cols-4 gap-2">
         {cells.map(([l, v]) => (
           <div
