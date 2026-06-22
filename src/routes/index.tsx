@@ -781,7 +781,7 @@ function Countdown() {
       >
         <span>{label}</span>
         {alert && (
-          <span className={`text-[10px] tracking-[0.2em] ${gold ? "text-amber-200/80" : "text-sky-200/80"}`}>‧ 6/23 截止</span>
+          <span className={`text-[10px] tracking-[0.2em] ${gold ? "text-amber-200/80" : "text-sky-200/80"}`}>‧ 6/22 截止</span>
         )}
       </div>
 
