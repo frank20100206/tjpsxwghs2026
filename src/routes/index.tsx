@@ -254,7 +254,7 @@ function Nav() {
             href={FORM_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-full bg-primary px-4 sm:px-5 py-2 text-xs sm:text-sm font-bold text-primary-foreground hover:opacity-90 transition shadow-lg shadow-primary/30"
+            className="btn-shine rounded-full bg-primary px-4 sm:px-5 py-2 text-xs sm:text-sm font-bold text-primary-foreground hover:opacity-90 transition shadow-lg shadow-primary/30"
           >
             立即報名
           </a>
