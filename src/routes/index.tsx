@@ -787,7 +787,6 @@ function Countdown() {
           <span className="text-[10px] tracking-[0.2em] text-primary/70">‧ 8/26 出任務</span>
         )}
       </div>
-      </div>
 
       <div className="grid grid-cols-4 gap-2">
         {cells.map(([l, v]) => (
