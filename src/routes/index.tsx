@@ -807,9 +807,13 @@ function Countdown() {
                     : "text-sky-100 drop-shadow-[0_0_8px_rgba(125,211,252,0.7)]"
                   : "text-gradient"
               }`}
+              style={{ perspective: "400px" }}
             >
-              {ready ? String(v).padStart(2, "0") : "--"}
+              <span key={ready ? v : "loading"} className="animate-flip-in">
+                {ready ? String(v).padStart(2, "0") : "--"}
+              </span>
             </div>
+
             <div className="text-[10px] text-muted-foreground tracking-widest">{l}</div>
           </div>
         ))}
