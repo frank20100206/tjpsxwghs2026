@@ -1,61 +1,37 @@
-# 分享預覽 / SEO 強化
+# 可加入的動畫提案
 
-讓使用者貼到 LINE / Facebook / Threads 時，預覽卡片顯示正確的標題、描述、封面圖，並讓 Google 認得這是一場活動。
+目前頁面已有不少動畫（角色搖擺、霓虹脈衝、掃描線、跑馬燈、漂浮、衝刺進場等），主要集中在 Hero 與「最終任務」區。以下是還可以強化的方向，請挑選想加的範圍。
 
-## 修改檔案
+## 方向 A — 捲動進場（推薦，最有感）
+為下半頁的靜態區塊加入「捲動到視窗內才淡入 / 上滑」效果，整體更有節奏感：
+- 四大主題卡（生態 / 綠能 / 歷史 / 科學）依序錯開淡入
+- 時程表的每個時段以左右交替方式滑入
+- FAQ、報名資訊區塊 fade-up
+- 實作：以 IntersectionObserver + Tailwind 動畫（`animate-fade-in`、新加 `animate-slide-up`），不引入新套件
 
-### 1. `src/routes/__root.tsx`（清理通用層）
+## 方向 B — 倒數計時的微互動
+- 數字翻動時加 flip / scale 過場（每秒切換更有「跳動」感）
+- 倒數結束自動切換到「距離出任務」時，加一段 0.6s 的閃光 + 文字 morph 過場
+- 警示階段（紅 / 金）的邊框加跑光（border beam）
 
-- 移除 `og:image` 與 `twitter:image`（root 的 head 會被合併到每個子路由，會覆蓋 leaf 的 og:image，依規範只能在 leaf 設定）
-- 移除模板殘留：`{ name: "author", content: "Lovable" }`、`{ name: "twitter:site", content: "@Lovable" }`
-- root 預設 `title` / `description` 改成與首頁一致的長版（作為其他未來新增路由的 fallback）
-- `twitter:card` 由 `summary` 改為 `summary_large_image`
-- 補上 `{ property: "og:site_name", content: "地球守衛隊 2026" }`、`{ property: "og:locale", content: "zh_TW" }`
+## 方向 C — 背景氛圍
+- Hero 加流星雨（meteors）或粒子漂浮（particles），與現有星空疊加
+- 「最終任務」區再加一條斜向掃描光帶
+- amber 主題下星空改為金色粒子
 
-### 2. `src/routes/index.tsx`（leaf 補齊）
+## 方向 D — 互動微動畫
+- 所有按鈕加 hover 時的 shimmer / ripple
+- 主題切換按鈕點擊時整頁加 0.4s 色彩過場（目前 body 已有 700ms transition，可再加一個閃光遮罩）
+- 卡片 hover 加 3D tilt 或邊光（magic card 風格）
 
-在現有 `head()` 的 `meta` 補上：
-- `{ property: "og:image", content: "<原本 root 的 R2 預覽圖網址>" }`
-- `{ name: "twitter:image", content: "<同上>" }`
-- `{ property: "og:url", content: "https://tjpsxwghs2026.lovable.app/" }`
-- `{ name: "twitter:title" / "twitter:description" }` 對齊 og 內容
+## 方向 E — 角色與插圖
+- 偵探角色加眨眼 / 偶爾轉頭（用 CSS steps 動畫切換 sprite，但需要額外圖）
+- 男女孩角色加陰影呼吸效果
+- 滾動時插圖視差（parallax）
 
-加上 `links`：
-- `{ rel: "canonical", href: "https://tjpsxwghs2026.lovable.app/" }`
+---
 
-加上 `scripts`（JSON-LD `Event` 結構化資料）：
-```json
-{
-  "@context": "https://schema.org",
-  "@type": "Event",
-  "name": "地球守衛隊・大橋國小 × 薇閣中學 2026 暑期一日營隊",
-  "startDate": "2026-08-26T08:30:00+08:00",
-  "endDate":   "2026-08-26T16:00:00+08:00",
-  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-  "eventStatus": "https://schema.org/EventScheduled",
-  "location": { "@type": "Place", "name": "臺北市大橋國小" },
-  "organizer": [
-    { "@type": "Organization", "name": "臺北市大橋國民小學" },
-    { "@type": "Organization", "name": "薇閣中學" }
-  ],
-  "image": "<同 og:image>",
-  "description": "2026/8/26 一日營隊：生態探索、綠能任務、歷史解謎、科學競賽。",
-  "url": "https://tjpsxwghs2026.lovable.app/"
-}
-```
+**建議組合**：A（捲動進場）+ B（倒數微互動）+ D 的按鈕 hover，可讓整頁明顯升級又不會過度炫技。
+其他方向若想做，挑出來即可。
 
-> 大橋國小詳細地址若需要請告知，我會補進 `location.address`（PostalAddress）。目前先填到 `name`。
-
-## 不在這次範圍
-
-- 不改任何內容文案 / 區塊樣式
-- 不重新生成封面圖
-- 不新增 sitemap.xml / robots.txt（待需要 SEO 收錄時再處理）
-
-## 驗證
-
-- build 通過
-- 把 `https://tjpsxwghs2026.lovable.app/` 貼進 Facebook Sharing Debugger / LINE 分享測試，預覽應顯示新的標題、描述與封面
-- 透過 Google Rich Results Test 檢查 Event 結構化資料是否被辨識
-
-> 提醒：各平台會快取分享預覽，更新後通常要在 Facebook Debugger 點「Scrape Again」、LINE 重新貼一次才會刷新。
+請告訴我要採用哪些方向（可複選），或補充想加的特定動畫。
