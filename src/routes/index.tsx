@@ -426,7 +426,7 @@ function Hero() {
               href={FORM_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full bg-primary px-6 py-3 text-sm font-bold text-primary-foreground shadow-lg shadow-primary/30 hover:opacity-90 transition text-center"
+              className="btn-shine rounded-full bg-primary px-6 py-3 text-sm font-bold text-primary-foreground shadow-lg shadow-primary/30 hover:opacity-90 transition text-center"
             >
               立即線上報名 →
             </a>
