@@ -347,18 +347,16 @@
       0 0 38px oklch(0.55 0.27 280 / 0.5);
   }
 
-  /* === Countdown digit flip === */
-  @keyframes flip-in {
-    0%   { transform: rotateX(-90deg) translateY(-30%); opacity: 0; filter: blur(2px); }
-    60%  { transform: rotateX(10deg) translateY(0); opacity: 1; filter: blur(0); }
-    100% { transform: rotateX(0deg); opacity: 1; }
+  /* === Countdown digit tick === */
+  @keyframes digit-tick {
+    0%   { transform: translateY(-40%); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
   }
   .animate-flip-in {
     display: inline-block;
-    transform-origin: center;
-    animation: flip-in 0.45s cubic-bezier(.2,.7,.2,1) both;
-    will-change: transform, opacity;
+    animation: digit-tick 0.28s ease-out both;
   }
+
 
   /* === Button shimmer sheen === */
   .btn-shine {
