@@ -781,9 +781,12 @@ function Countdown() {
         }`}
       >
         <span>{label}</span>
-        {alert && (
+        {alert ? (
           <span className={`text-[10px] tracking-[0.2em] ${gold ? "text-amber-200/80" : "text-sky-200/80"}`}>‧ 6/22 截止</span>
+        ) : (
+          <span className="text-[10px] tracking-[0.2em] text-primary/70">‧ 8/26 出任務</span>
         )}
+      </div>
       </div>
 
       <div className="grid grid-cols-4 gap-2">
