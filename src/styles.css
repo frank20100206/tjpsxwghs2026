@@ -346,5 +346,63 @@
       0 0 18px oklch(0.65 0.25 290 / 0.7),
       0 0 38px oklch(0.55 0.27 280 / 0.5);
   }
+
+  /* === Countdown digit flip === */
+  @keyframes flip-in {
+    0%   { transform: rotateX(-90deg) translateY(-30%); opacity: 0; filter: blur(2px); }
+    60%  { transform: rotateX(10deg) translateY(0); opacity: 1; filter: blur(0); }
+    100% { transform: rotateX(0deg); opacity: 1; }
+  }
+  .animate-flip-in {
+    display: inline-block;
+    transform-origin: center;
+    animation: flip-in 0.45s cubic-bezier(.2,.7,.2,1) both;
+    will-change: transform, opacity;
+  }
+
+  /* === Button shimmer sheen === */
+  .btn-shine {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+  .btn-shine::after {
+    content: "";
+    position: absolute;
+    top: 0; left: -150%;
+    width: 60%; height: 100%;
+    background: linear-gradient(100deg, transparent 20%, oklch(1 0 0 / 0.55) 50%, transparent 80%);
+    transform: skewX(-20deg);
+    animation: btn-shine 3.4s ease-in-out infinite;
+    pointer-events: none;
+  }
+  @keyframes btn-shine {
+    0%   { left: -150%; }
+    55%  { left: 150%; }
+    100% { left: 150%; }
+  }
+  .btn-shine:hover { transform: translateY(-1px); box-shadow: 0 12px 30px -10px oklch(0.82 0.16 200 / 0.55); }
+
+  /* === Border beam for alerts === */
+  @keyframes beam-spin { to { transform: rotate(360deg); } }
+  .border-beam { position: relative; }
+  .border-beam::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: conic-gradient(from 0deg, transparent 0deg, oklch(0.9 0.18 230 / 0.9) 40deg, transparent 80deg, transparent 360deg);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    animation: beam-spin 3.2s linear infinite;
+    pointer-events: none;
+  }
+  body[data-theme="amber"] .border-beam::before {
+    background: conic-gradient(from 0deg, transparent 0deg, oklch(0.88 0.2 80 / 0.95) 40deg, transparent 80deg, transparent 360deg);
+  }
 }
+
 

@@ -254,7 +254,7 @@ function Nav() {
             href={FORM_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-full bg-primary px-4 sm:px-5 py-2 text-xs sm:text-sm font-bold text-primary-foreground hover:opacity-90 transition shadow-lg shadow-primary/30"
+            className="btn-shine rounded-full bg-primary px-4 sm:px-5 py-2 text-xs sm:text-sm font-bold text-primary-foreground hover:opacity-90 transition shadow-lg shadow-primary/30"
           >
             立即報名
           </a>
@@ -426,7 +426,7 @@ function Hero() {
               href={FORM_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full bg-primary px-6 py-3 text-sm font-bold text-primary-foreground shadow-lg shadow-primary/30 hover:opacity-90 transition text-center"
+              className="btn-shine rounded-full bg-primary px-6 py-3 text-sm font-bold text-primary-foreground shadow-lg shadow-primary/30 hover:opacity-90 transition text-center"
             >
               立即線上報名 →
             </a>
@@ -613,7 +613,7 @@ function Apply() {
             href={FORM_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block rounded-full bg-primary px-8 py-4 text-base font-bold text-primary-foreground shadow-lg shadow-primary/30 hover:opacity-90 transition"
+            className="btn-shine inline-block rounded-full bg-primary px-8 py-4 text-base font-bold text-primary-foreground shadow-lg shadow-primary/30 hover:opacity-90 transition"
           >
             前往線上報名表單 ↗
           </a>
@@ -768,8 +768,8 @@ function Countdown() {
       className={`mt-6 glass rounded-2xl p-4 max-w-lg relative overflow-hidden transition-[box-shadow] duration-500 ${
         alert
           ? gold
-            ? "ring-1 ring-amber-300/60 shadow-[0_0_30px_-5px_rgba(251,191,36,0.6)]"
-            : "ring-1 ring-sky-300/50 shadow-[0_0_30px_-5px_rgba(125,211,252,0.5)]"
+            ? "ring-1 ring-amber-300/60 shadow-[0_0_30px_-5px_rgba(251,191,36,0.6)] border-beam"
+            : "ring-1 ring-sky-300/50 shadow-[0_0_30px_-5px_rgba(125,211,252,0.5)] border-beam"
           : ""
       }`}
     >
@@ -781,9 +781,10 @@ function Countdown() {
       >
         <span>{label}</span>
         {alert && (
-          <span className={`text-[10px] tracking-[0.2em] ${gold ? "text-amber-200/80" : "text-sky-200/80"}`}>‧ 6/22 截止</span>
+          <span className={`text-[10px] tracking-[0.2em] ${gold ? "text-amber-200/80" : "text-sky-200/80"}`}>‧ 6/23 截止</span>
         )}
       </div>
+
       <div className="grid grid-cols-4 gap-2">
         {cells.map(([l, v]) => (
           <div
@@ -806,9 +807,13 @@ function Countdown() {
                     : "text-sky-100 drop-shadow-[0_0_8px_rgba(125,211,252,0.7)]"
                   : "text-gradient"
               }`}
+              style={{ perspective: "400px" }}
             >
-              {ready ? String(v).padStart(2, "0") : "--"}
+              <span key={ready ? v : "loading"} className="animate-flip-in">
+                {ready ? String(v).padStart(2, "0") : "--"}
+              </span>
             </div>
+
             <div className="text-[10px] text-muted-foreground tracking-widest">{l}</div>
           </div>
         ))}
