@@ -613,7 +613,7 @@ function Apply() {
             href={FORM_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block rounded-full bg-primary px-8 py-4 text-base font-bold text-primary-foreground shadow-lg shadow-primary/30 hover:opacity-90 transition"
+            className="btn-shine inline-block rounded-full bg-primary px-8 py-4 text-base font-bold text-primary-foreground shadow-lg shadow-primary/30 hover:opacity-90 transition"
           >
             前往線上報名表單 ↗
           </a>
