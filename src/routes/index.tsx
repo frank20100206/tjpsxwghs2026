@@ -803,16 +803,15 @@ function Countdown() {
           >
             <div
               data-countdown-value
-              className={`text-2xl sm:text-3xl font-black tabular-nums ${
+              className={`min-h-10 flex items-center justify-center text-3xl sm:text-4xl font-black tabular-nums leading-none ${
                 alert
                   ? gold
                     ? "text-amber-100 drop-shadow-[0_0_8px_rgba(251,191,36,0.8)]"
                     : "text-sky-100 drop-shadow-[0_0_8px_rgba(125,211,252,0.7)]"
-                  : "text-primary drop-shadow-[0_0_8px_color-mix(in_oklch,var(--primary)_70%,transparent)]"
+                  : "text-primary"
               }`}
-              style={{ perspective: "400px" }}
             >
-              <span key={ready ? v : "loading"} className="animate-flip-in">
+              <span key={ready ? v : "loading"} className="block">
                 {ready ? String(v).padStart(2, "0") : "--"}
               </span>
             </div>
