@@ -808,7 +808,7 @@ function Countdown() {
                   ? gold
                     ? "text-amber-100 drop-shadow-[0_0_8px_rgba(251,191,36,0.8)]"
                     : "text-sky-100 drop-shadow-[0_0_8px_rgba(125,211,252,0.7)]"
-                  : "text-gradient"
+                  : "text-primary drop-shadow-[0_0_8px_color-mix(in_oklch,var(--primary)_70%,transparent)]"
               }`}
               style={{ perspective: "400px" }}
             >
